@@ -92,27 +92,24 @@ button {  width: auto; overflow: visible; }
  body 
  {
     width: 100%; height: 100%;
-    /* Opera */
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2JhKDIwNCwyMDQsMjA0LDEpOyIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOnJnYmEoMjUyLDI1NSwyMjcsMSk7IiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjZ3JhZGllbnQpIiBoZWlnaHQ9IjEwMCUiIHdpZHRoPSIxMDAlIiAvPjwvc3ZnPg==);
-
-    /* Firefox */
-    background: -moz-linear-gradient( top, rgba(204,204,204,1), rgba(252,255,227,1) );
-
-    /* Chrome & Safari */
-    background: -webkit-gradient( linear, left top, left bottom, color-stop( 0, rgba(204,204,204,1) ), color-stop( 1, rgba(252,255,227,1) ) );
-
-    /* IE5.5 - IE7 */
-    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFCCCCCC,EndColorStr=#FFFCFFE3);
-
-    /* IE8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFCCCCCC,EndColorStr=#FFFCFFE3)";
+    background-color: #f3f3f5;
  }
 
- section#container { width: 960px; height: 960px; margin: 200px auto; } 
- div#solidblock { width: 250px; height: 250px; position: relative; background-color: #222; float: left; margin: 3em; }
- section#container p { font-family: 'StMarieThin', 'Arial', 'Helvetica', sans-serif; font-size: 1.5em; line-height: 2.0em; color: #000; font-weight: bold; }
- section#container p.first { padding-top: 3em; }
- section#container p a { padding-left: 1.5em; padding-top: 1.5em; }
+ section#container { height: 100%; }
+ section#content { width:600px; margin: 200px auto; border-left: solid 200px #222; padding-left: 5em;} 
+
+ section#content summary { display: block; }
+ section#content summary h1 { display: inline; margin: 0; padding: 0; color: #454545; }
+ section#content summary { font-family: 'StMarieThin', 'Arial', 'Helvetica', sans-serif; font-size: 1.8em; line-height: 2.0em; color: #000; font-weight: normal; padding: 2.0em 0; }
+ section#content summary em, cite { font-family: 'StMarieThin', 'Arial', 'Helvetica', sans-serif; line-height: 2.0em; color: #454545; font-weight: bold; margin: 0; padding: 0; display: inline; font-style: normal; }
+ section#content summary cite {font-weight: bolder; }
+ 
+ section#socialnetworking { margin-top: 2em; padding-bottom: 2.0em; }
+ section#socialnetworking a { text-indent: -9999px; width: 62px; height: 80px; display: inline-block; padding: 1px; margin: auto 1.0em; background-image: url(../images/socialnetworking.png); }
+ section#socialnetworking a.github{ background-position: 0 0; width: 62px; height: 78px; } 
+ section#socialnetworking a.linkedin{ background-position: -72px 0; width: 62px; height: 78px; } 
+ section#socialnetworking a.twitter{ background-position: -144px 0; width: 62px; height: 78px; } 
+ section#socialnetworking a:hover { -webkit-box-shadow: 0px 0px 5px #888; -moz-box-shadow: 0px 0px 5px #888; -o-box-shadow: 0px 0px 5px #888; -ms-box-shadow: 0px 0px 5px #888; box-shadow: 0px 0px 5px #888; }
 
 
 
@@ -133,7 +130,7 @@ button {  width: auto; overflow: visible; }
 }
 
 @media screen and (max-device-width: 480px) {
-  
+  section#container { width: 320px; margin: 10px; border-left: solid 25px #222; padding-left: 1.0em; }
   
   /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
 }
