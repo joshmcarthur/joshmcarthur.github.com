@@ -97,7 +97,7 @@ button {  width: auto; overflow: visible; }
  }
 
  section#container { width: 550px; margin: 50px auto; padding: 50px; background-color: #FFF; }
- header h1 { width: 100%; height: 150px; font-family: 'DanielRegular'; margin: 0 0 0 20px; padding: 0; font-size: 380%;}
+ header h1 { width: 100%; height: 150px; font-family: 'DanielRegular'; margin: 0 0 0 20px; padding: 0; font-size: 380%; text-shadow: 0 -1px 1px #888; }
  br.clearfix { clear: both; margin: 0; padding: 0; width: 0; height: 0; }
  dl { margin: 0; padding: 0; }
  dl dt { display: block; width: 200px;  font-family: 'DanielRegular', sans-serif; font-size: 150%; overflow: hidden; float: left;}
