@@ -1,0 +1,37 @@
+
+@font-face {
+    font-family: 'DanielRegular';
+    src: url('daniel/daniel-webfont.eot');
+    src: url('daniel/daniel-webfont.eot?#iefix') format('embedded-opentype'),
+         url('daniel/daniel-webfont.woff') format('woff'),
+         url('daniel/daniel-webfont.ttf') format('truetype'),
+         url('daniel/daniel-webfont.svg#DanielRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DanielBold';
+    src: url('daniel/danielbd-webfont.eot');
+    src: url('daniel/danielbd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('daniel/danielbd-webfont.woff') format('woff'),
+         url('daniel/danielbd-webfont.ttf') format('truetype'),
+         url('daniel/danielbd-webfont.svg#DanielBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DroidSansRegular';
+    src: url('droidsans/DroidSans-webfont.eot');
+    src: url('droidsans/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('droidsans/DroidSans-webfont.woff') format('woff'),
+         url('droidsans/DroidSans-webfont.ttf') format('truetype'),
+         url('droidsans/DroidSans-webfont.svg#DroidSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
