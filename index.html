@@ -24,30 +24,45 @@
 
 <body>
   <section id="container">
-    <section id="content">
-      <summary>My name is 
-        <h1>Josh McArthur</h1>,
-         and I define my occupation as a <em>web professional</em>. What this boils down to though is that I'm a <em>developer</em>, <em>web standards enthusiast</em>, <em>open-source advocate</em> and a <em>designer</em> (when I feel that way inclined.).
-      </summary>
-      
-      <section id="socialnetworking">
-        <a class="linkedin" href="http://nz.linkedin.com/in/joshuamcarthur">LinkedIn</a>
-        <a class="github" href="http://www.github.com/joshmcarthur">Github</a>
-        <a class="twitter" href="http://www.twitter.com/sudojosh">Twitter</a>
-      </section>
-      
-     
-      <footer>
-      </footer>
+    <header>
+      <h1>Josh McArthur</h1>
+    </header>
+    
+    <section>
+      <dl>
+        <dt>Who I am</dt>
+        <dd>I'm a web developer and idea enthusiast based in Wellington, New Zealand. I work with <a href="http://www.rubyonrails.org">Ruby on Rails</a>, <a href="http://www.ubuntu.com">Ubuntu Linux</a> and PostgreSQL, while for personal projects I work with <a href="http://sinatrarb.com">Sinatra</a>, <a href="http://www.datamapper.org">DataMapper</a> and other rapid prototyping tools.
+        </dd>
+        <br class="clearfix" />
+        <dt>What I'm saying</dt>
+        <dd id="twitter-feed">
+          <ul class="feed twitter"></ul>
+          <a href="http://twitter.com/sudojosh" class="twitter-follow-button" data-show-count="false">Follow @sudojosh</a>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+        </dd>
+        <br class="clearfix" />
+        <dt>What I'm doing</dt>
+        <dd>I'm normally found working with Rails building business-oriented web applications. In this arena, I'm particularly interested in emerging HTML5 web standards, building with scalability, and best practises. I specialize in working with a couple of well-known Ruby on Rails projects, <a href="https://github.com/spree/spree">Spree</a>, and <a href="http://www.radiantcms.org">Radiant CMS</a>. I also have a large-number of experimental projects, as well as a few extensions that I've developed, the details of which are on my <a href="https://github.com/joshmcarthur">Github profile</a>.
+        </dd>
+              <br class="clearfix" />
+        <dt>Contacting me</dt>
+        <dd>For professional enquiries, it's best to contact me using <a href="http://nz.linkedin.com/in/joshuamcarthur">LinkedIn</a>. For development and contracting enquiries, I prefer being contacted through my <a href="https://github.com/joshmcarthur">Github profile</a>.
+        </dd>
+      </dl>
+      <br class="clearfix" />
     </section>
-  </section> <!-- end of #container -->
+    
+    <footer>
+      &copy; Josh McArthur
+    </footer>
+  </section>
 
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
   
   
   <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/libs/jquery.jsonp-2.1.4.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <!-- end concatenated and minified scripts-->
@@ -58,23 +73,5 @@
     <script> DD_belatedPNG.fix('img, .png_bg'); </script>
   <![endif]-->
 
-  <!-- yui profiler and profileviewer - remove for production -->
-  <script src="js/profiling/yahoo-profiling.min.js"></script>
-  <script src="js/profiling/config.js"></script>
-  <!-- end profiling code -->
-
-
-  <!-- change the UA-XXXXX-X to be your site's ID -->
-  <script>
-   var _gaq = [['_setAccount', 'UA-17014575-2'], ['_trackPageview']];
-   (function(d, t) {
-    var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.async = true;
-    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g, s);
-   })(document, 'script');
-  </script>
-  
 </body>
 </html>

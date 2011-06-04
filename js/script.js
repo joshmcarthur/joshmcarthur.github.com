@@ -4,27 +4,28 @@
 
 $(document).ready(function() 
 {
-    $('.shuffle').click(function()
-    {
-        $('section#keypoints article').each(function() {
-            if($(this).hasClass('front'))
-            {
-                $(this).removeClass('front').addClass('back');
-            }
-            else if($(this).hasClass('middle')) 
-            {
-                $(this).removeClass('middle').addClass('front');
-            }
-            else if($(this).hasClass('back'))
-            {
-                $(this).removeClass('back').addClass('middle');
-            }
-        }); 
-    });
+    load_tweets();
 });
 
+var load_tweets = function() {
+    var uri = "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=sudojosh&count=10&callback=?";
+    var container = $("dd#twitter-feed ul.feed.twitter");
+    $.jsonp({
+        'url': uri,
+        'success': function(data, status) {
+            container.empty();
+            $.each(data, function(index, tweet) {
+                console.log(tweet);
+                container.prepend("<li>" + tweet.text + "</li>");
+            });
+         },
+         'error': function(options, status) { add_twitter_widget(); }
+    });
+};
 
-
+var add_twitter_widget = function() {
+    alert('400');
+}
 
 
 
