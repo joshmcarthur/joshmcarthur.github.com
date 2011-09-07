@@ -332,9 +332,13 @@ footer { margin-top: 20px; padding: 0px 20px; }
 
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
+  body, html, div#container { height: 100%; }
   /* Style adjustments for viewports 768px and over go here */
-
+  div#main { margin: 0; box-shadow: none; border: none; border-left: solid 5px #333; width: 100%; height: 100%; }
+  div#main p.intro { font-size: 14px; padding: 20px 6%;}
+  div#main div.row div.half { width: 90%; margin: 0px 5%; }
+  div#main a.btn { display: block; width: 90%; margin: 10px auto; }
 }
 
 
