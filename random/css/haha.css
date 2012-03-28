@@ -12,6 +12,8 @@ footer {
   border: solid 1px #DDD;
 }
 
+footer h4 { margin-bottom: 5px; }
+
 footer code {
   font-size: 10px;
   background-color: white;
