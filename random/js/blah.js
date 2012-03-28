@@ -68,6 +68,7 @@
       base.append(list);
       buttons = $('<fieldset></fieldset>');
       buttons.append('<legend>Actions:</legend>');
+      buttons.append($('<input></input>').attr('name', 'new_card_name').val(checklist.name));
       buttons.append($('<button></button>').attr('id', 'create_card').text('Create Card'));
       buttons.append($('<button></button>').attr('id', 'cancel').text('Cancel and start over'));
       base.append(buttons);
