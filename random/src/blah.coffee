@@ -13,7 +13,10 @@ class TrelloThing
         self.loadCards(self.board_id)
 
   loadCards: (board_id) ->
-    console.log(board_id)
+    Trello.get "boards/#{board_id}/cards", (cards) =>
+      list = $('#cards')
+      $.each cards, (index, card) =>
+        list.append $('<li></li>').append( $('<a></a>').attr('data-card-id', card.id).attr('href', 'javascript:void(0)').text(card.name))
 
   loadBoards: ->
     Trello.get "members/me/boards", (boards) =>

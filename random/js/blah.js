@@ -22,7 +22,14 @@
     }
 
     TrelloThing.prototype.loadCards = function(board_id) {
-      return console.log(board_id);
+      var _this = this;
+      return Trello.get("boards/" + board_id + "/cards", function(cards) {
+        var list;
+        list = $('#cards');
+        return $.each(cards, function(index, card) {
+          return list.append($('<li></li>').append($('<a></a>').attr('data-card-id', card.id).attr('href', 'javascript:void(0)').text(card.name)));
+        });
+      });
     };
 
     TrelloThing.prototype.loadBoards = function() {
