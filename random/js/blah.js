@@ -47,7 +47,7 @@
       base = $('#checklist');
       base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
       list = $('<ol></ol');
-      $.each(checklist.checkItems, function(index, checkitem) {
+      $.each(checklist.checkitems, function(index, checkitem) {
         return list.append($('<li></li>').text(checkitem.name));
       });
       return base.append(list);
