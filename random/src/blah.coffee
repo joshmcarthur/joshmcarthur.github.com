@@ -1,6 +1,7 @@
 class TrelloThing
   constructor: ->
     $(document).ready =>
+      Trello.deauthorize()
       $('#login a').click =>
         Trello.authorize(
           type: 'popup'

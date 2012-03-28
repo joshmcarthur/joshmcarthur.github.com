@@ -7,6 +7,7 @@
       var _this = this;
       $(document).ready(function() {
         var self;
+        Trello.deauthorize();
         $('#login a').click(function() {
           return Trello.authorize({
             type: 'popup',
