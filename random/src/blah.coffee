@@ -64,7 +64,8 @@ class TrelloThing
     base.show()
 
   makeCard: ->
-    card_name = this.checklist.name
+    card_name = $('input[name=new_card_name]').val()
+    card_name = this.checklist.name if card_name == ""
     list_id = this.card.idList
     description = ""
 

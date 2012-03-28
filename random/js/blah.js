@@ -78,7 +78,8 @@
     TrelloThing.prototype.makeCard = function() {
       var card_name, description, list_id,
         _this = this;
-      card_name = this.checklist.name;
+      card_name = $('input[name=new_card_name]').val();
+      if (card_name === "") card_name = this.checklist.name;
       list_id = this.card.idList;
       description = "";
       return Trello.post("cards", {
