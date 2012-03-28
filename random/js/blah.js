@@ -26,7 +26,13 @@
     }
 
     TrelloThing.prototype.loadChecklists = function(card_id) {
-      return console.log(card_id);
+      return Trello.get("cards/" + card_id + "/checklists", function(checklists) {
+        var list;
+        list = $('#checklists');
+        return $.each(checklists, function(index, checklist) {
+          return list.append($('<li></li>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name));
+        });
+      });
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {

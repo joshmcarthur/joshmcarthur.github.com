@@ -17,7 +17,10 @@ class TrelloThing
         self.loadChecklists(self.card_id)
 
   loadChecklists: (card_id) ->
-    console.log(card_id)
+    Trello.get "cards/#{card_id}/checklists", (checklists) ->
+      list = $('#checklists')
+      $.each checklists, (index, checklist) ->
+        list.append( $('<li></li>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name))
 
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>
