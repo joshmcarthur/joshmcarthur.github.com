@@ -16,10 +16,12 @@
         self = _this;
         $('#boards a').live('click', function() {
           self.board_id = $(this).attr('data-board-id');
+          $('#boards').slideUp();
           return self.loadCards(self.board_id);
         });
         return $('#cards a').live('click', function() {
           self.card_id = $(this).attr('data-card-id');
+          $('#cards').slideUp();
           return self.loadChecklists(self.card_id);
         });
       });

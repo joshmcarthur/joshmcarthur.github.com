@@ -10,10 +10,12 @@ class TrelloThing
       self = this
       $('#boards a').live 'click', ->
         self.board_id = $(this).attr('data-board-id')
+        $('#boards').slideUp()
         self.loadCards(self.board_id)
 
       $('#cards a').live 'click', ->
         self.card_id = $(this).attr('data-card-id')
+        $('#cards').slideUp()
         self.loadChecklists(self.card_id)
 
   loadChecklists: (card_id) ->
