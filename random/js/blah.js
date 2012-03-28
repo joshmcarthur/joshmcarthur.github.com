@@ -69,7 +69,7 @@
         var list;
         list = $('#boards');
         return $.each(boards, function(index, board) {
-          return list.append($('<li></li>').append($('<a></a>').attr('board', board).attr('href', 'javascript:void(0)').text(board.name)));
+          return list.append($('<li></li>').append($('<a></a>').data('board', board).attr('href', 'javascript:void(0)').text(board.name)));
         });
       });
     };

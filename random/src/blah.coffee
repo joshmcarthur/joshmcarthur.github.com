@@ -47,7 +47,7 @@ class TrelloThing
     Trello.get "members/me/boards", (boards) =>
       list = $('#boards')
       $.each boards, (index, board) =>
-        list.append $('<li></li>').append($('<a></a>').attr('board', board).attr('href', 'javascript:void(0)').text(board.name))
+        list.append $('<li></li>').append($('<a></a>').data('board', board).attr('href', 'javascript:void(0)').text(board.name))
 
 
 window.TrelloThing = TrelloThing
