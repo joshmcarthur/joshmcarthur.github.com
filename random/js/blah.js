@@ -87,8 +87,11 @@
         name: card_name,
         description: description
       }, function(card) {
-        console.log(card);
-        return _this.loadBoards();
+        return Trello.post("cards/" + card.id + "/checklists", {
+          value: _this.checklist.id
+        }, function() {
+          return _this.loadBoards();
+        });
       });
     };
 

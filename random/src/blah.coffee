@@ -70,8 +70,8 @@ class TrelloThing
     description = ""
 
     Trello.post "cards", {idList: list_id, name: card_name, description: description}, (card) =>
-      console.log(card)
-      this.loadBoards()
+      Trello.post "cards/#{card.id}/checklists", {value: this.checklist.id}, =>
+        this.loadBoards()
 
 
   loadCards: (board_id) ->
