@@ -14,12 +14,20 @@
           });
         });
         self = _this;
-        return $('#boards a').live('click', function() {
+        $('#boards a').live('click', function() {
           self.board_id = $(this).attr('data-board-id');
           return self.loadCards(self.board_id);
         });
+        return $('#cards a').live('click', function() {
+          self.card_id = $(this).attr('data-card-id');
+          return self.loadChecklists(self.card_id);
+        });
       });
     }
+
+    TrelloThing.prototype.loadChecklists = function(card_id) {
+      return console.log(card_id);
+    };
 
     TrelloThing.prototype.loadCards = function(board_id) {
       var _this = this;

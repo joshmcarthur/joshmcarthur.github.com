@@ -12,6 +12,13 @@ class TrelloThing
         self.board_id = $(this).attr('data-board-id')
         self.loadCards(self.board_id)
 
+      $('#cards a').live 'click', ->
+        self.card_id = $(this).attr('data-card-id')
+        self.loadChecklists(self.card_id)
+
+  loadChecklists: (card_id) ->
+    console.log(card_id)
+
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>
       list = $('#cards')
