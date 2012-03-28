@@ -27,7 +27,6 @@
         });
         $('#cards a').live('click', function() {
           self.card = $(this).data('card');
-          console.log(self.card);
           $('#cards').slideUp();
           return self.loadChecklists(self.card.id);
         });
@@ -50,15 +49,15 @@
       return Trello.get("cards/" + card_id + "/checklists", function(checklists) {
         var list;
         list = $('#checklists');
-        return $.each(checklists, function(index, checklist) {
+        $.each(checklists, function(index, checklist) {
           return list.append($('<li></li>').append($('<a></a>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name)));
         });
+        return list.show();
       });
     };
 
     TrelloThing.prototype.showChecklist = function(checklist) {
       var base, buttons, list;
-      console.log(checklist);
       base = $('#checklist');
       base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
       list = $('<ol></ol');
@@ -70,7 +69,8 @@
       buttons.append('<legend>Actions:</legend>');
       buttons.append($('<button></button>').attr('id', 'create_card').text('Create Card'));
       buttons.append($('<button></button>').attr('id', 'cancel').text('Cancel and start over'));
-      return base.append(buttons);
+      base.append(buttons);
+      return base.show();
     };
 
     TrelloThing.prototype.makeCard = function() {
@@ -94,9 +94,10 @@
       return Trello.get("boards/" + board_id + "/cards", function(cards) {
         var list;
         list = $('#cards');
-        return $.each(cards, function(index, card) {
+        $.each(cards, function(index, card) {
           return list.append($('<li></li>').append($('<a></a>').data('card', card).attr('href', 'javascript:void(0)').text(card.name)));
         });
+        return list.show();
       });
     };
 
