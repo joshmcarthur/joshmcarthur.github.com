@@ -19,10 +19,14 @@
           $('#boards').slideUp();
           return self.loadCards(self.board_id);
         });
-        return $('#cards a').live('click', function() {
+        $('#cards a').live('click', function() {
           self.card_id = $(this).attr('data-card-id');
           $('#cards').slideUp();
           return self.loadChecklists(self.card_id);
+        });
+        return $('#checklists a').live('click', function() {
+          self.checklist = $(this).data('checklist');
+          return self.showChecklist(self.checklist);
         });
       });
     }
@@ -35,6 +39,10 @@
           return list.append($('<li></li>').append($('<a></a>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name)));
         });
       });
+    };
+
+    TrelloThing.prototype.showChecklist = function(checklist) {
+      return console.log(checklist);
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {
@@ -50,6 +58,10 @@
 
     TrelloThing.prototype.loadBoards = function() {
       var _this = this;
+      $('#login').hide();
+      $('#boards').show();
+      $('#cards').show();
+      $('#checklists').show();
       return Trello.get("members/me/boards", function(boards) {
         var list;
         list = $('#boards');
