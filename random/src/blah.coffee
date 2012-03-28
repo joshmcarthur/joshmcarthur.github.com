@@ -64,7 +64,10 @@ class TrelloThing
     list_id = this.card.idList
     description = ""
 
-    Trello.post "cards", {idList: list_id, name: card_name, description: description}, this.loadBoards
+    Trello.post "cards", {idList: list_id, name: card_name, description: description}, (card) =>
+      console.log(card)
+      this.loadBoards()
+
 
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>
@@ -74,13 +77,15 @@ class TrelloThing
 
   loadBoards: ->
     $('#login').hide()
-    $('#boards').show()
-    $('#cards').show()
-    $('#checklists').show()
+    $('#boards').hide().empty()
+    $('#cards').hide().empty()
+    $('#checklists').hide().empty()
     Trello.get "members/me/boards", (boards) =>
       list = $('#boards')
       $.each boards, (index, board) =>
         list.append $('<li></li>').append($('<a></a>').data('board', board).attr('href', 'javascript:void(0)').text(board.name))
+
+      list.show()
 
 
 window.TrelloThing = TrelloThing

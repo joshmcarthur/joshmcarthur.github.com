@@ -73,7 +73,8 @@
     };
 
     TrelloThing.prototype.makeCard = function() {
-      var card_name, description, list_id;
+      var card_name, description, list_id,
+        _this = this;
       card_name = this.checklist.name;
       list_id = this.card.idList;
       description = "";
@@ -81,7 +82,10 @@
         idList: list_id,
         name: card_name,
         description: description
-      }, this.loadBoards);
+      }, function(card) {
+        console.log(card);
+        return _this.loadBoards();
+      });
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {
@@ -98,15 +102,16 @@
     TrelloThing.prototype.loadBoards = function() {
       var _this = this;
       $('#login').hide();
-      $('#boards').show();
-      $('#cards').show();
-      $('#checklists').show();
+      $('#boards').hide().empty();
+      $('#cards').hide().empty();
+      $('#checklists').hide().empty();
       return Trello.get("members/me/boards", function(boards) {
         var list;
         list = $('#boards');
-        return $.each(boards, function(index, board) {
+        $.each(boards, function(index, board) {
           return list.append($('<li></li>').append($('<a></a>').data('board', board).attr('href', 'javascript:void(0)').text(board.name)));
         });
+        return list.show();
       });
     };
 
