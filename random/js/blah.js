@@ -10,7 +10,11 @@
         $('#login a').click(function() {
           return Trello.authorize({
             type: 'popup',
-            success: _this.loadBoards
+            success: _this.loadBoards,
+            scope: {
+              read: true,
+              write: true
+            }
           });
         });
         self = _this;
@@ -51,7 +55,7 @@
     };
 
     TrelloThing.prototype.showChecklist = function(checklist) {
-      var base, list;
+      var base, buttons, list;
       console.log(checklist);
       base = $('#checklist');
       base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
@@ -59,14 +63,24 @@
       $.each(checklist.checkitems, function(index, checkitem) {
         return list.append($('<li></li>').text(checkitem.name));
       });
-      return base.append(list);
+      base.append(list);
+      buttons = $('<fieldset></fieldset>');
+      buttons.append('<legend>Actions:</legend>');
+      buttons.append($('<button></button>').attr('id', 'create_card').text('Create Card'));
+      buttons.append($('<button></button>').attr('id', 'cancel').text('Cancel and start over'));
+      return base.append(buttons);
     };
 
     TrelloThing.prototype.makeCard = function() {
       var card_name, description, list_id;
       card_name = this.checklist.name;
       list_id = this.card.idList;
-      return description = "";
+      description = "";
+      return Trello.post("cards", {
+        idList: list_id,
+        name: card_name,
+        description: description
+      }, this.loadBoards);
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {

@@ -5,6 +5,9 @@ class TrelloThing
         Trello.authorize(
           type: 'popup'
           success: this.loadBoards
+          scope:
+            read: true
+            write: true
         )
 
       self = this
@@ -47,11 +50,20 @@ class TrelloThing
 
     base.append(list)
 
+    buttons = $('<fieldset></fieldset>')
+    buttons.append('<legend>Actions:</legend>')
+    buttons.append($('<button></button>').attr('id', 'create_card').text('Create Card'))
+    buttons.append($('<button></button>').attr('id', 'cancel').text('Cancel and start over'))
+
+    base.append(buttons)
+
 
   makeCard: ->
     card_name = this.checklist.name
     list_id = this.card.idList
     description = ""
+
+    Trello.post "cards", {idList: list_id, name: card_name, description: description}, this.loadBoards
 
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>
