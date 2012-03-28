@@ -9,14 +9,14 @@ class TrelloThing
 
       self = this
       $('#boards a').live 'click', ->
-        self.board_id = $(this).attr('data-board-id')
+        self.board = $(this).data('board')
         $('#boards').slideUp()
-        self.loadCards(self.board_id)
+        self.loadCards(self.board.id)
 
       $('#cards a').live 'click', ->
-        self.card_id = $(this).attr('data-card-id')
+        self.card = $(this).data('card')
         $('#cards').slideUp()
-        self.loadChecklists(self.card_id)
+        self.loadChecklists(self.card.id)
 
       $('#checklists a').live 'click', ->
         self.checklist = $(this).data('checklist')
@@ -30,12 +30,14 @@ class TrelloThing
 
   showChecklist: (checklist) ->
     console.log(checklist)
+    base = $('#checklist')
+    base.append($('<h3></h3>').text("#{checklist.name} on card '#{this.card.name}' on board '#{this.board.name}'"))
 
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>
       list = $('#cards')
       $.each cards, (index, card) =>
-        list.append $('<li></li>').append( $('<a></a>').attr('data-card-id', card.id).attr('href', 'javascript:void(0)').text(card.name))
+        list.append $('<li></li>').append( $('<a></a>').data('card', card).attr('href', 'javascript:void(0)').text(card.name))
 
   loadBoards: ->
     $('#login').hide()
@@ -45,7 +47,7 @@ class TrelloThing
     Trello.get "members/me/boards", (boards) =>
       list = $('#boards')
       $.each boards, (index, board) =>
-        list.append $('<li></li>').append($('<a></a>').attr('data-board-id', board.id).attr('href', 'javascript:void(0)').text(board.name))
+        list.append $('<li></li>').append($('<a></a>').attr('board', board).attr('href', 'javascript:void(0)').text(board.name))
 
 
 window.TrelloThing = TrelloThing

@@ -15,14 +15,14 @@
         });
         self = _this;
         $('#boards a').live('click', function() {
-          self.board_id = $(this).attr('data-board-id');
+          self.board = $(this).data('board');
           $('#boards').slideUp();
-          return self.loadCards(self.board_id);
+          return self.loadCards(self.board.id);
         });
         $('#cards a').live('click', function() {
-          self.card_id = $(this).attr('data-card-id');
+          self.card = $(this).data('card');
           $('#cards').slideUp();
-          return self.loadChecklists(self.card_id);
+          return self.loadChecklists(self.card.id);
         });
         return $('#checklists a').live('click', function() {
           self.checklist = $(this).data('checklist');
@@ -42,7 +42,10 @@
     };
 
     TrelloThing.prototype.showChecklist = function(checklist) {
-      return console.log(checklist);
+      var base;
+      console.log(checklist);
+      base = $('#checklist');
+      return base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {
@@ -51,7 +54,7 @@
         var list;
         list = $('#cards');
         return $.each(cards, function(index, card) {
-          return list.append($('<li></li>').append($('<a></a>').attr('data-card-id', card.id).attr('href', 'javascript:void(0)').text(card.name)));
+          return list.append($('<li></li>').append($('<a></a>').data('card', card).attr('href', 'javascript:void(0)').text(card.name)));
         });
       });
     };
@@ -66,7 +69,7 @@
         var list;
         list = $('#boards');
         return $.each(boards, function(index, board) {
-          return list.append($('<li></li>').append($('<a></a>').attr('data-board-id', board.id).attr('href', 'javascript:void(0)').text(board.name)));
+          return list.append($('<li></li>').append($('<a></a>').attr('board', board).attr('href', 'javascript:void(0)').text(board.name)));
         });
       });
     };
