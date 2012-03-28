@@ -1,15 +1,16 @@
 #container {
-  max-width: 400px;
-  margin: 25px;
-  padding: 20px;
-  font-size: 14px;
+  max-width: 200px;
+  margin: 10px;
+  padding: 5px;
+  font-size: 11px;
   font-family: sans-serif;
 }
 
+h1 { margin: 0; margin-bottom: 8px; font-size: 16px; }
 ul li a {
   text-decoration: none;
   border-bottom: dotted 1px #000;
-  line-height: 24px;
+  line-height: 14px;
   color: #000;
 }
 
