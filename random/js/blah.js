@@ -32,6 +32,7 @@
         });
         $('#checklists a').live('click', function() {
           self.checklist = $(this).data('checklist');
+          $('#checklists').slideUp();
           return self.showChecklist(self.checklist);
         });
         $('#checklist button#create_card').live('click', function(event) {
@@ -107,6 +108,7 @@
       $('#boards').hide().empty();
       $('#cards').hide().empty();
       $('#checklists').hide().empty();
+      $('#checklist').hide().empty();
       return Trello.get("members/me/boards", function(boards) {
         var list;
         list = $('#boards');

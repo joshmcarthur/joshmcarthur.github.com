@@ -25,6 +25,7 @@ class TrelloThing
 
       $('#checklists a').live 'click', ->
         self.checklist = $(this).data('checklist')
+        $('#checklists').slideUp()
         self.showChecklist(self.checklist)
 
       $('#checklist button#create_card').live 'click', (event) ->
@@ -84,6 +85,7 @@ class TrelloThing
     $('#boards').hide().empty()
     $('#cards').hide().empty()
     $('#checklists').hide().empty()
+    $('#checklist').hide().empty()
     Trello.get "members/me/boards", (boards) =>
       list = $('#boards')
       $.each boards, (index, board) =>
