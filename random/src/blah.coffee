@@ -32,6 +32,11 @@ class TrelloThing
     console.log(checklist)
     base = $('#checklist')
     base.append($('<h3></h3>').text("#{checklist.name} on card '#{this.card.name}' on board '#{this.board.name}'"))
+    list = $('<ol></ol')
+    $.each checklist.checkItems, (index, checkitem) ->
+      list.append($('<li></li>').text(checkitem.name))
+
+    base.append(list)
 
   loadCards: (board_id) ->
     Trello.get "boards/#{board_id}/cards", (cards) =>

@@ -42,10 +42,15 @@
     };
 
     TrelloThing.prototype.showChecklist = function(checklist) {
-      var base;
+      var base, list;
       console.log(checklist);
       base = $('#checklist');
-      return base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
+      base.append($('<h3></h3>').text("" + checklist.name + " on card '" + this.card.name + "' on board '" + this.board.name + "'"));
+      list = $('<ol></ol');
+      $.each(checklist.checkItems, function(index, checkitem) {
+        return list.append($('<li></li>').text(checkitem.name));
+      });
+      return base.append(list);
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {
