@@ -30,7 +30,7 @@
         var list;
         list = $('#checklists');
         return $.each(checklists, function(index, checklist) {
-          return list.append($('<li></li>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name));
+          return list.append($('<li></li>').append($('<a></a>').data('checklist', checklist).attr('href', 'javascript:void(0)').text(checklist.name)));
         });
       });
     };
