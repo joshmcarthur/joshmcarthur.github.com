@@ -21,12 +21,21 @@
         });
         $('#cards a').live('click', function() {
           self.card = $(this).data('card');
+          console.log(card);
           $('#cards').slideUp();
           return self.loadChecklists(self.card.id);
         });
-        return $('#checklists a').live('click', function() {
+        $('#checklists a').live('click', function() {
           self.checklist = $(this).data('checklist');
           return self.showChecklist(self.checklist);
+        });
+        $('#checklist button#create_card').live('click', function(event) {
+          event.preventDefault();
+          return self.makeCard();
+        });
+        return $('#checklist button#cancel').live('click', function(event) {
+          event.preventDefault();
+          return self.loadBoards();
         });
       });
     }
@@ -51,6 +60,13 @@
         return list.append($('<li></li>').text(checkitem.name));
       });
       return base.append(list);
+    };
+
+    TrelloThing.prototype.makeCard = function() {
+      var card_name, description, list_id;
+      card_name = this.checklist.name;
+      list_id = this.card.idList;
+      return description = "";
     };
 
     TrelloThing.prototype.loadCards = function(board_id) {
