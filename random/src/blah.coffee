@@ -6,6 +6,7 @@ class TrelloThing
         Trello.authorize(
           type: 'popup'
           success: this.loadBoards
+          expiration: '1hour'
           scope:
             read: true
             write: true

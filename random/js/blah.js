@@ -12,6 +12,7 @@
           return Trello.authorize({
             type: 'popup',
             success: _this.loadBoards,
+            expiration: '1hour',
             scope: {
               read: true,
               write: true
