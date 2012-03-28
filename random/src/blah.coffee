@@ -15,7 +15,7 @@ class TrelloThing
 
       $('#cards a').live 'click', ->
         self.card = $(this).data('card')
-        console.log(card)
+        console.log(self.card)
         $('#cards').slideUp()
         self.loadChecklists(self.card.id)
 

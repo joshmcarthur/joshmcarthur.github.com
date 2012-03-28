@@ -21,7 +21,7 @@
         });
         $('#cards a').live('click', function() {
           self.card = $(this).data('card');
-          console.log(card);
+          console.log(self.card);
           $('#cards').slideUp();
           return self.loadChecklists(self.card.id);
         });
