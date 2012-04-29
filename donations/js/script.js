@@ -20,6 +20,7 @@ var processDonations = function(tweets) {
   var monthNames = [
     "Jan",
     "Feb",
+    "March",
     "Apr",
     "May",
     "Jun",
