@@ -1,0 +1,19 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Developer: Josh McArthur
+  Site: http://joshmcarthur.com
+  Twitter: @sudojosh
+  Location: Wellington, New Zealand
+
+/* THANKS */
+  Names (& URL):
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: HTML5 Shiv, LESS
+  Software:
+
+

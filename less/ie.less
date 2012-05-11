@@ -1,0 +1,18 @@
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.icon-large {
+    font-size: 1.3333em;
+}
+
+.ie7icon(@inner) {
+    *zoom: ~"expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '@{inner}')";
+}
+
+.icon-twitter-sign { .ie7icon('&#xf081'); }
+.icon-github-sign { .ie7icon('&#xf092'); }
+.icon-linkedin-sign { .ie7icon('&#xf08c'); }

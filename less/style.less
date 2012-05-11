@@ -1,0 +1,109 @@
+@import "normalize.less";
+@import "elements.less";
+@import "font-awesome.less";
+@import "mixins.less";
+@import "global-mobile.less";
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+
+ul.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    line-height: 40px;
+
+    a {
+      font-size: 24px;
+      color: #666;
+      .transition(0.5s, ease-in-out);
+    }
+
+    a:hover {
+      color: #222;
+    }
+  }
+}
+
+
+#header-container {
+
+  a#title {
+    text-decoration: none;
+    display: block;
+    img {
+      border-radius: 5px;
+      border: 0;
+      box-shadow: 0px 0px 15px #ccc;
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    img:hover {
+      opacity: 1;
+    }
+
+    margin-top: 10%;
+    margin-left: 5%;
+
+    h1 {
+      font-size: 28px;
+      line-height: 1;
+      color: #000;
+    }
+
+
+  }
+
+  aside#links {
+    margin-left: 5%;
+    margin-bottom: 5%;
+    clear: both;
+    display: block;
+
+    a, a:active, a:visited {
+      color: black;
+      font-size: 24px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #000;
+    }
+  }
+
+
+  nav li {
+    display: block;
+
+    a, a:visited, a:active {
+      background: #000000;
+      line-height: 1;
+      font-size: 14px;
+      color: #FFF;
+      text-decoration: none;
+      .transition(0.5s, ease-out);
+
+    }
+
+    a:hover {
+      padding-left: 25px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+@import "media-queries.less";
+@import "helpers.less";
+@import "print.less";

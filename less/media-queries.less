@@ -1,0 +1,61 @@
+@import 'elements.less';
+@import 'mixins.less';
+
+/* =============================================================================
+
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+	nav ul li{
+		display:inline;
+	}
+	.oldie nav a{
+		margin:0 0.7%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+  #header-container {
+    .header-page-layout;
+  }
+
+/* ============
+    WIDE: Main
+   ============ */
+
+  #main-container {
+    .main-page-layout;
+  }
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+	.wrapper{
+		margin:0 auto;
+	}
+}
