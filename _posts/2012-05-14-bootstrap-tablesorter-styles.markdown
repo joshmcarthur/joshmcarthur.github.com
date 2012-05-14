@@ -9,7 +9,7 @@ Recently, however, these integrations have been removed from Bootstrap, as it wa
 
 This is all well and good, but sometimes it's just a quick fix that is necessary. Here's the CSS needed to provide Bootstrap look-and-feel in the table sorter plugin:
 
-```
+{% highlight css %}
 table .header {
 	cursor: pointer;
 }
@@ -48,7 +48,7 @@ table .headerSortUp:after {
   -moz-opacity: 0.6;
   opacity: 0.6;
 }
-```
+{% endhighlight %}
 
 Add this stylesheet into your project to add the tablesorter integrations from Bootstrap 1, to Bootstrap 2. It doesn't mess with the default table styles or anything else, but does make the tablesorter feel much more integrated.
 
