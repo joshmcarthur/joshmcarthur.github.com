@@ -9,9 +9,9 @@ Recently, however, these integrations have been removed from Bootstrap, as it wa
 
 This is all well and good, but sometimes it's just a quick fix that is necessary. Here's the CSS needed to provide Bootstrap look-and-feel in the table sorter plugin:
 
-``` css
+```
 table .header {
-  cursor: pointer;
+	cursor: pointer;
 }
 table .header:after {
   content: "";
