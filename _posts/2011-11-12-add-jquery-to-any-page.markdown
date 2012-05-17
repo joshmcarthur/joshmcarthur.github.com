@@ -12,7 +12,7 @@ tags:
 
 When I'm working on a site, or analysing somebody else's, I often wish that jQuery was loaded into that page - it's an unbeatable tool for really digging into the site's source to debug something or work out how something has been done.
 
-To help out with this, I've put together a quick bookmarket, [similar to the more fun one I've done a while ago](http://blog.joshmcarthur.com/2011/10/20/a-fun-little-bookmarklet/). It works extremely simply - it just creates a script element, adds jQuery 1.7.0 (served from Google), and appends it to the page body. As soon as the script has loaded, jQuery can be used from within Web Inspector, Firebug, or whatever other Javascript console you use.
+To help out with this, I've put together a quick bookmarket, [similar to the more fun one I've done a while ago](http://joshmcarthur.com/2011/10/20/a-fun-little-bookmarklet/). It works extremely simply - it just creates a script element, adds jQuery 1.7.0 (served from Google), and appends it to the page body. As soon as the script has loaded, jQuery can be used from within Web Inspector, Firebug, or whatever other Javascript console you use.
 
 Here's the bookmarklet:
 
@@ -22,7 +22,7 @@ To add this to your browser, you can either: right-click on this link, select 'B
 
 Here's the source:
 
-``` javascript
+{% highlight javascript %}
 // Create the script tag
 var s = document.createElement('script');
 
@@ -32,4 +32,4 @@ s.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js";
 
 // Add to the body tag (assume here we're dealing with HTML, and there IS a body tag)
 document.getElementsByTagName('body')[0].appendChild(s);
-```
+{% endhighlight %}

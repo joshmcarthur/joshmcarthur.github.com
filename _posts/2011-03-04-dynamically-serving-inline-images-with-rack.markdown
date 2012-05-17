@@ -15,7 +15,10 @@ that is relatively easy to do, but could have a significant effect on overall
 page load speed.
 The concept of inline images has been around for a while, and basically
 involves embedding Base64-encoded image data within the image tag like so:
-<img src="data:image/jpeg;base64,[data] />
+<pre>
+<img src="data:image/jpeg;base64,[data]" />
+</pre>
+
 So, what impact does this have on performance vs. the normal technique?
 Well, the normal technique involves several more requests - one per image, in
 fact. As Steve pointed out in his workshop, server response time is only a

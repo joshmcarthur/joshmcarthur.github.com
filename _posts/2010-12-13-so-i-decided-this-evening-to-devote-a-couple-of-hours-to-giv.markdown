@@ -5,13 +5,9 @@ tags:
   - development
   - spree
   - rails
-
-type: photo
 comments: true
 ---
 
-[/images/assets/www.tumblr.com/photo/1280/2196843804/1/
-tumblr_ldcttt1WLE1qd78lu.png]
 So I decided this evening to devote a couple of hours to giving back to Spree,
 after using the framework for a couple of work projects, and appreciating it
 for it's flexibility and extensibility.Â 

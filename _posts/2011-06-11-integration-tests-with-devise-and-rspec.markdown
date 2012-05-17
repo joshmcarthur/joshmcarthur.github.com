@@ -19,12 +19,18 @@ browsing and piece a few bits together to work out a nice way of doing it.
 Here is the code you can use (You would normally place this within a before(:
 each) filter in your routes spec (Which is what an integration test in RSpec is
 called):
-[At top of spec file, after require 'spec_helper'
+
+{% highlight ruby %}
+# At top of spec file, after require 'spec_helper'
 include Warden::Test::Helpers
-[In a before(:each) block]
+
+# In a before(:each) block
 @user = Factory.create(:user)
 @user.confirm!
 login_as @user, :scope => :user
+
+{% endhighlight %}
+
 Now, what is this doing? Well, first of all, you include some test helpers that
 Warden (Which devise back-ends onto), provides. I tried out using Devise's
 Devise::TestHelpers here, but it looks like Devise haven't really designed

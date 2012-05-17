@@ -12,7 +12,7 @@ tags:
 
 Recently I've rolled out a virtual machine host box to run headless VMs (headless means that there is no display, keyboard etc plugged into it), as these make great test and experiment machines for trying new things out. As part of this rollout, I mashed a couple of blogs and some documentation together and came up with this script:
 
-``` bash
+{% highlight bash %}
 #!/bin/sh
 
 # virtual_machines	Start and stop virtual machines when the host changes state
@@ -43,7 +43,7 @@ esac
 
 exit 0
 
-```
+{% endhighlight %}
 
 
 I wrote this because this isn't something that is supported directly by VirtualBox, and it's essential that on a headless server that these virtual machines be able to go up and down happily without harm and reliably. It supports start and stop explanations and uses savestate, rather than poweroff - essentially, as the host server goes down, it will 'hibernate' each VM, and then restore when the server starts back up again.

@@ -16,7 +16,7 @@ If you just want to try it out, here's the link <a href="javascript:var busy=doc
 
 Here's the source code for anyone interested in seeing how this works:
 
-``` javascript
+{% highlight javascript %}
 // Create a new div tag to contain our image
 var busy = document.createElement('div');
 var body = document.getElementsByTagName('body')[0];
@@ -40,7 +40,7 @@ busy.appendChild(close);
 
 // Add the look busy div tag to the body of the document
 body.appendChild(busy);
-```
+{% endhighlight %}
 
 Give it a go! It's super handy for when you're checking out [TradeMe](http://www.trademe.co.nz), [Failblog](http://failblog.org), or [anything similar](http://images.google.com?q=wink)!
 

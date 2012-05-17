@@ -4,7 +4,7 @@ title: "Overriding Action Caches"
 date: 2011-09-30 11:48
 comments: true
 categories: howto
-tags: 
+tags:
   - howto
   - development
   - rubyonrails
@@ -22,11 +22,11 @@ This approach worked for a while, but we found we had a pretty major problem - w
 
 To fix this problem, we tried out adding some cron tasks that used curl to ping the cached URLs, to try and preload the cache so that less users would be hitting the DB. This only partially fixed the problem though, so we identified a solution that would work a little better for us.
 
-What we wanted to do was to leave our existing caching in place - aside from the expiry, it was working fine, and we didn't want to rework everything. With this in mind though, we needed a way to force a refresh of the data in the cache external from the controller. What we ended up implementing was a monkeypatch on Rails' caches_action-related methods, that allows us to pass in an `:overwrite` option - this can be a Proc, or just a boolean - basically, when the value of `:overwrite` is true, Rails will bypass the cached value, grab the _new value_, and load this into the cache - effectively refreshing the value without a user having to trigger the process. 
+What we wanted to do was to leave our existing caching in place - aside from the expiry, it was working fine, and we didn't want to rework everything. With this in mind though, we needed a way to force a refresh of the data in the cache external from the controller. What we ended up implementing was a monkeypatch on Rails' caches_action-related methods, that allows us to pass in an `:overwrite` option - this can be a Proc, or just a boolean - basically, when the value of `:overwrite` is true, Rails will bypass the cached value, grab the _new value_, and load this into the cache - effectively refreshing the value without a user having to trigger the process.
 
 Here's the monkeypatch code - have a scan through it, and I'll explain it below:
 
-``` ruby
+{% highlight ruby %}
     require 'set'
 
     module ActionController #:nodoc:
@@ -34,7 +34,7 @@ Here's the monkeypatch code - have a scan through it, and I'll explain it below:
 
 	    module Actions
         extend ActiveSupport::Concern
-      
+
           protected
           class ActionCacheFilter #:nodoc:
             def initialize(options, &block)
@@ -73,7 +73,7 @@ Here's the monkeypatch code - have a scan through it, and I'll explain it below:
         end
       end
     end
-```
+{% endhighlight %}
 
 By dropping this code into `config/initializers`, this code gets patched into the ActionController::Caching::Actions::ActionCacheFilter class, and overrides the `initalize` and `filter` methods to let us a) pass in an override option, and b) choose to refresh the cache if the override option is set.
 
@@ -84,8 +84,8 @@ The filter method performs as normal until it has finished generating the cache 
 * If the overwrite value is true, it sets the body to nil, so that it will be re-built. Otherwise, it does the usual and returns the cached response from Memcache.
 * From here, it more or less goes back to the default class, rebuilding the response from the database.
 
-In our application's case, we use this functionality by tweaking our cron jobs a little to pass in a particular parameter - we then added the `:overwrite` option to our `caches_action` methods, with a Proc that returns true if this parameter equals the correct value. 
+In our application's case, we use this functionality by tweaking our cron jobs a little to pass in a particular parameter - we then added the `:overwrite` option to our `caches_action` methods, with a Proc that returns true if this parameter equals the correct value.
 
-So far, this solution has worked fantastically - now, hardly any of our users hit the database - instead, they are heading to memcache to grab that response, while our background cron jobs rebuild the data that will get returned to them. Using a parameter for refreshing the cache also lets us easily refresh manually for testing or to check for a value. 
+So far, this solution has worked fantastically - now, hardly any of our users hit the database - instead, they are heading to memcache to grab that response, while our background cron jobs rebuild the data that will get returned to them. Using a parameter for refreshing the cache also lets us easily refresh manually for testing or to check for a value.
 
 This solution is clean, simple and easy to implement. I suggest that if you are facing similar problems, that you give it a go - it's really adaptable, and requires few changes if you are already using action caching. Full credit to James for thinking up and implementing this solution - I'm just documenting it.
