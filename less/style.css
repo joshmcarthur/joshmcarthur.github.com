@@ -788,8 +788,10 @@ li[class*=" icon-"].icon-large:before {
   float: left;
   min-width: 64px;
   width: 15%;
-  position: fixed;
   border-bottom: none;
+}
+.header-page-layout header {
+  position: fixed;
 }
 .header-page-layout nav {
   margin-left: 0;
@@ -982,8 +984,10 @@ ul.posts li a:hover {
   float: left;
   min-width: 64px;
   width: 15%;
-  position: fixed;
   border-bottom: none;
+}
+.header-page-layout header {
+  position: fixed;
 }
 .header-page-layout nav {
   margin-left: 0;
@@ -1034,13 +1038,14 @@ ul.posts li a:hover {
     float: left;
     min-width: 64px;
     width: 15%;
-    position: fixed;
     border-bottom: none;
     float: left;
     min-width: 64px;
     width: 15%;
-    position: fixed;
     border-bottom: none;
+  }
+  #header-container header {
+    position: fixed;
   }
   #header-container nav {
     margin-left: 0;
@@ -1052,6 +1057,9 @@ ul.posts li a:hover {
   #header-container nav li a:active,
   #header-container nav li a:visited {
     padding: 3px 5px;
+  }
+  #header-container header {
+    position: fixed;
   }
   #header-container nav {
     margin-left: 0;

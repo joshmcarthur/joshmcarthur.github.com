@@ -14,8 +14,10 @@
   float: left;
   min-width: 64px;
   width: 15%;
-  position: fixed;
   border-bottom: none;
+}
+.header-page-layout header {
+  position: fixed;
 }
 .header-page-layout nav {
   margin-left: 0;
@@ -66,8 +68,10 @@
     float: left;
     min-width: 64px;
     width: 15%;
-    position: fixed;
     border-bottom: none;
+  }
+  #header-container header {
+    position: fixed;
   }
   #header-container nav {
     margin-left: 0;
