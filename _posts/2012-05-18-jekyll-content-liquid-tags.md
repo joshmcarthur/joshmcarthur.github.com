@@ -12,13 +12,13 @@ Originally this was hard to spot - my posts had been migrated from Blogger, to T
 
 After transferring markdown engines, a lot of Google and Stackoverflow searching and all-round frustration, I noticed that Jekyll mentioned two Liquid tags that could be used to interpolate content into a page:
 
-* `{% raw %} {{content}} {% endraw %}`, and
-* `{% raw %} {{page.content}} {% endraw %}`
+* `content`, and
+* `page.content`
 
 I had considered these to be the same - one was just a namespaced one, like a convenience method. I was actually wrong about this, as they perform two slightly different functions:
 
-The **content** tag outputs the contents of the file being built, and also processes the contents of that file - i.e. if it is a Markdown file, it parses the Markdown, if it is Textile, it parses the Textile, etc. etc. It also scans the output for other Liquid tags and does any further processing needed for these.
+The `content` tag outputs the contents of the file being built, and also processes the contents of that file - i.e. if it is a Markdown file, it parses the Markdown, if it is Textile, it parses the Textile, etc. etc. It also scans the output for other Liquid tags and does any further processing needed for these.
 
-The **page.content** tag, on the other hand, just outputs whatever the content is. It's basically just the first part of the **content** tag - the file reading bit, without any of the processing.
+The `page.content` tag, on the other hand, just outputs whatever the content is. It's basically just the first part of the `content` tag - the file reading bit, without any of the processing.
 
-I had been using **page.content** in my layouts, as I liked the idea of the namespaced tag better - as soon as I changed this to use  **content** everything worked. I just wish it hadn't taken me a week to sit down and figure that out, instead of blaming everything else but me!
+I had been using `page.content` in my layouts, as I liked the idea of the namespaced tag better - as soon as I changed this to use `content` everything worked. I just wish it hadn't taken me a week to sit down and figure that out, instead of blaming everything else but me!
