@@ -788,6 +788,7 @@ li[class*=" icon-"].icon-large:before {
   float: left;
   min-width: 64px;
   width: 15%;
+  position: fixed;
   border-bottom: none;
 }
 .header-page-layout nav {
@@ -981,6 +982,7 @@ ul.posts li a:hover {
   float: left;
   min-width: 64px;
   width: 15%;
+  position: fixed;
   border-bottom: none;
 }
 .header-page-layout nav {
@@ -1032,10 +1034,12 @@ ul.posts li a:hover {
     float: left;
     min-width: 64px;
     width: 15%;
+    position: fixed;
     border-bottom: none;
     float: left;
     min-width: 64px;
     width: 15%;
+    position: fixed;
     border-bottom: none;
   }
   #header-container nav {
