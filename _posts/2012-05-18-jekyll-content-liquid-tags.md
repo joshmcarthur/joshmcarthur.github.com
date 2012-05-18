@@ -12,8 +12,8 @@ Originally this was hard to spot - my posts had been migrated from Blogger, to T
 
 After transferring markdown engines, a lot of Google and Stackoverflow searching and all-round frustration, I noticed that Jekyll mentioned two Liquid tags that could be used to interpolate content into a page:
 
-* `{{content}}`, and
-* `{{page.content}}`
+* `{% raw %} {{content}} {% endraw %}`, and
+* `{% raw %} {{page.content}} {% endraw %}`
 
 I had considered these to be the same - one was just a namespaced one, like a convenience method. I was actually wrong about this, as they perform two slightly different functions:
 
@@ -21,4 +21,4 @@ The **content** tag outputs the contents of the file being built, and also proce
 
 The **page.content** tag, on the other hand, just outputs whatever the content is. It's basically just the first part of the **content** tag - the file reading bit, without any of the processing.
 
-I had been using `{{page.content}}` in my layouts, as I liked the idea of the namespaced tag better - as soon as I changed this to use `{{content}}` everything worked. I just wish it hadn't taken me a week to sit down and figure that out, instead of blaming everything else but me!
+I had been using **page.content** in my layouts, as I liked the idea of the namespaced tag better - as soon as I changed this to use  **content** everything worked. I just wish it hadn't taken me a week to sit down and figure that out, instead of blaming everything else but me!
