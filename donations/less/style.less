@@ -1,10 +1,4 @@
-@import "normalize.less";
-
-@import "global-mobile.less";
-
-/* ===== Primary Styles ========================================================
-   Author:
-   ========================================================================== */
+#donations-page {
 
 .subheading {
   color: #666;
@@ -19,15 +13,45 @@
   color: #468847;
 }
 
-#footer-container footer.wrapper {
-  border-top: dashed 1px #DDD;
-  margin-top: 25px;
-  color: #666;
-  font-size: 90%;
+.donation {
+  aside {
+    padding: 0;
+  }
+
+  line-height: 4em;
+  position: relative;
+
+  aside.date {
+    float: left;
+    width: 10%;
+    font-size: 2em;
+    line-height: 1;
+    color: #999;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .text {
+    width: 76%;
+    margin-left: 2%;
+    margin-right: 2%;
+    float: left;
+    font-size: 150%;
+    color: #555;
+    line-height: 1;
+    font-style: normal;
+  }
+
+  .amount {
+    width: 10%;
+    float: left;
+    font-size: 2em;
+    line-height: 2em;
+    display: block;
+    text-align: center;
+    background-color: #3A87AD;
+    color: white;
+  }
 }
 
-
-
-@import "media-queries.less";
-@import "helpers.less";
-@import "print.less";
+}
