@@ -15,6 +15,10 @@
 
 	<link rel="stylesheet" href="/less/style.css">
 
+  {% for extra_stylesheet in page.stylesheets %}
+    <link rel="stylesheet" href="{{ extra_stylesheet }}" />
+  {% endfor %}
+
   <!--[if IE 7]>
     <link rel="stylesheet" href="/less/font-awesome-ie7.css">
   <![endif]-->
@@ -73,6 +77,8 @@
 		</footer>
 	</div>
 
-<script src="/js/script.js"></script>
+  {% for extra_javascript in page.scripts %}
+    <script src="{{ extra_javascript }}"></script>
+  {% endfor %}
 </body>
 </html>
