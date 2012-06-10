@@ -9,9 +9,18 @@ $(function() {
     function(donation_tweets) {
       stopSpin();
       donation_tweets = processDonations(donation_tweets);
-      $('#donations').html(
-        Mustache.render($('#template-donations').html(), {donations: donation_tweets})
-      )
+      var donations_list = '{{#donations}}\
+        <section class="donation clearfix">\
+          <aside class="date">{{formattedDate}}</aside>\
+            <p class="text">{{text}}</p>\
+          <aside class="amount">${{amount}}</aside>\
+        </section>\
+        {{/donations}}\
+        {{^donations}}\
+          <p class="no-donations">No donations yet...</p>\
+        {{/donations}}';
+
+      $('#donations').html(Mustache.render(donations_list, {'donations': donation_tweets}));
     }
   );
 });
