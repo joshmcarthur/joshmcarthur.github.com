@@ -1,93 +1,40 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+---
+layout: default
+stylesheets:
+- /donations/less/style.css
+scripts:
+- http://cdnjs.cloudflare.com/ajax/libs/zepto/0.8/zepto.min.js
+- /donations/js/libs/spin.min.js
+- /donations/js/libs/mustache.min.js
+- http://platform.twitter.com/widgets.js
+- /donations/js/script.js
+---
 
-	<title>Donations - Josh McArthur</title>
-	<meta name="description" content="Find out which open-source projects and causes I donate to, and make donations yourself.">
-	<meta name="author" content="@sudojosh">
+<div id="donations-page">
+  <div id="about">
+    <p>
+    This page is a dyanamic listing of the open source projects and
+    causes that I support. Each time I make a donation or contribution
+    to a project, I <a href="https://twitter.com/sudojosh">tweet it</a>
+    with a hashtag of <strong>#donation</strong>.
+    </p>
 
-	<meta name="viewport" content="width=device-width">
+    <p>
+    Maybe you're wondering why does this page exists. It's not actually
+    so that I can brag about how generous I am, because in reality I can't
+    afford to give out money left right and center. <em class="highlight">The real idea is to
+      try and get some people inspired to do the same as me - get behind the
+      community and tools that they believe in, and use every day.</em>
+    </p>
 
+    <p>
+    <strong>Any questions?</strong><br />
+    <a href="https://twitter.com/share?text=@sudojosh" class="twitter-share-button" data-related="sudojosh" data-lang="en" data-count="none" data-size="large">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </p>
+  </div>
 
-	<link rel="stylesheet" href="less/style.css">
-
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<script>window.html5 || document.write('<script src="js/libs/html5.js"><\/script>')</script>
-	<![endif]-->
-</head>
-<body>
-	<div id="header-container">
-		<header class="wrapper clearfix">
-			<h1 id="title">Donations - <span class="subheading">joshmcarthur.com</span></h1>
-		</header>
-	</div>
-	<div id="main-container">
-		<div id="main" class="wrapper clearfix">
-      <aside id="about">
-        <p>
-          This page is a dyanamic listing of the open source projects and
-          causes that I support. Each time I make a donation or contribution
-          to a project, I <a href="https://twitter.com/sudojosh">tweet it</a>
-          with a hashtag of <strong>#donation</strong>.
-        </p>
-
-        <p>
-          Maybe you're wondering why does this page exists. It's not actually
-          so that I can brag about how generous I am, because in reality I can't
-          afford to give out money left right and center. <em class="highlight">The real idea is to
-          try and get some people inspired to do the same as me - get behind the
-          community and tools that they believe in, and use every day.</em>
-        </p>
-
-        <p>
-          <strong>Any questions?</strong><br />
-          <a href="https://twitter.com/share?text=@sudojosh" class="twitter-share-button" data-related="sudojosh" data-lang="en" data-count="none" data-size="large">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </p>
-      </aside>
-
-      <h3>My donations:</h3>
-      <div id="donations">
-      </div>
-		</div> <!-- #main -->
-	</div> <!-- #main-container -->
-
-	<div id="footer-container">
-		<footer class="wrapper">
-      <aside id="builtwith">
-        <p>
-          <strong>Built with:</strong>
-          <a href="http://zeptojs.com/">Zepto.js</a>
-          &mdash;
-          <a href="http://www.initializr.com/">Initializr</a>
-          &mdash;
-          <a href="http://lesscss.org/">LESS</a>
-          &mdash;
-          <a href="http://github.com">Hosted by Github Pages</a>
-        </p>
-		</footer>
-	</div>
-
-  <script type="text/template" id="template-donations">
-    {{#donations}}
-      <section class="donation clearfix">
-        <aside class="date">{{formattedDate}}</aside>
-        <p class="text">{{text}}</p>
-        <aside class="amount">${{amount}}</aside>
-      </section>
-    {{/donations}}
-    {{^donations}}
-      <p class="no-donations">No donations yet...</p>
-    {{/donations}}
-  </script>
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/0.8/zepto.min.js"></script>
-<script src="js/libs/spin.min.js"></script>
-<script src="js/libs/mustache.min.js"></script>
-<script src="http://platform.twitter.com/widgets.js"></script>
-<script src="js/script.js"></script>
-</body>
-</html>
+  <h3>My donations:</h3>
+  <div id="donations">
+  </div>
+</div>
