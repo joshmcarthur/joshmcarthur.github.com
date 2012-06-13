@@ -48,7 +48,7 @@ class TrelloThing
     base = $('#checklist')
     base.append($('<h3></h3>').text("#{checklist.name} on card '#{this.card.name}' on board '#{this.board.name}'"))
     list = $('<ol></ol')
-    $.each checklist.checkitems, (index, checkitem) ->
+    $.each checklist.checkItems, (index, checkitem) ->
       list.append($('<li></li>').text(checkitem.name))
 
     base.append(list)
