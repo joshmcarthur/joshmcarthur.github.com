@@ -1,0 +1,28 @@
+---
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>The Blog of @sudojosh</title>
+ <link href="http://joshmcarthur.com/feed/" rel="self"/>
+ <link href="http://joshmcarthur.com/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://joshmcarthur.com/</id>
+ <author>
+   <name>Josh McArthur</name>
+   <email>joshua.mcarthur@gmail.com</email>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://joshmcarthur.com{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://joshmcarthur.com{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+
+</feed>
