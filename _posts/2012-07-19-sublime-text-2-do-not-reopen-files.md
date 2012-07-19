@@ -12,10 +12,10 @@ I've just started trying out Sublime Text 2 though, and it's been pretty nice (a
 
 To turn it off, you can change the following settings in your user preferences file. To open these preferences, open Sublime, click the application menu, and then go to 'Preferences' -> 'Settings - User', and add the following keys:
 
-``` JSON
-	"hot_exit": false,
-	"remember_open_files": false
-```
+{% highlight json %}
+"hot_exit": false,
+"remember_open_files": false
+{% endhighlight %}
 
 > If you haven't already added any user settings, these two lines will need to be surrounded by curly braces - "{" and "}".
 
