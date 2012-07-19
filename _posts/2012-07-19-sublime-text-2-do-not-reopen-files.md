@@ -12,12 +12,12 @@ I've just started trying out Sublime Text 2 though, and it's been pretty nice (a
 
 To turn it off, you can change the following settings in your user preferences file. To open these preferences, open Sublime, click the application menu, and then go to 'Preferences' -> 'Settings - User', and add the following keys:
 
-{% highlight json %}
+{% highlight javascript %}
 "hot_exit": false,
 "remember_open_files": false
 {% endhighlight %}
 
-> If you haven't already added any user settings, these two lines will need to be surrounded by curly braces - "{" and "}".
+If you haven't already added any user settings, these two lines will need to be surrounded by curly braces - `{` and `}`.
 
 I don't understand why any application needs to re-open files - if I close an application, that means I don't need it anymore. If I needed it again, I would just leave it open, or suspend my computer and come back to it later. 
 
