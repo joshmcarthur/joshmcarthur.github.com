@@ -1116,8 +1116,19 @@ ul.posts {
   margin: 0;
   padding: 0;
 }
+ul.posts li:first-child {
+  padding-top: 30px;
+}
 ul.posts li {
   line-height: 40px;
+  border-bottom: solid 1px #EEE;
+  font-size: 30px;
+  margin: 10px auto;
+  padding-bottom: 10px;
+}
+ul.posts li span {
+  font-size: 24px;
+  color: #9F9F9F;
 }
 ul.posts li a {
   font-size: 24px;
