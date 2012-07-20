@@ -12,7 +12,7 @@
 	<meta name="author" content="">
 
 	<meta name="viewport" content="width=device-width">
-
+  <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/less/style.css">
   <link rel="stylesheet" href="/less/syntax.css">
 
@@ -69,9 +69,10 @@
 	</div>
 	<div id="main-container">
 		<div id="main" class="wrapper clearfix">
-      <h1>{{ page.title }}</h1>
-      {{ content }}
-
+      <div id="post">
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </div> <!-- #post -->
 		</div> <!-- #main -->
 	</div> <!-- #main-container -->
 
