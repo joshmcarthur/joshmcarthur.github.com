@@ -1085,18 +1085,27 @@ div.highlight {
   border: solid 1px #DDD;
   background: #EEE;
 }
-#post h1 {
+#post {
+  font-family: 'Droid Serif', serif;
+  line-height: 1.5;
+  font-size: 16px;
+}
+#post h1,
+#post h2,
+#post h3,
+#post h4,
+#post h5,
+#post h6 {
   font-family: sans-serif;
+}
+#post h1 {
   font-size: 43px;
   line-height: 45px;
 }
 #post p {
-  font-family: 'Droid Serif', serif;
-  line-height: 1.5;
-  font-size: 16px;
   text-align: justify;
 }
-#post p a {
+#post a {
   color: #369;
 }
 @media only screen and (max-width: 481px) {
@@ -1107,6 +1116,33 @@ div.highlight {
   #post p {
     font-size: 15px;
   }
+}
+#post .image-box {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#post .image-box img {
+  border: solid 5px #DDD;
+}
+#post .image-box  + * {
+  clear: both;
+}
+#post .image-box.stack-2 figure {
+  width: 48%;
+  float: left;
+  margin-left: 2%;
+}
+#post .image-box.stack-2 figure img {
+  width: 100%;
+}
+/* Global styles for figcaption elements */
+figcaption {
+  font-family: 'Droid Serif', serif;
+  text-align: center;
+  color: #333;
+  font-style: italic;
+  padding: 2% 0px 5%;
+  font-size: 14px;
 }
 /* ===== Primary Styles ========================================================
    Author:

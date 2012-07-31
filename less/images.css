@@ -1,0 +1,27 @@
+#post .image-box {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#post .image-box img {
+  border: solid 5px #DDD;
+}
+#post .image-box  + * {
+  clear: both;
+}
+#post .image-box.stack-2 figure {
+  width: 48%;
+  float: left;
+  margin-left: 2%;
+}
+#post .image-box.stack-2 figure img {
+  width: 100%;
+}
+/* Global styles for figcaption elements */
+figcaption {
+  font-family: 'Droid Serif', serif;
+  text-align: center;
+  color: #333;
+  font-style: italic;
+  padding: 2% 0px 5%;
+  font-size: 14px;
+}

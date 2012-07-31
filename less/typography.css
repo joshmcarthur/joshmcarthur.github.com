@@ -1,15 +1,24 @@
-#post h1 {
+#post {
+  font-family: 'Droid Serif', serif;
+  line-height: 1.5;
+  font-size: 16px;
+}
+#post h1,
+#post h2,
+#post h3,
+#post h4,
+#post h5,
+#post h6 {
   font-family: sans-serif;
+}
+#post h1 {
   font-size: 43px;
   line-height: 45px;
 }
 #post p {
-  font-family: 'Droid Serif', serif;
-  line-height: 1.5;
-  font-size: 16px;
   text-align: justify;
 }
-#post p a {
+#post a {
   color: #369;
 }
 @media only screen and (max-width: 481px) {
