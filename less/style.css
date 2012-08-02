@@ -1117,6 +1117,18 @@ div.highlight {
     font-size: 15px;
   }
 }
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
 #post .image-box {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -1131,9 +1143,21 @@ div.highlight {
   width: 48%;
   float: left;
   margin-left: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 #post .image-box.stack-2 figure img {
   width: 100%;
+}
+#post .image-box.stack-2 figure:hover {
+  width: 96%;
 }
 /* Global styles for figcaption elements */
 figcaption {
@@ -1151,6 +1175,9 @@ figcaption {
   text-decoration: none;
   font-style: normal;
   padding: 2%;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -1193,6 +1220,9 @@ ul.posts li span {
 ul.posts li a {
   font-size: 24px;
   color: #666;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -1253,6 +1283,9 @@ ul.posts li a:hover {
   font-size: 14px;
   color: #FFF;
   text-decoration: none;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;

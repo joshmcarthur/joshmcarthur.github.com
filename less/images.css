@@ -1,3 +1,15 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
 #post .image-box {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -12,9 +24,15 @@
   width: 48%;
   float: left;
   margin-left: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 #post .image-box.stack-2 figure img {
   width: 100%;
+}
+#post .image-box.stack-2 figure:hover {
+  width: 96%;
 }
 /* Global styles for figcaption elements */
 figcaption {
@@ -32,6 +50,9 @@ figcaption {
   text-decoration: none;
   font-style: normal;
   padding: 2%;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .img-larger i {
   text-decoration: none;
