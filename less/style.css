@@ -1197,6 +1197,7 @@ figcaption {
   line-height: 1.5;
   font-size: 14px;
   padding-top: 20px;
+  padding-bottom: 20px;
   border-top: dotted 1px #999;
 }
 #post + footer.post-footer .license {
