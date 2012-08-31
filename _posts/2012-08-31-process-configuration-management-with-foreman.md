@@ -10,7 +10,7 @@ tags: []
 
 > **Information:**
 > This blog post is based on a lightning talk I delivered
-> at [3months](http://3months.com) for the dev team. 3months is an agile-based company based in Wellinton, New Zealand. We have fun. Interested in working for us? [Give us a shout!](http://www.3months.com/working-for-us/)
+> at [3months](http://3months.com) for the dev team. 3months is an agile-based company based in Wellington, New Zealand. We have fun. Interested in working for us? [Give us a shout!](http://www.3months.com/working-for-us/)
 
 ---
 
@@ -50,7 +50,7 @@ The cool thing about Foreman is that you can use this .env file just as easily l
 
 ## Managing Processes
 
-The other functionality that Foreman provides is the ability to run and manage multiple processes. This is something that you may or may not have run into in Heroku, but it's still pretty cool. Without foreman, if you had a Rails server, a PubSub server ([Faye](http://faye.jcoglan.com/), for example), and a daemon to run, you might have to do the following:
+The other functionality that Foreman provides is the ability to run and manage multiple processes. This is something that you may or may not have run into in Heroku, but it's still pretty cool. Without Foreman, if you had a Rails server, a PubSub server ([Faye](http://faye.jcoglan.com/), for example), and a daemon to run, you might have to do the following:
 
 1. New terminal tab, run `bundle exec rails s`
 2. New terminal tab, run `bundle exec rackup faye.ru`
@@ -73,24 +73,24 @@ When you run `foreman start`, Foreman will boot up each of these processes, and 
 There's two ways to install Foreman:
 
 1. **Via the Heroku Toolbelt.** Heroku publishes a 'Toolbelt' - a collection of tools required to develop applications that run on the Heroku platform. I don't use this method myself, as I prefer to have control over what's installed and where, but you can install this from `https://toolbelt.heroku.com/` if you'd like
-2. **As a gem.** You can just run `gem install foreman` to get it installed - easy as that. If you're using RVM, then you may want to follow my pattern - I normally place foreman in my global gemset along with the `heroku` gem, so that it accessible to all my apps. If you're just experimenting with Foreman though, you may want to place it in it's own gemset.
+2. **As a gem.** You can just run `gem install foreman` to get it installed - easy as that. If you're using RVM, then you may want to follow my pattern - I normally place Foreman in my global gemset along with the `heroku` gem, so that it accessible to all my apps. If you're just experimenting with Foreman though, you may want to place it in it's own gemset.
 
 ## Using Foreman
 
 Foreman is actually pretty easy to use on a day-to-day basis - there's really only two commands you need to run:
 
-* `foreman run [cmd]` - You can run any command with foreman, doing all the environment variable setup, etc. beforehand. If you _require_ any variables in your application's setup routine, then you will need to run all your `rails *` and `rake *` commands with this, otherwise you can just run it when you need access to these variables.
+* `foreman run [cmd]` - You can run any command with Foreman, doing all the environment variable setup, etc. beforehand. If you _require_ any variables in your application's setup routine, then you will need to run all your `rails *` and `rake *` commands with this, otherwise you can just run it when you need access to these variables.
 * `foreman start` - Use this command to start all the processes listed in your `Procfile`, and just `Ctrl-C` when you want to stop them. 
 
-Easy as that really. There's a bunch of other things you can do with foreman (such as exporting launchd and init.d scripts to run your application automatically), but they're not really something you'll need to know to get started.
+Easy as that really. There's a bunch of other things you can do with Foreman (such as exporting launchd and init.d scripts to run your application automatically), but they're not really something you'll need to know to get started.
 
 
 ## Debugging Ruby with Foreman
 
-A common complaint I hear about foreman is that it's quite complex to debug application's in. This is a consequence of the way that foreman combines the running of all of the processes in your Procfile into a single output flow - debugger's can't easily make it through. I've found there's a couple of ways to debug with Foreman though:
+A common complaint I hear about Foreman is that it's quite complex to debug application's in. This is a consequence of the way that Foreman combines the running of all of the processes in your Procfile into a single output flow - debugger's can't easily make it through. I've found there's a couple of ways to debug with Foreman though:
 
 1. **Run a Rails debugging server with `foreman run`.** Since `foreman run` doesn't do any of the fancy `Procfile` stuff, you can just run `foreman run rails s --debugger` when you _do_ need to debug - it will behave just as it always has.
-2. **Use a debugging console directly in foreman.** I've had mixed results with this, but if you do run with `foreman start` and have debuggers in your code, I have noticed that these breakpoints do get hit - it's just that foreman doesn't always output the prompt characters for the debugger. You can still type in `irb` to drop into an IRB session, and everything will behave as it usually does from here - it just requires a keen eye to spot when you've landed on a debugger in foreman (since there won't be any output)
+2. **Use a debugging console directly in Foreman.** I've had mixed results with this, but if you do run with `Foreman start` and have debuggers in your code, I have noticed that these breakpoints do get hit - it's just that Foreman doesn't always output the prompt characters for the debugger. You can still type in `irb` to drop into an IRB session, and everything will behave as it usually does from here - it just requires a keen eye to spot when you've landed on a debugger in Foreman (since there won't be any output)
 3. **Run a remote instance of ruby-debug and connect that way.** Ruby's debugging support includes the ability to run a debugging server from your application, that you can connect to from another terminal window or tab. To do this, you need to do a bit of setup in an initializer, but once it's there, it's pretty seamless:
  * In `config/environments/development.rb`, add the following lines:
   {% highlight ruby %}
