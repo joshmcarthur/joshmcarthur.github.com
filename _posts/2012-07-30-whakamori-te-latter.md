@@ -4,6 +4,10 @@ title: "Whakamāori te Latter"
 description: ""
 category: 
 tags: []
+projects:
+  - name: Rails I18n
+    description: Locales and source code for the Internationalization support built into Ruby on Rails
+    url: https://github.com/svenfuchs/rails-i18n
 ---
 
 ### Introduction
@@ -29,6 +33,8 @@ It then substitutes the _request_ for the string value for the current language,
 The main advantage of I18n is centralization. Moving all the messages and small bits of text used all over the site makes it much easier to change content, try out different wording in certain areas, but most significantly, to offer support for multiple languages globally by changing just a couple of files.
 
 ### Adding Te Reo Māori to Latter
+
+![The Tino Rangatiratanga Flag of the Maori sovereignty movement](/img/posts/maori_flag.png)
 
 The process of adding Te Reo to Latter was pretty simple - just time consuming. Initally, the bulk of the work was just finding translatable strings of text, and adding English translations for them, so that I could later add support for Māori. This process goes much more smoothly when you know where to look:
 
@@ -79,6 +85,7 @@ By this point, I had the bulk of the application translated into English - that 
 	    	</a>
     	</figcaption>
     </figure>
+    <br class="clearfix" />
 </div>
 
 The next step, then is to add another language. This process in itself is actually very simple. Simply copy the `en.yml` file to `mi.yml`, and begin translating!
