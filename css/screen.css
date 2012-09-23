@@ -44,8 +44,23 @@ body {
 .footer .contact .rss {
   line-height: 1.6;
 }
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  body {
+    font-size: 24px;
+  }
+  body .site {
+    width: 90%;
+  }
+  body #post {
+    text-align: left;
+  }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  body {
+    font-size: 24px;
+  }
   body .site {
     width: 90%;
   }
