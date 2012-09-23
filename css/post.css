@@ -14,6 +14,22 @@
 #projects li p {
   margin: 5px auto;
 }
+.image-box.stack-2 figure {
+  width: 45%;
+  float: left;
+}
+.image-box figure {
+  margin: 0px 10px;
+}
+.image-box figcaption {
+  font-size: 80%;
+  text-align: center;
+  color: #666;
+}
+.image-box a.img-larger {
+  display: block;
+  margin: 5px auto;
+}
 #post {
   text-align: justify;
 }

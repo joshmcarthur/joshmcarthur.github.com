@@ -5,6 +5,12 @@ body {
 }
 
 .title {
+
+	a:first-child {
+		border-right: solid 5px #2E8922;
+		padding-right: 10px;
+	}
+	
 	a, a:active, a:visited {
 		color: #2E8922;
 		font-weight: bold;
@@ -14,6 +20,7 @@ body {
 	a.extra, a.extra:active, a.extra:visited {
 		color: black;
 		font-weight: normal;
+		padding-left: 10px;
 	}
 }
 
@@ -39,6 +46,19 @@ body {
 
 		.rss {
 			line-height: 1.6;
+		}
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	body {
+		.site {
+			width: 90%;
+		}
+
+		#post {
+			text-align: left;
 		}
 	}
 }
