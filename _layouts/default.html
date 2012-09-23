@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }}</title>
+   <meta name="author" content="Joshua McArthur" />
+   <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
+
+   <!-- Fonts -->
+   <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!-- Post CSS -->
+   <link rel="stylesheet" href="/css/post.css" type="text/css" media="screen, projection" />
+
+   <!-- Extra stylesheets, can be included by posts -->
+   {% for stylesheet_url in page.stylesheets %}
+   <link rel="stylesheet" href="{{ stylesheet_url }}" type="text/css" media="screen,projection" />
+   {% endfor %}
+</head>
+<body>
+
+<div class="site">
+  <div class="title">
+    <a href="/">Josh McArthur</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/about.html">about</a>
+    <a class="extra" href="/donations/">my-donations</a>
+  </div>
+  
+  {{ content }}
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Josh McArthur<br />
+        Snr. Web Developer, <a href="http://3months.com/">3months</a><br />
+        josh@3months.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/joshmcarthur/">github.com/joshmcarthur</a><br />
+        <a href="http://twitter.com/sudojosh/">twitter.com/sudojosh</a><br />
+        <a class="rss" href="http://feeds.feedburner.com/sudojosh">
+        	<img src="/img/rss.png" alt="Subscribe to RSS Feed" />
+      	</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Extra scripts, can be included by posts -->
+{% for script_url in page.scripts %}
+  <script src="{{ script_url }}"></script>
+{% endfor %}
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-17014575-2");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
+</body>
+</html>

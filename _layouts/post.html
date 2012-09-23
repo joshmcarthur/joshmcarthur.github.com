@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div id="post">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    {{ page.date | date_to_string }}
+    <ul class="links">
+      {% if page.projects %}
+        <li><a href="#projects">Projects I Mention</a></li>
+      {% endif %}
+      {% if site.related_posts %}
+        &#8226;
+        <li><a href="#related">Related Posts</a></li>
+      {% endif %}
+    </ul>
+  </p>
+
+  {{ content }}
+</div>
+
+<div id="projects">
+  {% if page.projects %}
+    <h2>Referenced Projects</h2>
+
+    <ul>
+    {% for project in page.projects %}
+      <li>
+        <a href="{{ project.url }}">{{ project.name }}</a>
+        <p>
+          {{ project.description }}
+        </p>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

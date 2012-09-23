@@ -1,7 +1,7 @@
 ---
 layout: default
 stylesheets:
-- /donations/less/style.css
+- /css/donations.css
 scripts:
 - http://cdnjs.cloudflare.com/ajax/libs/zepto/0.8/zepto.min.js
 - /donations/js/libs/spin.min.js
@@ -11,7 +11,16 @@ scripts:
 ---
 
 <div id="donations-page">
+  <h3>My donations:</h3>
+  <ul id="donations">
+  </ul>
+
+  <p>
+  <hr />
+</p>
+
   <div id="about">
+    <h3>About</h3>
     <p>
     This page is a listing of the open source projects and
     causes that I support. Each time I make a donation or contribution
@@ -32,9 +41,5 @@ scripts:
     <a href="https://twitter.com/share?text=@sudojosh" class="twitter-share-button" data-related="sudojosh" data-lang="en" data-count="none" data-size="large">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </p>
-  </div>
-
-  <h3>My donations:</h3>
-  <div id="donations">
   </div>
 </div>

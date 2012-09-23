@@ -4,19 +4,25 @@ title: "Process configuration management with Foreman"
 description: ""
 category: 
 tags: []
+projects:
+  - name: Foreman
+    url: https://github.com/ddollar/foreman
+    description: Foreman is a process and configuration management system used as part of the Heroku Infrastructure
+  - name: Debugger
+    url: https://github.com/cldwalker/debugger
+    description: Debugger is a port of ruby-debug patched to work on MRI Ruby '1.9.3' and above.
 ---
 
----
 
-> **Information:**
-> This blog post is based on a lightning talk I delivered
-> at [3months](http://3months.com) for the dev team. 3months is an agile-based company based in Wellington, New Zealand. We have fun. Interested in working for us? [Give us a shout!](http://www.3months.com/working-for-us/)
 
----
+
 
 Often in the Rails projects I build, I have a need to store configuration that I don't really want to have in my code. The most obvious way to do this is to either store the configuration in a YAML file (e.g. `config/settings.yml`), or in environment variables.
 
 [Foreman](http://rubygems.org/gems/foreman) is [Heroku](http://heroku.com)'s answer to these types of configuration challenges. It is used internally at Heroku to manage processes and their configuration.
+
+
+![Child cannery workers sitting on bushelbaskets as they prepare beans under watchful eye of foreman. Source: LIFE Magazine](/img/posts/foreman.jpg)
 
 ## Managing Configuration
 
@@ -112,6 +118,10 @@ I do prefer the first two options to the last, as I find that code changes seem 
 ## Conclusion
 
 Foreman is a pretty awesome tool for development, especially for those apps that may have some complex configuration and process management needs. I don't use it for all my applications (since I'm a strong believer in picking **just enough** of the right tools for the job), but I do find it incredibly handy to extract all my configuration and processes into external files that I can easily update and generally DRY up my code.
+
+> **Information:**
+> This blog post is based on a lightning talk I delivered
+> at [3months](http://3months.com) for the dev team. 3months is an agile-based company based in Wellington, New Zealand. We have fun. Interested in working for us? [Give us a shout!](http://www.3months.com/working-for-us/)
 
 
 
