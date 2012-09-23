@@ -28,6 +28,10 @@
    {% for stylesheet_url in page.stylesheets %}
    <link rel="stylesheet" href="{{ stylesheet_url }}" type="text/css" media="screen,projection" />
    {% endfor %}
+
+   <!-- Set up the viewport for mobile devices -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"> 
 </head>
 <body>
 
