@@ -10,14 +10,14 @@ $(function() {
       stopSpin();
       donation_tweets = processDonations(donation_tweets);
       var donations_list = '{{#donations}}\
-        <section class="donation clearfix">\
-          <aside class="date">{{formattedDate}}</aside>\
-            <p class="text">{{text}}</p>\
-          <aside class="amount">${{amount}}</aside>\
-        </section>\
+        <li>\
+          <span class="date">{{formattedDate}}</span>\
+          &raquo;\
+          <span class="text">{{text}}</span>\
+        </li>\
         {{/donations}}\
         {{^donations}}\
-          <p class="no-donations">No donations yet...</p>\
+          <li class="no-donations">No donations yet...</li>\
         {{/donations}}';
 
       $('#donations').html(Mustache.render(donations_list, {'donations': donation_tweets}));

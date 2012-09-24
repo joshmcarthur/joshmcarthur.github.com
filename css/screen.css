@@ -1,0 +1,99 @@
+body {
+  background-color: white;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+.title a:first-child {
+  border-right: solid 5px #2E8922;
+  padding-right: 10px;
+}
+.title a,
+.title a:active,
+.title a:visited {
+  color: #2E8922;
+  font-weight: bold;
+  text-decoration: none;
+}
+.title a.extra,
+.title a.extra:active,
+.title a.extra:visited {
+  color: black;
+  font-weight: normal;
+  padding-left: 10px;
+}
+.site {
+  width: 45%;
+  margin: 5% auto;
+}
+.footer {
+  margin: 5% auto;
+  padding: 2% 0;
+  border-top: dashed 1px #666;
+}
+.footer .contact {
+  float: left;
+  width: 45%;
+  font-size: 90%;
+  color: #666;
+}
+.footer .contact a,
+.footer .contact a:active,
+.footer .contact a:visited {
+  color: #444;
+}
+.footer .contact .rss {
+  line-height: 1.6;
+}
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  body .site {
+    width: 90%;
+  }
+  body #post {
+    text-align: left;
+  }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 767px) {
+  body .site {
+    width: 90%;
+  }
+  body #post {
+    text-align: left;
+  }
+}
+body {
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Arvo', 'Arial', sans-serif;
+  font-weight: 400;
+}
+a,
+a:active {
+  color: #369;
+}
+a.visited {
+  color: #0000FF;
+}
+.clearfix {
+  clear: both;
+}
+#archive ul.posts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#archive ul.posts li {
+  line-height: 1.7;
+}
+#archive ul.posts li a {
+  color: #222;
+  text-decoration: none;
+  border-bottom: dotted 1px #222;
+}

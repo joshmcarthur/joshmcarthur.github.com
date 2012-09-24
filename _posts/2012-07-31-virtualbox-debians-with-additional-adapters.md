@@ -8,6 +8,8 @@ tags: []
 
 I get stung by this one all the time, and I can never remember how I fix it. I'm noting it down here, in the hope that next time I'm googling for a fix I'll stumble across my own blog post.
 
+![ Robert Fairbanks and Robert Davis, both of IBM talking in computer room of North American Aviation. Magnetic tape drives and consoles and IBM computers are in the room.](/img/posts/virtualbox.jpeg)
+
 Adding network adapters (or refreshing the MAC address) of a virtual machine running a Debian-based OS on VirtualBox causes a strange problem - the new interface is not listed in the guest after booting, and the network interface device is simply not present.
 
 The fix for this is very simple. Effectively, Debian 'caches' some interface information like the MAC address (which isn't really supposed to change), in a file that gets loaded on boot. When the MAC address DOES change, Debian effectively ignores that interface.

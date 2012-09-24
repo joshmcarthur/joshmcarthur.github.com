@@ -4,6 +4,19 @@ title: "Building On-The-Spot: A Spotify play queue"
 description: ""
 category: 
 tags: []
+projects:
+  - name: Hallon
+    description: Hallon is a Ruby interface to the Spotify C library supporting searching, playback, and basically anything Spotify itself can do.
+    url: https://github.com/Burgestrand/Hallon
+  - name: Meta Spotify
+    description: A Rubygem for searching tracks using Spotify's web services.
+    url: https://github.com/philnash/meta-spotify
+  - name: Redis
+    description: Redis is a key-value store also supporting complex data types such as lists and sets. Super cool.
+    url: https://github.com/antirez/redis
+  - name: Daemons Rails
+    description: A handy gem for generating the boilerplate required to run daemon processes with Rails.
+    url: https://github.com/mirasrael/daemons-rails
 ---
 
 ## About the Application
@@ -32,10 +45,14 @@ The idea behind On the Spot was to allow everyone in the office at work to contr
 	    	</a>
 	    </figcaption>
 	</figure>
+
+	<br class="clearfix" />
 </div>
 
 So, we basically have a two-page app - one page for finding music, another for playing it. This whole thing runs on a server in the office, and is DNS-d to http://spotify.office.3months.com, making it accessible to all staff.
 
+
+![Spotify's headquarters at Humlegårdsgatan](/img/posts/spotify.jpeg)
 
 ## Technology Choices
 

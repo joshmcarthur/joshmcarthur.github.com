@@ -1,0 +1,107 @@
+#projects ul,
+#projects li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#projects li {
+  padding: 2% 2% 2% 50px;
+  margin: 2% auto;
+  min-height: 50px;
+  background: #efefef url('/img/github.png') no-repeat 10px 50%;
+  border: solid 1px #DDD;
+}
+#projects li p {
+  margin: 5px auto;
+}
+.image-box.stack-2 figure {
+  width: 45%;
+  float: left;
+}
+.image-box figure {
+  margin: 0px 10px;
+}
+.image-box figcaption {
+  font-size: 80%;
+  text-align: center;
+  color: #666;
+}
+.image-box a.img-larger {
+  display: block;
+  margin: 5px auto;
+}
+#post {
+  text-align: justify;
+}
+#post a.heading {
+  text-decoration: none;
+  color: black;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+}
+#post a.heading:hover {
+  color: #369;
+}
+#post h1 {
+  margin-bottom: 5px;
+}
+#post .meta {
+  font-style: italic;
+  color: #666;
+  margin-top: 0px;
+}
+#post .links,
+#post .links li {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+}
+#post .links li {
+  display: inline;
+  padding: 0px 5px;
+}
+#post .links li a,
+#post .links li a:active,
+#post .links li a:visited {
+  color: #666;
+  font-size: 90%;
+}
+#post .links li:first-child {
+  padding-left: 0;
+}
+#post img {
+  width: 96%;
+  background-color: #EFEFEF;
+  border: solid 1px #DDD;
+  padding: 2%;
+  margin: 2% auto;
+}
+#post p,
+#post li {
+  line-height: 1.4;
+}
+#post code {
+  background: #CCC;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+#post .highlight {
+  width: 90%;
+  padding: 5%;
+  overflow: hidden;
+  background: none;
+  border-left: solid 5px #073642;
+}
+#post .highlight code {
+  background: none;
+  border-radius: 0px;
+}
+#post blockquote {
+  border: none;
+  border-left: solid 3px #444;
+  padding-left: 5%;
+  margin: 0;
+  color: #444;
+}

@@ -1,0 +1,77 @@
+body {
+	background-color: white;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+.title {
+
+	a:first-child {
+		border-right: solid 5px #2E8922;
+		padding-right: 10px;
+	}
+	
+	a, a:active, a:visited {
+		color: #2E8922;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a.extra, a.extra:active, a.extra:visited {
+		color: black;
+		font-weight: normal;
+		padding-left: 10px;
+	}
+}
+
+.site {
+	width: 45%;
+	margin: 5% auto;
+}
+
+.footer {
+	margin: 5% auto;
+	padding: 2% 0;
+	border-top: dashed 1px #666;
+
+	.contact {
+		float: left;
+		width: 45%;
+		font-size: 90%;
+		color: #666;
+
+		a, a:active, a:visited {
+			color: #444;
+		}
+
+		.rss {
+			line-height: 1.6;
+		}
+	}
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+	.smartphone_responsive();
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (max-width : 767px) {
+	.smartphone_responsive();
+}
+
+.smartphone_responsive() {
+		body {
+
+		.site {
+			width: 90%;
+		}
+
+		#post {
+			text-align: left;
+		}
+	}
+}
