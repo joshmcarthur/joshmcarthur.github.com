@@ -4,6 +4,10 @@ title: "Redesigning for readability - a retrospective"
 description: ""
 category: 
 tags: []
+projects:
+  - name: Jekyll
+    description: Jekyll is a blog-aware, static site generator in Ruby
+    url: https://github.com/mojombo/jekyll
 ---
 
 I'll be the first to admit that I'm not that great at design, especially typography and detailed elements. I'm just one of those people who can see what they want in their heads just fine, but something just goes…wrong…between the head and the page. In this post, I'm going to explain some of the lessons I learned while focussing on making this blog clearer, more consistent and more readable in general.
