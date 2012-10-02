@@ -8,7 +8,18 @@
         - {{ page.title }}
       {% endif %}
     </title>
-   <meta name="author" content="Joshua McArthur" />
+    <meta name="author" content="Joshua McArthur" />
+
+    {% if page.meta_description %}
+      <meta name="description" content="{{page.meta_description}}" />
+    {% else %}
+      <meta name="description" content="{{ page.content | strip_html | truncatewords:30 }}" />
+    {% endif %}
+
+   {% if page.tags %}
+    <meta name="keywords" content="{{ page.tags }}" />
+   {% endif %}
+
    <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
 
    <!-- Fonts -->
