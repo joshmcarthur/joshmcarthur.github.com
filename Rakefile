@@ -2,6 +2,8 @@ require "rubygems"
 require 'rake'
 require 'yaml'
 require 'time'
+require 'open-uri'
+require 'json'
 
 SOURCE = "."
 CONFIG = {
@@ -38,4 +40,42 @@ task :post do
     post.puts "---"
   end
 end # task :post
+
+desc "Sync Gists from github account into posts"
+task :sync_gists do
+  username = ENV['username'] || 'joshmcarthur'
+
+  puts "Getting Gists"
+  gists = JSON.parse(open("https://api.github.com/users/#{username}/gists").read)
+  puts "Found #{gists.size} gists"
+
+  gists.each do |gist|
+    puts "Matching gist to known filename"
+    filename = "#{Date.parse(gist['created_at']).strftime('%Y-%m-%d')}-gist-#{gist['id']}.markdown"
+    if File.exists?(File.join(CONFIG['posts'], filename))
+      puts "Gist #{gist['id']} already has a post"
+      next
+    end
+
+    puts "Creating post for gist #{gist['id']}"
+    open(File.join(CONFIG['posts'], filename), 'w') do |post|
+      post.puts "---"
+      post.puts "layout: gist"
+      post.puts "title: \"#{gist['description']}\""
+      post.puts 'description: ""'
+      post.puts "category: gist"
+      post.puts "tags: []"
+      post.puts "---"
+
+      gist['files'].values.each do |file_info|
+        post.puts "<section role=\"snippet\">"
+        post.puts "<h1>#{file_info['filename']}</h1>"
+        post.puts "{% highlight #{file_info['type'].gsub('application/', '')} linenos%}"
+        post.puts open(file_info['raw_url']).read
+        post.puts "{% endhighlight %}"
+        post.puts "</section>"
+      end
+    end
+  end
+end
 
