@@ -1,70 +1,39 @@
 @import url('projects.less');
 @import url('components.less');
+@black: #222;
+@mute: #333;
+@grey: #ddd;
 
-#post {
+.post {
 
+	header {
+		a {
+			color: @black;
+			text-decoration: none;
 
-
-	a.heading {
-		text-decoration: none;
-		color: black;
-		transition: 0.5s;
-		-webkit-transition: 0.5s;
-		-moz-transition: 0.5s;
-		-ms-transition: 0.5s;
-	}
-
-	a.heading:hover {
-		color: #369;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
-
-	h1 {
-		text-align: left;
-		margin-bottom: 5px;
 	}
 
 	.meta {
 		font-style: italic;
-		color: #666;
-		margin-top: 0px
+		color: @mute;
 	}
-
-	.links {
-		&, li {
-			margin: 0;
-			padding: 0px;
-			list-style: none;
-		}
-
-		li {
-			display: inline;
-			padding: 0px 5px;
-
-			a, a:active, a:visited {
-				color: #666;
-				font-size: 90%;
-			}
-
-			&:first-child {
-				padding-left: 0;
-			}
-		}
-	}
-
-	text-align: justify;
-
-
-		img {
-			width: 96%;
-			background-color: #EFEFEF;
-			border: solid 1px #DDD;
-			padding: 2%;
-			margin: 2% auto;
-		}
 
 	p, li {
-		line-height: 1.4;
+		line-height: 1.75;
 	}
+
+	img {
+		width: 96%;
+		background-color: #EFEFEF;
+		border: solid 1px @grey;
+		padding: 2%;
+		margin: 2% auto;
+	}
+
 
 	code {
 		background: #CCC;

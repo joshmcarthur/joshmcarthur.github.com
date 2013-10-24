@@ -1,65 +1,91 @@
 body {
+  margin: 0;
+  padding: 0;
   background-color: white;
   font-family: sans-serif;
   font-size: 16px;
 }
-.title a:first-child {
-  border-right: solid 5px #2E8922;
-  padding-right: 10px;
+header {
+  margin-bottom: 1.5em;
 }
-.title a,
-.title a:active,
-.title a:visited {
-  color: #2E8922;
+header h1 {
+  font-size: 1.5em;
+  font-family: sans-serif;
   font-weight: bold;
+  display: inline;
+}
+header h1 a {
+  color: #222222;
   text-decoration: none;
 }
-.title a.extra,
-.title a.extra:active,
-.title a.extra:visited {
-  color: black;
-  font-weight: normal;
-  padding-left: 10px;
+header nav {
+  display: inline-block;
+  margin-left: 1em;
 }
-.site {
-  width: 45%;
-  margin: 5% auto;
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.footer {
-  margin: 5% auto;
-  padding: 2% 0;
-  border-top: dashed 1px #666;
+header nav li {
+  display: inline;
 }
-.footer .contact {
+header nav a {
+  color: #333333;
+  font-size: 1.5em;
+  padding-right: .75em;
+}
+header hr {
+  border-top: solid #2e8922 5px;
+  color: transparent;
+}
+aside#about {
+  display: none;
+  margin: 2% auto;
+  font-size: .9em;
+  color: #333333;
+}
+#archive {
+  display: none;
+}
+.container {
+  width: 90%;
+  margin: 2% auto;
+}
+footer {
+  border-top: solid 1px #dddddd;
+}
+footer .contact {
   float: left;
   width: 45%;
   font-size: 90%;
-  color: #666;
+  color: #333333;
 }
-.footer .contact a,
-.footer .contact a:active,
-.footer .contact a:visited {
-  color: #444;
+footer .contact a,
+footer .contact a:active,
+footer .contact a:visited {
+  color: #444444;
 }
-.footer .contact .rss {
+footer .contact .rss {
   line-height: 1.6;
 }
-/* iPhone 4 ----------- */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  body .site {
-    width: 90%;
+footer .contact:last-child {
+  text-align: right;
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 65%;
   }
-  body #post {
-    text-align: left;
+  aside#about {
+    display: block;
+  }
+  #archive {
+    display: block;
   }
 }
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-width: 767px) {
-  body .site {
-    width: 90%;
-  }
-  body #post {
-    text-align: left;
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 50%;
   }
 }
 body {
@@ -71,7 +97,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Arvo', 'Arial', sans-serif;
+  font-family: 'Georgia', 'Times New Roman', sans-serif;
   font-weight: 400;
 }
 a,
@@ -96,4 +122,87 @@ a.visited {
   color: #222;
   text-decoration: none;
   border-bottom: dotted 1px #222;
+}
+#related ul {
+  padding-left: 1em;
+}
+#related ul li {
+  line-height: 1.75em;
+}
+#projects ul,
+#projects li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#projects li {
+  padding: 2% 2% 2% 50px;
+  margin: 2% auto;
+  min-height: 50px;
+  background: #efefef url('/img/github.png') no-repeat 10px 50%;
+  border: solid 1px #DDD;
+}
+#projects li p {
+  margin: 5px auto;
+}
+.image-box.stack-2 figure {
+  width: 45%;
+  float: left;
+}
+.image-box figure {
+  margin: 0px 10px;
+}
+.image-box figcaption {
+  font-size: 80%;
+  text-align: center;
+  color: #666;
+}
+.image-box a.img-larger {
+  display: block;
+  margin: 5px auto;
+}
+.post header a {
+  color: #222222;
+  text-decoration: none;
+}
+.post header a:hover {
+  text-decoration: underline;
+}
+.post .meta {
+  font-style: italic;
+  color: #333333;
+}
+.post p,
+.post li {
+  line-height: 1.75;
+}
+.post img {
+  width: 96%;
+  background-color: #EFEFEF;
+  border: solid 1px #dddddd;
+  padding: 2%;
+  margin: 2% auto;
+}
+.post code {
+  background: #CCC;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+.post div.highlight {
+  width: 90%;
+  padding: 5%;
+  overflow: hidden;
+  background: none;
+  border-left: solid 5px #073642;
+}
+.post div.highlight code {
+  background: none;
+  border-radius: 0px;
+}
+.post blockquote {
+  border: none;
+  border-left: solid 3px #444;
+  padding-left: 5%;
+  margin: 0;
+  color: #444;
 }
