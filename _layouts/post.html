@@ -1,19 +1,10 @@
 ---
 layout: default
 ---
-<div id="post">
+<div class="post">
   <h1>{{ page.title }}</h1>
   <p class="meta">
     {{ page.date | date_to_string }}
-    <ul class="links">
-      {% if page.projects %}
-        <li><a href="#projects">Projects I Mention</a></li>
-      {% endif %}
-      {% if site.related_posts %}
-        &#8226;
-        <li><a href="#related">Related Posts</a></li>
-      {% endif %}
-    </ul>
   </p>
 
   {{ content }}
@@ -39,7 +30,7 @@ layout: default
 
 <div id="related">
   <h2>Related Posts</h2>
-  <ul class="posts">
+  <ul>
     {% for post in site.related_posts limit:3 %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
