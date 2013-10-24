@@ -88,14 +88,14 @@
   border-radius: 5px;
   padding: 2px 5px;
 }
-#post .highlight {
+#post div.highlight {
   width: 90%;
   padding: 5%;
   overflow: hidden;
   background: none;
   border-left: solid 5px #073642;
 }
-#post .highlight code {
+#post div.highlight code {
   background: none;
   border-radius: 0px;
 }
