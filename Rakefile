@@ -17,16 +17,51 @@ desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
-  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
   rescue Exception => e
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
   end
+
+  create_post(date,title)
+end # task :post
+
+desc "Create a post stub from a Gist"
+task :post_from_gist do
+  username = ENV['username'] || 'joshmcarthur'
+  gist_id = ENV['gist']
+  abort('Gist not provided') unless gist_id
+
+  gist_id = gist_id.match(/\/([0-9]{1,30})\Z/).captures.first if gist_id.start_with?("htt")
+
+  puts "Fetching Gist ##{gist_id}"
+  gist = JSON.parse(open("https://api.github.com/gists/#{gist_id}").read)
+
+  title = ENV["title"] || "Code snippet: #{Date.parse(gist['created_at']).strftime('%-d %b %Y')}"
+
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+  rescue Exception => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+
+  content = ""
+  content << gist['description'] + "\n"
+  content << "{% gist #{gist['id']} %}"
+
+  create_post(date, title, content)
+end
+
+
+private
+
+def create_post(date, title, content = nil)
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+    abort("#{filename} already exists.")
   end
 
   puts "Creating new post: #{filename}"
@@ -38,44 +73,7 @@ task :post do
     post.puts "category: "
     post.puts "tags: []"
     post.puts "---"
-  end
-end # task :post
-
-desc "Sync Gists from github account into posts"
-task :sync_gists do
-  username = ENV['username'] || 'joshmcarthur'
-
-  puts "Getting Gists"
-  gists = JSON.parse(open("https://api.github.com/users/#{username}/gists").read)
-  puts "Found #{gists.size} gists"
-
-  gists.each do |gist|
-    puts "Matching gist to known filename"
-    filename = "#{Date.parse(gist['created_at']).strftime('%Y-%m-%d')}-gist-#{gist['id']}.markdown"
-    if File.exists?(File.join(CONFIG['posts'], filename))
-      puts "Gist #{gist['id']} already has a post"
-      next
-    end
-
-    puts "Creating post for gist #{gist['id']}"
-    open(File.join(CONFIG['posts'], filename), 'w') do |post|
-      post.puts "---"
-      post.puts "layout: gist"
-      post.puts "title: \"#{gist['description']}\""
-      post.puts 'description: ""'
-      post.puts "category: gist"
-      post.puts "tags: []"
-      post.puts "---"
-
-      gist['files'].values.each do |file_info|
-        post.puts "<section role=\"snippet\">"
-        post.puts "<h1>#{file_info['filename']}</h1>"
-        post.puts "{% highlight #{file_info['type'].gsub('application/', '')} linenos%}"
-        post.puts open(file_info['raw_url']).read
-        post.puts "{% endhighlight %}"
-        post.puts "</section>"
-      end
-    end
+    post.puts content if content
   end
 end
 
