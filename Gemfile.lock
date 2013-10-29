@@ -28,6 +28,7 @@ GEM
     rake (10.1.0)
     redcarpet (2.3.0)
     safe_yaml (0.7.1)
+    sass (3.2.12)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -38,3 +39,4 @@ DEPENDENCIES
   liquid
   rake
   redcarpet
+  sass
