@@ -1,0 +1,12 @@
+.container {
+  width: 90%;
+  margin: 2% auto; }
+
+#header {
+  margin-bottom: 1.5em; }
+  #header .title {
+    text-decoration: none; }
+    #header .title h1 {
+      font-size: 1.5em;
+      font-family: sans-serif;
+      font-weight: bold; }
