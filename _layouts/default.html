@@ -22,15 +22,11 @@
 
    <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
 
-   <!-- Fonts -->
-   <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
    <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+   <link rel="stylesheet" href="/stylesheets/blog.css" type="text/css" media="screen, projection" />
 
    <!-- Extra stylesheets, can be included by posts -->
    {% for stylesheet_url in page.stylesheets %}
@@ -43,17 +39,9 @@
 </head>
 <body>
 
-<header>
+<header id="header">
   <div class="container">
-    <h1><a href="/">Josh McArthur</a></h1>
-
-    <!--<nav>
-      <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/about.html">about</a></li>
-        <li><a href="/donations/">my donations</a></li>
-      </ul>
-    </nav>-->
+    <a class="title" href="/"><h1>Josh McArthur</h1></a>
 
     <aside id="about">
       I'm a web developer specializing in Ruby on Rails, although I have also worked with the .NET toolset,
