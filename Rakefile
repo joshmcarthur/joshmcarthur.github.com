@@ -12,6 +12,23 @@ CONFIG = {
 }
 
 
+desc "compile and run the site"
+task :default do
+  pids = [
+    spawn("jekyll serve --watch"), # put `auto: true` in your _config.yml
+    spawn("scss --watch assets:stylesheets"),
+  ]
+
+  trap "INT" do
+    Process.kill "INT", *pids
+    exit 1
+  end
+
+  loop do
+    sleep 1
+  end
+end
+
 # Usage: rake post title="A Title" [date="2012-02-09"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
