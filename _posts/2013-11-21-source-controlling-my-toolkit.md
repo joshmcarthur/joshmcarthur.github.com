@@ -6,13 +6,13 @@ category:
 tags: []
 ---
 
-This morning, I created a new repository on Github called [toolkit](https://github.com/joshmcarthur/toolkit). I'm be using it to keep track of the tools I use every day, in order to benefit others who are interested in how I work, and for my own benefit, to be able to easily refer to documentation, source code and links for tools that may be useful for a particular situation.
+This morning, I created a new repository on Github called [toolkit](https://github.com/joshmcarthur/toolkit). I'm using it to keep track of the tools I use every day, in order to benefit others who are interested in how I work, and for my own benefit, to be able to easily refer to documentation, source code and links for tools that may be useful for a particular situation.
 
 I've tried to do this type of thing many times in the past - sometimes by writing a blog post, or forking or 'starring' a repository on Github. There are a few reason's why I've started off with Git repository this time though:
 
 1. There is a history of the additions and changes that have been made to my toolkit over time.
 2. Github automatically provides a nice, friendly layout to view items in my toolkit.
-3. I can use Git submodules to track open source projects without needing to keep a full (outdated) copy of these projects in my toolkit.
+3. I can use Git submodules to track open source projects without needing to keep a full (and quickly outdated) copy of these projects in my toolkit.
 4. It's easy for others to view my toolkit, and even contribute to it (for example, by sending a pull request or lodging an issue), or even to fork it and adapt it to their own needs.
 5. I can put absolutely any content in this repository - whatever works best for me - it could be an image, some markdown, a whole repository (as a submodule), or just a link - in all cases, Github tends to provide a nice friendly display for this content.
 
