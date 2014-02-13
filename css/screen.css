@@ -7,6 +7,7 @@ body {
 }
 header {
   margin-bottom: 1.5em;
+  margin-top: 2.5em;
 }
 header h1 {
   font-size: 1.5em;
@@ -88,6 +89,10 @@ footer .contact:last-child {
     width: 50%;
   }
 }
+.pull-right {
+  float: right;
+  display: inline-block;
+}
 body {
   font-family: 'Arial', 'Helvetica Neue', sans-serif;
 }
@@ -161,6 +166,15 @@ a.visited {
   display: block;
   margin: 5px auto;
 }
+blockquote {
+  border: none;
+  border-left: solid 3px #444;
+  padding-left: 5%;
+  margin: 0;
+  color: #888;
+  line-height: 1.5;
+  font-size: 120%;
+}
 .post header a {
   color: #222222;
   text-decoration: none;
@@ -198,11 +212,4 @@ a.visited {
 .post div.highlight code {
   background: none;
   border-radius: 0px;
-}
-.post blockquote {
-  border: none;
-  border-left: solid 3px #444;
-  padding-left: 5%;
-  margin: 0;
-  color: #444;
 }
