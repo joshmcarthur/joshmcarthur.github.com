@@ -7,7 +7,6 @@ body {
 }
 header {
   margin-bottom: 1.5em;
-  margin-top: 2.5em;
 }
 header h1 {
   font-size: 1.5em;
@@ -82,6 +81,9 @@ footer .contact:last-child {
   }
   #archive {
     display: block;
+  }
+  .post header {
+    margin-top: 1.5em;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -173,7 +175,15 @@ blockquote {
   margin: 0;
   color: #888;
   line-height: 1.5;
-  font-size: 120%;
+  font-size: 130%;
+}
+@media only screen and (max-width: 768px) {
+  blockquote {
+    font-size: 100%;
+  }
+}
+.post header {
+  margin-top: 2.5em;
 }
 .post header a {
   color: #222222;
