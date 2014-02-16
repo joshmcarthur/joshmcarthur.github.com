@@ -182,6 +182,15 @@ blockquote {
     font-size: 100%;
   }
 }
+.quote blockquote {
+  background: #F1F1F1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.post + .quote {
+  border-top: solid 1px #DDD;
+  border-bottom: solid 1px #DDD;
+}
 .post header {
   margin-top: 2.5em;
 }
