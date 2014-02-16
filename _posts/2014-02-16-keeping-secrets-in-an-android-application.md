@@ -26,7 +26,11 @@ To store secrets, simply create another XML file in 'res/values', called 'config
 Once these keys are in the file, Android will automatically merge it into your resources, where you can access them exactly as you would your normal strings. The only adaption you might need is when you literally need a string, rather than a string resource (which is an `int` pointing to the resource) - for example, the initialization of the Parse library - you can simply use `getString()` to get a string of your resource, like so:
 
 {% highlight java%}
-Parse.initialize(this, getString(R.string.parse_application_id), getString(R.string.parse_client_secret));
+Parse.initialize(
+    this, 
+    getString(R.string.parse_application_id),
+    getString(R.string.parse_client_secret)
+);
 {% endhighlight %}
 
 If you need your keys in another XML file (for example, your 'AndroidManifest.xml'), you don't need to worry about using `getString()` - you can just use the XML notation for accessing project resources - for example:
