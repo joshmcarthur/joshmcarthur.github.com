@@ -8,7 +8,7 @@ tags: []
 
 With the [recent release of Rails 4.1](https://rubygems.org/gems/rails), has come a feature that I've really been looking forward to. That feature is automatic support for storing your application's secrets in a YAML file. 
 
-Whenever you have a repository of code, it's a great idea to always work under the assumption that the code you right could be open-sourced at any time. Keeping this in mind helps to uphold coding standards, comment quality, and generally what goes into your codebase. 
+Whenever you have a repository of code, it's a great idea to always work under the assumption that the code you write could be open-sourced at any time. Keeping this in mind helps to uphold coding standards, comment quality, and generally what goes into your codebase. 
 
 Something I see a lot is files that have been committed with data in them that is specific to the project. Sometimes this data is an API key, or a password (this is _really_ bad), and sometime's it's just something that is configuration specific to a particular user that will make the project hard for others to use.
 
