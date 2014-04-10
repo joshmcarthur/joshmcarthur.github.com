@@ -55,4 +55,15 @@ end
 
 By default, git will ignore and never commit the secrets file, so the file remains as a local copy only - it's considered helpful when you have a file like this to copy it, and remove all sensitive data - naming convention is to suffix the file name with '.example' - e.g. `config/secrets.yml.example` - and commit this file. This gives other developers a template to work with - they can copy the file back to `config/secrets.yml`, and fill in their own configuration.
 
+The only thing that I've spotted missing from the implementation of the parsing of the secrets file is that while the top-level keys of the YAML file can be accessed using dot-notation (as above, where I've gone `secrets.facebook_app_id`), the file does not appear to be parsed in such a way that this dot-notation works for nested keys. I think this would be a great addition as a way to keep this file nice and tidy, if I could for example, have a YAML file that looks like this:
+
+{% highlight yaml %}
+development:
+  facebook:
+    app_id: 12345
+    app_secret: s3cret!!
+{% endhighlight %}
+
+...and be able to access a secret using the code `Rails.application.secrets.facebook.app_id`. Hopefully support for nested keys will be coming in a later release!
+
 Rails' support for secrets is a long time coming, and I'm really glad to see that they're making things even easier for us developers. There's a whole lot of other neat changes in 4.1, so to find our more about the new features (and some more information about the secrets support), check out the [Rails 4.1 Release Notes](http://edgeguides.rubyonrails.org/4_1_release_notes.html)!
