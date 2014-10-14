@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/sudojosh
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://joshmcarthur.com
+  * I am sudojosh (https://keybase.io/sudojosh) on keybase.
+  * I have a public key with fingerprint F836 E081 B5FC 98B7 4731  9535 8185 E264 85E5 3C23
+
+To claim this, I am signing this object:
+
+{
+    body: {
+        client: {
+            name: keybase.io node.js client,
+            version: 0.6.2
+        },
+        key: {
+            fingerprint: f836e081b5fc98b7473195358185e26485e53c23,
+            host: keybase.io,
+            key_id: 8185E26485E53C23,
+            uid: d6e9e7b2b8a3f29dff714a851f647c00,
+            username: sudojosh
+        },
+        merkle_root: {
+            ctime: 1413253497,
+            hash: a83c326eabe9f9c74a76a684ace825c1c7b68638fda2212c20bb7682d77ab6824634280d2efc7aa81b57ca3da00175f42c331a54ed555f529f32dc489dd6c654,
+            seqno: 78204
+        },
+        service: {
+            hostname: joshmcarthur.com,
+            protocol: http:
+        },
+        type: web_service_binding,
+        version: 1
+    },
+    ctime: 1413253562,
+    expire_in: 157680000,
+    prev: 6557bb99904caa7816ed6a16669759990d705439b8189ad5f052d47268ea2fd6,
+    seqno: 2,
+    tag: signature
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFVkn9QFGUYx+GEQgslccBTBN38gdNx7r677/44bRhlSKfLHzT+mkk53t1999gT
+bs+7PfSOjtDrSgxNa8ahMoRKnRinIRMNMp0aARN/hDrmTOQ0kCaTOhqaCBjtMjTl
++8fOu+/zeb/P832ed1fymDhL/JZYtxy7vuD5+I5eMW7lgqqWckLU5BDhKCekEhV7
+dXPnRaWYcBAbcEhEAWxXteleTcZ2T2D6KGMjyrA/oGpegyLtrB0QEZuJm5cV1evG
+fp9fNbUIhadZTPKUCBVJ4EWO4WhKgDTkKR5iwDLGF9ISoA3JYi2gP5GVGNF0qbJx
+avL5I3w+pPNG+OBIQGaxgDkRiDyiFSDIisJRDOIhpbAMJ5GkCQawf9RSIChrHi1Q
+bNZbiv0bSrDLr2kjpiVdNRGKoWgAaUbgjIqQQToIxNMSDViMRCwogsQxiGMRyzNI
+wjyAEiVxIsuzNK/ICAAKSIAURY7lgcxxyIgAhqUZwJMywIrEIWQ2g5MQLSOSpDio
+MECiaQpBBssQQgUCQaGBLDG8IMusxELGsBDAG70a4eB4QDIR89dfpkrYLNvs2qg5
+01iphPx6cdBvl7RS457Pr+mapJUY0WJd9zlM33rIZ9KbGrHoGhVyiapXNub2/8FS
+BvpkTyALbATe7FP92KWaBDRcksYy8+AyQ5OFkBNFQRBIRkKI4ykWyyyiWJYVOGge
+yxwJGVoQjXEKSIYKCYHMcIDlMQKKzP7n1MikI7c5MdXtRXrQj4lIlSUjIS7eEvdU
+osV8uXHjxqb8+5wv2if8bUus7Cqt2dHTLNmbjtxPG+9e+kps3mu/d8w7/ejPZcFt
+qenjChP3zF9kfTOJW/vOOc9d2+1I1WBc/8rU5Ej0+sNwudKWsNXS/kHosxe/X7/Y
+lTMg6N8cTrrUOOxImHtrVTY7WPTpqcdL05afbkyaRM4s6/ll3a6GjJN7asdWFnRe
+fT357LnhzBXbp7nTWp5eOWf11KLbU6270U5rS3vuzcr+r5r68gau5f3UvaTuxsSB
+B+9XTCPh6q7qzg34R4dzaELml/dSnjt2MLzIUZPzzIFlq6KRzqspS95zLHy835m3
+z3noQlRdG1o7WDuw19Efmj02/bwwpvV0zbs7tMopHx1IVs+f9dz0LjyzpmPdw/Dy
+xRfCvtyjl/pmvZwzo/BQ7JQtt/6lFyxfLF9xqTU9HN3Um/As45yctfOIfeYPM+Y3
+u6N/ZF3ee6Z36Iy1uSiLao+l9fTOLWhKHX5LAe3M25cLN26vq63WqHPzGxqmHKjv
+wmseaePu1111eGrunv+tPr3MWZvR1VqeV7hof/23JeIkIb8lQ9930lr3hq+888Mp
+njv9678ev2f2PSZbaYjO+nWo4+MH4sDqRvetuwfPFrUuuf3XlcIb/T27tqyZVV1x
+/PjnVy5OvnOlwJndnfjdHD2lLX52anLFq5ndmwuutZ1oHSSD2SIR3n098aL18FE9
+aevSifbhyV2xY30/Vx/8BJ74Bw==
+=Y5HY
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sudojosh
+
+==================================================================
