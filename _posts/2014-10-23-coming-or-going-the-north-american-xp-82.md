@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Coming or Going? The North American P-82"
-description: ""
+description: "The P-82 was the product of what happens when two P-51 Mustangs get together."
 category: 
 tags: []
 ---
