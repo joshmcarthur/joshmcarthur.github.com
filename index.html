@@ -11,14 +11,13 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   </p>
 </article>
 {% else %}
-<article class="post index">
+<article class="card">
   <header>
-    <h2>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+    <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
     </h2>
   </header>
 
-  <p>{{ post.content | strip_html | truncatewords:50 }}<a href="{{post.url}}">&raquo;</a></p>
+  <p class="card-text">{{ post.content | strip_html | truncatewords:50 }}<a href="{{post.url}}">&raquo;</a></p>
 </article>
 {% endif %}
 {% endfor %}
