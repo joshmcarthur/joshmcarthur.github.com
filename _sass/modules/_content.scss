@@ -1,0 +1,9 @@
+.content {
+  background: rgba(243,243,243,1);
+  padding: $baseline-grid * 2;
+  padding-top: $baseline-grid * 7;
+}
+
+.expanded-toolbar + .content .card {
+  margin-top: -($baseline-grid * 7) * 3;
+}
