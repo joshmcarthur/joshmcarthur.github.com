@@ -3,7 +3,7 @@ layout: default
 meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
 ---
 
-{% for post in site.posts limit:10 %}
+{% for post in site.posts %}
 {%if post.type == "quote" %}
 <article class="quote index">
   <p>
