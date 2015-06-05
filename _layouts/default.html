@@ -38,26 +38,18 @@
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1><a href="/">Josh McArthur</a></h1>
+{% if page.title %}
+<header class="toolbar expanded-toolbar">
+{% else %}
+<header class="toolbar">
+{% endif %}
 
-    <!--<nav>
-      <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/about.html">about</a></li>
-        <li><a href="/donations/">my donations</a></li>
-      </ul>
-    </nav>-->
-
-    <aside id="about">
+  <a class="title" href="/">Josh McArthur</a>
+    <!--<aside id="about">
       I'm a web developer specializing in Ruby on Rails, although I have also worked with the .NET toolset,
       Python, Go and Javascript (both front-end and back-end). I contribute code on <a href="https://github.com/joshmcarthur">GitHub</a>,
       write blog posts here, and <a href="https://twitter.com/sudojosh">Tweet</a>. <a href="/about.html">More about me.</a>
-    </aside>
-  </div>
-
-  <hr />
+      </aside>-->
 </header>
 
 <div class="content container">
