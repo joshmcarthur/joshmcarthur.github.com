@@ -24,6 +24,8 @@
   font-size: $typography-grid * 6;
   padding-top: $baseline-grid * 3;
   padding-bottom: $baseline-grid * 2;
+  text-decoration: none;
+  color: $black;
 }
 
 .card-text {
