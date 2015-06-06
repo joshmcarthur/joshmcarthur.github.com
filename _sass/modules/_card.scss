@@ -8,6 +8,9 @@
 
 .card-with-actions {
   padding-bottom: 0;
+  &:after {
+    @include clearfix;
+  }
 
   .actions {
     margin-top: $baseline-grid;
@@ -28,4 +31,5 @@
   margin: 0;
   padding-bottom: $baseline-grid * 2;
 }
+
 
