@@ -6,6 +6,16 @@
   margin: $baseline-grid * 2 auto;
 }
 
+.card-with-actions {
+  padding-bottom: 0;
+
+  .actions {
+    margin-top: $baseline-grid;
+    margin-bottom: $baseline-grid;
+    margin-left: -$baseline-grid;
+  }
+}
+
 .card-primary-text {
   display: block;
   font-size: $typography-grid * 6;
