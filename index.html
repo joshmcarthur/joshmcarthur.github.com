@@ -17,7 +17,13 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
     </h2>
   </header>
 
-  <p class="card-text">{{ post.content | strip_html | truncatewords:50 }}<a href="{{post.url}}">&raquo;</a></p>
+  <p class="card-text">
+    {{ post.content | strip_html | truncatewords:50 }}
+  </p>
+
+  <div class="actions">
+    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+  </div>
 </article>
 {% endif %}
 {% endfor %}
