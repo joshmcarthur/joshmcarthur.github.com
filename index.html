@@ -11,10 +11,9 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   </p>
 </article>
 {% else %}
-<article class="card">
+<article class="card card-with-actions">
   <header>
     <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
-    </h2>
   </header>
 
   <p class="card-text">
@@ -27,8 +26,4 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 </article>
 {% endif %}
 {% endfor %}
-
-
-<a class="pull-right" href="/archive">More posts &rarr;</a>
-<br style="clear:both;" />
 
