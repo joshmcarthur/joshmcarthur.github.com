@@ -25,6 +25,15 @@
     margin-top: $baseline-grid;
     margin-bottom: $baseline-grid;
     margin-left: -$baseline-grid;
+    background: $white;
+
+    @include desktop {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      padding: $baseline-grid 0;
+      margin-bottom: 0;
+    }
   }
 }
 
