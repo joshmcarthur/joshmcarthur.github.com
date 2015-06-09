@@ -4,6 +4,6 @@
   padding-top: $baseline-grid * 7;
 }
 
-.expanded-toolbar + .content .card {
+.expanded-toolbar + .content .card:first-child {
   margin-top: -($baseline-grid * 7) * 3;
 }
