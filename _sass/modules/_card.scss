@@ -5,13 +5,11 @@
   background: $white;
   padding: $baseline-grid * 2;
   margin: $baseline-grid * 2 auto;
+  overflow: hidden;
 
   @include desktop {
-    display: inline-block;
-    width: 25%;
-    overflow: hidden;
-    height: $baseline-grid * 33;
-    margin: $baseline-grid * 2 $baseline-grid;
+    max-width: $baseline-grid * 75;
+    margin-left: $baseline-grid * 2;
   }
 }
 
