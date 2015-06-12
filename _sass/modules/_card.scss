@@ -56,4 +56,11 @@
   padding-bottom: $baseline-grid * 2;
 }
 
+.card.quote {
+  padding-bottom: 0;
+
+  .card-text {
+    padding-top: $baseline-grid * 3;
+  }
+}
 

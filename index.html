@@ -6,10 +6,10 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 <div class="card-list">
 {% for post in site.posts %}
 {%if post.type == "quote" %}
-<article class="quote index">
-  <p>
+<article class="quote card">
+  <div class="card-text">
     {{post.content}}
-  </p>
+  </div>
 </article>
 {% else %}
 <article class="card card-with-actions">
