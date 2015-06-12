@@ -3,6 +3,7 @@ layout: default
 meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
 ---
 
+<div class="card-list">
 {% for post in site.posts %}
 {%if post.type == "quote" %}
 <article class="quote index">
@@ -33,3 +34,4 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 {% endif %}
 {% endfor %}
 
+</div>
