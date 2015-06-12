@@ -1,0 +1,6 @@
+.title {
+  @include title-font;
+  color: $white;
+  text-decoration: none;
+  line-height: $baseline-grid * 7;
+}

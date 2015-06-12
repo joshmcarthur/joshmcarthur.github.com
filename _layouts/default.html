@@ -22,15 +22,7 @@
 
    <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
 
-   <!-- Fonts -->
-   <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-   <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-
-   <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+   <link rel="stylesheet" href="/css/blog.css" type="text/css" media="screen, projection" />
 
    <!-- Extra stylesheets, can be included by posts -->
    {% for stylesheet_url in page.stylesheets %}
@@ -42,55 +34,28 @@
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
    <!-- Chrome for Android title color -->
-   <meta name="theme-color" content="#2e8922">
+   <meta name="theme-color" content="#388E3C">
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1><a href="/">Josh McArthur</a></h1>
+{% if page.title %}
+<header class="toolbar expanded-toolbar">
+{% else %}
+<header class="toolbar">
+{% endif %}
 
-    <!--<nav>
-      <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/about.html">about</a></li>
-        <li><a href="/donations/">my donations</a></li>
-      </ul>
-    </nav>-->
-
-    <aside id="about">
+  <a class="title" href="/">Josh McArthur</a>
+    <!--<aside id="about">
       I'm a web developer specializing in Ruby on Rails, although I have also worked with the .NET toolset,
       Python, Go and Javascript (both front-end and back-end). I contribute code on <a href="https://github.com/joshmcarthur">GitHub</a>,
       write blog posts here, and <a href="https://twitter.com/sudojosh">Tweet</a>. <a href="/about.html">More about me.</a>
-    </aside>
-  </div>
-
-  <hr />
+      </aside>-->
 </header>
 
 <div class="content container">
   {{ content }}
 </div>
 
-<footer>
-  <div class="container">
-    <div class="contact">
-      <p>
-        Josh McArthur<br />
-        Developer, <a href="http://rabid.co.nz/">Rabid</a><br />
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/joshmcarthur/">github.com/joshmcarthur</a><br />
-        <a href="http://twitter.com/sudojosh/">twitter.com/sudojosh</a><br />
-        <a class="rss" href="http://feeds.feedburner.com/sudojosh">
-        	<img src="/img/rss.png" alt="Subscribe to RSS Feed" />
-        </a>
-      </p>
-    </div>
-  </div>
-</footer>
 
 <!-- Extra scripts, can be included by posts -->
 {% for script_url in page.scripts %}

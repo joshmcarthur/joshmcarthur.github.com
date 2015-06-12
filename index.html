@@ -3,27 +3,34 @@ layout: default
 meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
 ---
 
-{% for post in site.posts limit:10 %}
+<div class="card-list">
+{% for post in site.posts %}
 {%if post.type == "quote" %}
-<article class="quote index">
-  <p>
+<article class="quote card">
+  <div class="card-text">
     {{post.content}}
-  </p>
+  </div>
 </article>
 {% else %}
-<article class="post index">
-  <header>
-    <h2>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </h2>
-  </header>
+<article class="card card-with-actions">
 
-  <p>{{ post.content | strip_html | truncatewords:50 }}<a href="{{post.url}}">&raquo;</a></p>
+  {% if post.featured_image %}
+    <a href="{{ post.url }}" class="card-image">
+      <img src="{{ post.featured_image }}" />
+    </a>
+  {% endif %}
+
+  <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
+
+  <p class="card-text">
+    {{ post.content | strip_html | truncatewords:50 }}
+  </p>
+
+  <div class="actions">
+    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+  </div>
 </article>
 {% endif %}
 {% endfor %}
 
-
-<a class="pull-right" href="/archive">More posts &rarr;</a>
-<br style="clear:both;" />
-
+</div>

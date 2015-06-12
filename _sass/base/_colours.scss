@@ -1,0 +1,19 @@
+$primary-colour: #4CAF50;
+$dark-primary-colour: #388E3C;
+$accent-color: #795548;
+$black: #000;
+$white: #fff;
+
+@mixin text-importance($role) {
+  @if $role == secondary {
+    opacity: 0.54;
+  }
+
+  @else if $role == hint {
+    opacity: 0.26;
+  }
+
+  @else {
+    opacity: 0.87;
+  }
+}

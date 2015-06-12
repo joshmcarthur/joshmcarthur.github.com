@@ -2,7 +2,8 @@
 layout: post
 title: "Coming or Going? The North American P-82"
 description: "The P-82 was the product of what happens when two P-51 Mustangs get together."
-category: 
+featured_image: /img/posts/xp-82.jpg
+category:
 tags: []
 ---
 
@@ -10,7 +11,7 @@ tags: []
 <cite>By United States Air Force [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3ANorth_American_XP-82_Twin_Mustang_44-83887.Color.jpg">via Wikimedia Commons</a>
 </cite>
 
-This aircraft is _literally_ two [P-51 Mustangs](https://en.wikipedia.org/wiki/North_American_P-51_Mustang) banged together. 
+This aircraft is _literally_ two [P-51 Mustangs](https://en.wikipedia.org/wiki/North_American_P-51_Mustang) banged together.
 
 I entirely appreciate the thinking behind taking a very successful platform together and **doubling the awesome**, but I can't help imagining a number of entertaining scenarios in which a pilot in each fuselage attempts to wrest control of the 'plane off the other.
 

@@ -1,4 +1,4 @@
 url: http://joshmcarthur.com
-pygments: true
+highlighter: pygments
 paginate: 10
 markdown: redcarpet

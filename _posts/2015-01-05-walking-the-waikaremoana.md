@@ -2,6 +2,7 @@
 layout: post
 title: "Walking the Waikaremoana"
 description: "An account of walking the waikaremoana track on the Eastern side of the North Island, New Zealand."
+featured_image: /img/posts/waikaremoana/view.jpg
 category: tramping
 tags: [walking, tramping]
 ---
