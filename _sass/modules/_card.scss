@@ -44,6 +44,12 @@
   color: $black;
 }
 
+.card-subtitle {
+  font-size: $typography-grid * 4;
+  padding-top: $baseline-grid;
+  @include text-importance(secondary);
+}
+
 .card-text {
   display: block;
   margin: 0;
