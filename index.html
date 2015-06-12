@@ -16,6 +16,12 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
     <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
   </header>
 
+  {% if post.featured_image %}
+    <a href="{{ post.url }}" class="card-image">
+      <img src="{{ post.featured_image }}" />
+    </a>
+  {% endif %}
+
   <p class="card-text">
     {{ post.content | strip_html | truncatewords:50 }}
   </p>
