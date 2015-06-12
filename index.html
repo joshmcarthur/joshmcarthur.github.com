@@ -13,15 +13,14 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 </article>
 {% else %}
 <article class="card card-with-actions">
-  <header>
-    <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
-  </header>
 
   {% if post.featured_image %}
     <a href="{{ post.url }}" class="card-image">
       <img src="{{ post.featured_image }}" />
     </a>
   {% endif %}
+
+  <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
 
   <p class="card-text">
     {{ post.content | strip_html | truncatewords:50 }}
