@@ -6,14 +6,14 @@ $white: #fff;
 
 @mixin text-importance($role) {
   @if $role == secondary {
-    opacity: 54%;
+    opacity: 0.54;
   }
 
   @else if $role == hint {
-    opacity: 26%;
+    opacity: 0.26;
   }
 
   @else {
-    opacity: 87%;
+    opacity: 0.87;
   }
 }
