@@ -9,6 +9,6 @@ body {
   -webkit-font-smoothing: antialiased;
 
   @include desktop {
-    font-size: $typography-grid * 3.25;
+    font-size: $typography-grid * 4;
   }
 }
