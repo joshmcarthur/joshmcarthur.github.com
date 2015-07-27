@@ -4,7 +4,7 @@
 
 /* TEAM */
   Developer: Josh McArthur
-  Site: http://joshmcarthur.com
+  Site: https://joshmcarthur.com
   Twitter: @sudojosh
   Location: Wellington, New Zealand
 

@@ -6,10 +6,10 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>The Blog of @sudojosh</title>
- <link href="http://joshmcarthur.com/feed/" rel="self"/>
- <link href="http://joshmcarthur.com/"/>
+ <link href="https://joshmcarthur.com/feed/" rel="self"/>
+ <link href="https://joshmcarthur.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://joshmcarthur.com/</id>
+ <id>https://joshmcarthur.com/</id>
  <author>
    <name>Josh McArthur</name>
    <email>joshua.mcarthur@gmail.com</email>
@@ -18,9 +18,9 @@ layout: nil
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://joshmcarthur.com{{ post.url }}"/>
+   <link href="https://joshmcarthur.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://joshmcarthur.com{{ post.id }}</id>
+   <id>https://joshmcarthur.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
