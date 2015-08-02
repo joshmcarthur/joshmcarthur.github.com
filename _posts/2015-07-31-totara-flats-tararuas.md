@@ -14,7 +14,7 @@ much more challenging than the trip up the Gentle Annie track to Powell Hut, but
 fulfiling.
 
 ![Topomap showing track to Totara Flats Hut](/img/posts/totara-flats-topomap.jpg)
-> [View Topomap in browser](http://www.topomap.co.nz/NZTopoMap?v=2&ll=-40.959678,175.385056&z=14)
+> The track, marked in the thin red line [View Topomap in browser](http://www.topomap.co.nz/NZTopoMap?v=2&ll=-40.959678,175.385056&z=14)
 
 We began the track from the Waiohine road-end. The road-end is reached by turning off just after the bridge over the Waiohine
 River just outside Greytown, and then following a narrow but sealed country road. After crossing the railway tracks keep
@@ -58,7 +58,7 @@ typical of the classical tramping tracks in the Tararuas.
   > One of the small swing-bridges over the smaller creeks going up the gorge
 
   About halfway between Clem Creek and the flats you'll reach an intersection with another track that heads over Cone Saddle
-  that heads over to Cone Hut to meet the left-hand fork of the track from the swingbridge. This seems like a nice
+  and continues to Cone Hut to meet the left-hand fork of the track from the swing-bridge. This seems like a nice
   overnight trip that is on our to-do list, although I've read that the track continues to be muddy and rutted.
 
  Soon after the intersection is an impressively large old slip - there are two options for getting around it, both marked -
@@ -82,7 +82,7 @@ typical of the classical tramping tracks in the Tararuas.
  ![Waiohine River Crossing Point](/img/posts/waiohine-river-crossing.jpg)
  > The river crossing point we used to reach Sayer's Hut (a little wonky!)
 
- From the crossing to Sayer's the Totara Flats is a quick walk up the valley through the grass. After the tough terrain
+ From the crossing to Sayer's the Totara Flats Hut is a quick walk up the valley through the grass. After the tough terrain
  up the gorge, the grass is a bit of a treat. Soon before reaching the hut, you'll head back into some scrubby bush - the hut
  is 5 or 10 minutes on from this point.
 
