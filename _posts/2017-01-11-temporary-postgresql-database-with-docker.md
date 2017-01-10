@@ -10,7 +10,7 @@ Every now and then I need to restore an old database backup to grab some data ou
 every app I work on, so I don't really want to go polluting those. Here's how I start a postgres container, restore a DB
 into it, do what I need to do, then destroy it.
 
-1. Start the container: `docker run --rm -it -v ``pwd``:/data postgres bash`
+1. Start the container: `docker run --rm -it -v \`pwd\`:/data postgres bash`
   * `--rm` means remove the container when it stops (we exit bash)
   * `-it` means give me a interactive terminal (I need to type stuff and see output)
   * `-v` means mount the directory I'm currently in to `/data` - assuming the directory I'm in has a PG dump I want to use.
