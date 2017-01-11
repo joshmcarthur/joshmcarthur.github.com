@@ -1,4 +1,20 @@
 url: https://joshmcarthur.com
-highlighter: pygments
+sass:
+  sass_dir: _assets
+highlighter: rouge
 paginate: 10
-markdown: redcarpet
+kramdown:
+  input: GFM
+  hard_wrap: false
+gems:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-redirect-from
