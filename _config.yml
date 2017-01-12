@@ -1,6 +1,4 @@
 url: https://joshmcarthur.com
-sass:
-  sass_dir: _assets
 highlighter: rouge
 paginate: 10
 kramdown:
