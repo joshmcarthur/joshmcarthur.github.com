@@ -1,8 +1,30 @@
-.title {
-  @include title-font;
-  color: $white;
-  text-decoration: none;
-  line-height: $baseline-grid * 7;
+.profile {
+  @include text-importance(secondary);
+  width: 70%;
+  margin: auto;
+  display: block;
+  transition: opacity 1s;
+  padding: $baseline-grid;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.profile-text {
+  @include sans-serif;
+  padding: $baseline-grid * 2; 
+  &::after {
+    @include clearfix;
+  }
+}
+
+.profile-image {
+  width: 72px;
+  border-radius: 50%;
+  height: auto;
+  float: left;
+  margin-right: $baseline-grid;
 }
 
 .post-title {

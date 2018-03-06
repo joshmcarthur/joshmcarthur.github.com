@@ -1,0 +1,32 @@
+.post {
+  width: 50%;
+  margin: auto;
+}
+
+.post-content {
+  line-height: 2;
+  img {
+    width: 120%;
+    margin-left: -10%;
+  }
+}
+
+.hero-image {
+  width: 100vw;
+  margin-left: -50%;
+  min-height: 400px;
+  background-position: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero-image + .post-content {
+  margin-top: -20%;
+  background-color: $white;
+  padding: $baseline-grid * 2;
+}
+
+.related-posts {
+  width: 70%;
+  margin: auto;
+}

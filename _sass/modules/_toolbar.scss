@@ -1,16 +1,9 @@
 .toolbar {
-  $shadow-size: $baseline-grid;
-  background: $primary-colour;
-  box-shadow: 0 $baseline-grid / 2 $baseline-grid /2 rgba(0,0,0,0.26);
-  padding-left: $baseline-grid * 7;
+  background: $white;
   position: fixed;
-  top: 0;
+  bottom: 0;
+  box-shadow: 0 0 ($baseline-grid * 2) rgba(0,0,0,0.26);
   width: 100%;
   z-index: 500;
 }
 
-.expanded-toolbar {
-  height: ($baseline-grid * 7) * 3;
-  box-shadow: none;
-  position: static;
-}

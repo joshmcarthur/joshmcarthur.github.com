@@ -7,13 +7,15 @@ category: tramping
 tags: [walking, tramping]
 ---
 
-![View from Bald Knob, Panekiri Ridgeline](/img/posts/waikaremoana/view.jpg)
 
 The Waikaremoana track is one of the Department of Conservation's nine [great walks](http://www.doc.govt.nz/parks-and-recreation/tracks-and-walks/great-walks/), and is located in the Te Urewara area of the North Island, inland from the East Cape of the North Island of New Zealand. Recently, Te Urewera was one of New Zealand's many National Parks, however a recent Treaty of Waitangi settlement has made the park a seperate legal entity, managed by a board comprised of Tūhoe and crown stakeholders ([This page](http://www.doc.govt.nz/parks-and-recreation/national-parks/te-urewera/features/tuhoe-claims-settlement/) on the DOC website has more info).
 
 The Track is 46km long, and has both huts and campsites along the route (unlike many other great walks, which tend to have hut accomodation only). It is not a loop track, and so requires some form of transport to get between the two ends of the track - Onepoto and Hopuruahine Landings. It can be walked in either direction, but the most common direction is to start at Onepoto, the south end of the track, and walk through to finish at Hopuruahine.
 
 I had the pleasure to walk the Waikaremoana track recently, over the 2014/2015 summer break. The rest of this post covers my personal experience of the track, it's accomodations, facilities, and transport options.
+
+![View from Bald Knob, Panekiri Ridgeline](/img/posts/waikaremoana/view.jpg)
+
 
 The Track
 ---

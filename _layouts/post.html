@@ -1,46 +1,33 @@
 ---
 layout: default
 ---
-<div class="post card">
+
+<div class="post">
+  <a href="/" class="card-btn">&larr; All Posts</a>
   <h1 class="post-title">{{ page.title }}</h1>
-  <p class="meta">
-    {{ page.date | date_to_string }}
-  </p>
 
-  {{ content }}
-</div>
+  {% if page.featured_image %}
+    <div class="hero-image" 
+         style="background-image:url('{{ page.featured_image }}')"></div>
+  {% endif %}
 
+  <div class="post-content">{{ content }}</div>
+  {% if page.projects %}
+  <div id="projects" class="card">
+      <div class="card-primary-text">
+        Referenced Projects
+      </div>
 
-{% if page.projects %}
-<div id="projects" class="card">
-    <div class="card-primary-text">
-      Referenced Projects
-    </div>
-
-    <ul>
-    {% for project in page.projects %}
-      <li>
-        <a href="{{ project.url }}">{{ project.name }}</a>
-        <p>
-          {{ project.description }}
-        </p>
-      </li>
-    {% endfor %}
-    </ul>
-</div>
-{% endif %}
-
-
-<div id="related" class="card">
-  <div class="card-primary-text">
-    Related Posts
-  </div>
-
-  <p class="card-text">
-    <ul>
-      {% for post in site.related_posts limit:3 %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      <ul>
+      {% for project in page.projects %}
+        <li>
+          <a href="{{ project.url }}">{{ project.name }}</a>
+          <p>
+            {{ project.description }}
+          </p>
+        </li>
       {% endfor %}
-    </ul>
-  </p>
+      </ul>
+  </div>
+  {% endif %}
 </div>

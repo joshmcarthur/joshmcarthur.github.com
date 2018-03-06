@@ -7,8 +7,6 @@ featured_image: /img/posts/renata-feature.jpg
 tags: [tramping,outdoors,trip-report]
 ---
 
-![Renata Feature Image](/img/posts/renata-feature.jpg)
-
 This post outlines a day trip from the Akatawara Hill Road saddle towards Renata Hut. After a couple of recent winter storms, I ran into a lot of tree fall that slowed things down sufficiently so that I ran into my time limit and turned back, however, it was a struggle to find information about the route, so I'm happy to document what I ran into up to about 3/4 of the way to [Renata Hut](http://www.doc.govt.nz/parks-and-recreation/places-to-go/wellington-kapiti/places/tararua-forest-park/things-to-do/huts/renata-hut/).
 
 ### Quick facts:
