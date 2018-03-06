@@ -1,4 +1,5 @@
 @mixin button-base {
+  @include sans-serif;
   display: inline-block;
   line-height: $baseline-grid * 4.5;
   min-width: $baseline-grid * 8;

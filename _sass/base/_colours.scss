@@ -1,8 +1,8 @@
 $primary-colour: #4CAF50;
 $dark-primary-colour: #388E3C;
 $accent-color: #795548;
-$black: #000;
-$white: #fff;
+$black: rgba(0, 0, 0, 0.92);
+$white: #fafafa;
 
 @mixin text-importance($role) {
   @if $role == secondary {

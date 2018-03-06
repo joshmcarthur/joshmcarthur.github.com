@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i,700');
+
+@mixin sans-serif {
+  font-family: 'Merriweather Sans', serif; 
+}
+
+@mixin sans {
+  font-family: 'Merriweather', 'Georgia', 'Times New Roman', sans-serif;
+}
+
 @mixin title-font {
-  font-weight: 500;
-  font-size: $typography-grid * 5;
+  @include sans-serif;
+  font-size: 200%;
 }
 
 body {
-  font-family: 'Roboto', 'Noto', sans-serif;
-  font-size: $typography-grid * 3.5;
+  @include sans;
+  font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
 
   @include desktop {

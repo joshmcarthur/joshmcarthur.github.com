@@ -37,6 +37,7 @@
 
 .card-primary-text {
   display: block;
+  @include title-font;
   font-size: $typography-grid * 6;
   padding-top: $baseline-grid * 3;
   padding-bottom: $baseline-grid * 2;

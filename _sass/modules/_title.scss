@@ -4,3 +4,7 @@
   text-decoration: none;
   line-height: $baseline-grid * 7;
 }
+
+.post-title {
+  @include title-font;
+}
