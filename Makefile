@@ -6,3 +6,6 @@ generate:
 	  docker run -v $(shell pwd):/usr/src/app joshmcarthur/joshmcarthur.github.io jekyll build
 shell:
 		docker run --rm -it -v $(shell pwd):/usr/src/app joshmcarthur/joshmcarthur.github.io bash
+post:
+		docker run --rm -it -v $(shell pwd):/usr/src/app joshmcarthur/joshmcarthur.github.io rake post title="$(title)"
+	 
