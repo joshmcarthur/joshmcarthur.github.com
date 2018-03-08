@@ -38,11 +38,13 @@
 .card-primary-text {
   display: block;
   @include title-font;
-  font-size: $typography-grid * 6;
   padding-top: $baseline-grid * 3;
   padding-bottom: $baseline-grid * 2;
   text-decoration: none;
   color: $black;
+  @include desktop {
+    font-size: 21px;
+  }
 }
 
 .card-subtitle {
@@ -59,9 +61,5 @@
 
 .card.quote {
   padding-bottom: 0;
-
-  .card-text {
-    padding-top: $baseline-grid * 3;
-  }
 }
 

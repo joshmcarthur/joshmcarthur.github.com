@@ -1,32 +1,47 @@
 .profile {
-  @include text-importance(secondary);
-  width: 70%;
+  width: 90%;
   margin: auto;
   display: block;
   transition: opacity 1s;
   padding: $baseline-grid;
 
-  &:hover {
-    opacity: 1;
+  @include desktop {
+    width: 70%;
+    @include text-importance(secondary);
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:after{
+    @include clearfix;
   }
 }
 
 .profile-text {
   @include sans-serif;
-  padding: $baseline-grid * 2; 
+  padding: $baseline-grid;
   &::after {
     @include clearfix;
   }
 }
 
 .profile-image {
-  width: 72px;
+  width: 36px;
   border-radius: 50%;
   height: auto;
   float: left;
-  margin-right: $baseline-grid;
+  margin: $baseline-grid;
+  margin-left: 0;
+
+  @include desktop {
+    width: 56px;
+    margin: 0;
+    margin-right: $baseline-grid;
+  }
 }
 
 .post-title {
   @include title-font;
+  padding: 0 $baseline-grid * 2;
 }

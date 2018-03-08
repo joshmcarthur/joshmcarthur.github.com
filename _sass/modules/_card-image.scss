@@ -13,11 +13,13 @@
 
 .card-image + .card-primary-text {
   @include desktop {
-    padding-bottom: 8px;
+    padding: 8px;
+    left: 0;
     position: absolute;
-    bottom: $baseline-grid * 5.5;
-    width: 100%;
+    bottom: $baseline-grid * 6.5;
     background: $white;
   }
+
+  & + .card-text { display: none }
 }
 

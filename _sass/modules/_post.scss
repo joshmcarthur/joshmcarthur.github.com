@@ -1,29 +1,41 @@
 .post {
-  width: 50%;
+  width: 100%;
   margin: auto;
+  @include desktop {
+    width: 50%;
+  }
 }
 
 .post-content {
   line-height: 2;
+  padding: $baseline-grid * 2;
   img {
-    width: 120%;
-    margin-left: -10%;
+    width: 110%;
+    margin-left: -5%;
+
+    @include desktop {
+      width: 120%;
+      margin-left: -10%;
+    }
   }
 }
 
 .hero-image {
   width: 100vw;
-  margin-left: -50%;
-  min-height: 400px;
+  min-height: 200px;
   background-position: 50%;
   background-size: 100%;
   background-repeat: no-repeat;
+
+  @include desktop {
+    margin-left: -50%;
+    min-height: 400px;
+  }
 }
 
 .hero-image + .post-content {
   margin-top: -20%;
   background-color: $white;
-  padding: $baseline-grid * 2;
 }
 
 .related-posts {

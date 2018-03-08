@@ -1,3 +1,5 @@
 .content {
-  padding-bottom: $baseline-grid * 12;
+  @include desktop {
+    padding-bottom: $baseline-grid * 12;
+  }
 }

@@ -3,3 +3,18 @@
   max-width: 100%;
   overflow-x: scroll;
 }
+
+blockquote {
+  margin: 0;
+  border-left: solid 2px $black;
+  padding-left: $baseline-grid;
+}
+
+ol {
+  margin: 0;
+  padding: 0 $baseline-grid;
+}
+
+figure {
+  margin: 0;
+}

@@ -1,9 +1,16 @@
 .toolbar {
   background: $white;
-  position: fixed;
   bottom: 0;
-  box-shadow: 0 0 ($baseline-grid * 2) rgba(0,0,0,0.26);
   width: 100%;
   z-index: 500;
+
+  @include mobile {
+    border-top: solid 1px #ddd;
+  }
+
+  @include desktop {
+    position: fixed;
+    box-shadow: 0 0 ($baseline-grid * 2) rgba(0,0,0,0.26);
+  }
 }
 
