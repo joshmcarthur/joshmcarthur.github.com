@@ -7,7 +7,6 @@ category:
 tags: []
 ---
 
-![a North American XP-82](/img/posts/xp-82.jpg)
 <cite>By United States Air Force [Public domain], <a href="https://commons.wikimedia.org/wiki/File%3ANorth_American_XP-82_Twin_Mustang_44-83887.Color.jpg">via Wikimedia Commons</a>
 </cite>
 
