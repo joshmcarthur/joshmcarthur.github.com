@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Donnelly Flat history
+title: "A Brief History of Donnelly Flat"
 description: "An excerpt of an account of Ben Iorns of the history of Donnelly Flat, Tararua Forest Park"
 category: Tramping
 tags: [tramping,tararua,history]
+featured_image: /img/posts/donnelly.jpg
 ---
 
 I frequently find myself tramping into the Tararua Forest Park from the Mount Holdsworth road-end, travelling through Donnelly Flat, a popular picnic spot around 10 minutes from the roadend. After considering the lack of signed history regarding the history of the Flat, and after being unable to find out any information from Archives, National Library, Papers Past or regional libraries, I got in touch with local DOC rangers. They have kindly provided me with a short history of the Mount Holdsworth area by Ben Iorns (1883-1977), a Masterton historian. This history has provided background information for this post.
@@ -20,3 +21,4 @@ Donnelly Flat itself is a grassy clearing occupying a couple of acres. The clear
 
 Given this history, it's understandable that the origin of the name is somewhat under documented, but I think it is still important to acknowledge the events and people attached to these special locations. I'd like to acknowledge the efforts of the Masterton office of the Department of Conservation for their speed and efforts in locating and passing on this fascinating history, and Ben Iorns for documenting his recollections of the Holdsworth area for future generations to learn from. I hope that others find the history of Donnelly Flat as interesting as I have.
 
+![Campsite at Donnelly Flat](/img/posts/donnelly.jpg)
