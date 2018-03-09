@@ -6,7 +6,7 @@ category: Tramping
 tags: [tramping,tararua,history]
 ---
 
-I frequently find myself tramping into the Tararua Forest Park from the Mount Holdsworth road-end, travelling through Donnelly Flat, a popular picnic spot around 10 minutes from the roadend. After considering the lack of signed history regarding the history of the Flat, and after being able to find out any information through any online research sources, including Archives, National Library, Papers Past and regional libraries, I got in touch with local DOC rangers, who kindly provided me with a short history of the Mount Holdsworth area by Ben Iorns (1883-1977), a Masterton historian, which has provided background information for this post.
+I frequently find myself tramping into the Tararua Forest Park from the Mount Holdsworth road-end, travelling through Donnelly Flat, a popular picnic spot around 10 minutes from the roadend. After considering the lack of signed history regarding the history of the Flat, and after being unable to find out any information from Archives, National Library, Papers Past or regional libraries, I got in touch with local DOC rangers. They have kindly provided me with a short history of the Mount Holdsworth area by Ben Iorns (1883-1977), a Masterton historian. This history has provided background information for this post.
 
 ---
 
