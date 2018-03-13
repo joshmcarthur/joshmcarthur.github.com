@@ -1,5 +1,6 @@
 url: https://joshmcarthur.com
 highlighter: rouge
+timezone: Pacific/Auckland
 paginate: 10
 kramdown:
   input: GFM
