@@ -14,7 +14,7 @@ continues to work for targeting the parent selector.
 
 Here's an example of a component without `@at-root`:
 
-``` sass
+``` scss
 .button {
   &.collapse-to-icon {
     padding: 1rem;
@@ -44,7 +44,7 @@ are prefixed onto the elements of the `collapse-to-icon` block.
 
 With `@at-root`, something like this can be written:
 
-``` sass
+``` scss
 .button {
   &.collapse-to-icon {
     padding: 1rem;
