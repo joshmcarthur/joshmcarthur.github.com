@@ -36,7 +36,7 @@ Interacting with these kinds of browser interfaces can be hard from an abstracti
 ### Accepting a prompt - i.e. prompt("Are you sure?");
 
 ``` ruby
-confirm = page.driver.switch_to.alert
+confirm = page.driver.browser.switch_to.alert
 assert_equal confirm.text, "Are you sure?
 confirm.accept # You can also `confirm.dismiss` if you want to test the negative path
 ```
@@ -44,7 +44,7 @@ confirm.accept # You can also `confirm.dismiss` if you want to test the negative
 ### Dismissing a messge - i.e. alert("Reset password instructions have been delivered.");
 
 ``` ruby
-alert = page.driver.switch_to.alert
+alert = page.driver.browser.switch_to.alert
 assert_equal alert.text, "Reset password instructions have been delivered."
 alert.accept
 ```
@@ -52,7 +52,7 @@ alert.accept
 ### Inputting data to a prompt - i.e. prompt("Enter your project name to cancel")
 
 ``` ruby
-prompt = page.driver.switch_to.alert
+prompt = page.driver.browser.switch_to.alert
 assert_equal prompt.text, "Enter your project name to cancel"
 prompt.send_keys "my-project"
 prompt.accept
