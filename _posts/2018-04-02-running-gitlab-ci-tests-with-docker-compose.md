@@ -6,7 +6,7 @@ category: TIL
 tags: [til,technology,gitlab,ci,docker]
 ---
 
-I've been working for some time to get [Pawfit](https://pawfit.nz) (my pet project, literally), continuously deploying. I've only recently added tests, so now that I have them, I want a green check each time I push.
+I've been working for some time to get [Pawfit](http://pawfit.nz) (my pet project, literally), continuously deploying. I've only recently added tests, so now that I have them, I want a green check each time I push.
 
 I run just about all my Rails apps now using Docker and docker-compose, almost always
 using my own [base Docker* files](https://github.com/joshmcarthur/Dockerfiles/tree/master/rails). I choose not to push these files to a repository like Docker Hub, because I don't consider them usable on their own - their intention is to provide a starting point to grow from, rather than an out-of-the-box solution.
