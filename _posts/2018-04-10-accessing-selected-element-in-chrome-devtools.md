@@ -8,7 +8,7 @@ tags: [til,technology,tools]
 
 Chrome's DevTools are something that I use for a decent portion of my day whenever I'm doing frontend work. I really appreciate how much work has gone into making for a great developer experience, and I'm always stumbing across new tricks to help make me more efficient.
 
-Just one of these tricks I picked up this morning from Wes Bos' &ldquo;React for Beginners&rdquot; course in passing, and it's been a bit of a revelation for me.
+Just one of these tricks I picked up this morning from Wes Bos' &ldquo;React for Beginners&rdquo; course in passing, and it's been a bit of a revelation for me.
 
 When an element is selected in the Elements tab of the devtools, you may have noticed it displays something like this:
 
