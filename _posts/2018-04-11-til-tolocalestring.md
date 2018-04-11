@@ -16,7 +16,12 @@ Yesterday I learned about `toLocaleString`, a Javascript function defined on the
 
 ``` javascript
 var number = 1234567
-console.log(number.toLocaleString(undefined, { style: "currency", currency: "USD"}))
+console.log(
+  number.toLocaleString(undefined, { 
+    style: "currency", 
+    currency: "USD"
+  })
+);
 // => US$1,234.57
 ```
 
@@ -24,7 +29,12 @@ console.log(number.toLocaleString(undefined, { style: "currency", currency: "USD
 
 ``` javascript
 var number = 1234.567
-console.log(number.toLocaleString("en-US", { style: "currency", currency: "USD"}))
+console.log(
+  number.toLocaleString("en-US", { 
+    style: "currency", 
+    currency: "USD"
+  })
+);
 // => $1,234.57
 ```
 
@@ -32,7 +42,12 @@ console.log(number.toLocaleString("en-US", { style: "currency", currency: "USD"}
 
 ``` javascript
 var number = 1234.567
-console.log(number.toLocaleString("en-US", { style: "currency", currency: "NZD"}))
+console.log(
+  number.toLocaleString("en-US", { 
+    style: "currency", 
+    currency: "NZD"
+  })
+);
 // => NZD$1,234.57
 ```
 
@@ -40,7 +55,12 @@ console.log(number.toLocaleString("en-US", { style: "currency", currency: "NZD"}
 
 ``` javascript
 var number = 1234.567
-console.log(number.toLocaleString("de-DE", { style: "currency", currency: "NZD"}))
+console.log(
+  number.toLocaleString("de-DE", { 
+    style: "currency",
+    currency: "NZD"
+  })
+)
 // => NZD$1.234,57
 ```
 
@@ -48,7 +68,14 @@ console.log(number.toLocaleString("de-DE", { style: "currency", currency: "NZD"}
 
 ``` javascript
 var number = 1234.567
-console.log(number.toLocaleString(undefined, { style: "currency", currency: "GBP", minimumFractionDigits: 0, maximumFractionDigits: 0}))
+console.log(
+  number.toLocaleString(undefined, { 
+    style: "currency", 
+    currency: "GBP", 
+    minimumFractionDigits: 0, 
+    maximumFractionDigits: 0
+  })
+);
 // => £1,235
 ```
 
@@ -57,7 +84,12 @@ console.log(number.toLocaleString(undefined, { style: "currency", currency: "GBP
 ``` javascript
 var roundNumber = 1234.0;
 var fractionalNumber = 1234.5678;
-var options = { style: "currency", currency: "NZD", minimumFractionDigits: 0, maximumFractionDigits: 3};
+var options = { 
+  style: "currency", 
+  currency: "NZD", 
+  minimumFractionDigits: 0, 
+  maximumFractionDigits: 3
+};
 
 console.log(roundNumber.toLocaleString(undefined, options))
 // => $1,234
