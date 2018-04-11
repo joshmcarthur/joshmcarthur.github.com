@@ -10,6 +10,8 @@ Yesterday I learned about `toLocaleString`, a Javascript function defined on the
 
 ## Examples:
 
+> Note: Wherever I have passed `undefined` as the first argument to `toLocaleString`, this simply means that I am expressing no preference for a particular locale. In this case, the browser will use the system locale.
+
 #### Format an amount in USD using the user's locale (en-NZ for me)
 
 ``` javascript
