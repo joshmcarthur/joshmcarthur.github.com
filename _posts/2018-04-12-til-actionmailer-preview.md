@@ -12,7 +12,7 @@ Recently, I've been working on applications for smaller businesses, and that's a
 
 Because I haven't worked with ActionMailer for some time, I seem to have missed a fantastic feature that I just learned about today. It's even in the [Guides](http://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails), so I'm annoyed at myself for missing it!
 
-Put simply, Rails now has built-in support for rendering either an HTML or plain-text version of an ActionMailer template, right in a web browser. This allows for easy iterative development and testing, and since the preview follows exactly the same code paths that sending does (up to actual delivery of course!), you can see the final product in the browser - with inlined CSS, rewritten markup, and any other enhancements you've included.
+It turns out, since Rails 4.1, there is built-in support for rendering either an HTML or plain-text version of an ActionMailer template, right in a web browser. This allows for easy iterative development and testing, and since the preview follows exactly the same code paths that sending does (up to actual delivery of course!), you can see the final product in the browser - with inlined CSS, rewritten markup, and any other enhancements you've included.
 
 Writing a preview is very easy - so easy in fact that Rails will do it for you by default with `rails generate mailer`:
 
@@ -44,13 +44,14 @@ class UserMailerPreview < ActionMailer::Preview
 end
 ```
 
-Rails creates a simple navigation structure for previews - going to http://localhost:3000/rails/mailers` will serve an index of all the available preview classes, and then going to a particular preview name (in the example above, http://localhost:3000/rails/mailers/preview/user) will serve an index of all the mailer methods available for testing:
+Rails creates a simple navigation structure for previews - going to `http://localhost:3000/rails/mailers` will serve an index of all the available preview classes, and then going to a particular preview name (in the example above, `http://localhost:3000/rails/mailers/user`) will serve an index of all the mailer methods available for testing:
 
-![Mailer preview index listing](/img/posts/actionmailer-preview-listing.jpg)
+![Mailer preview index listing](/img/posts/actionmailer-preview-listing.png)
 
 Clicking on a particular mailer method will present the email within the web browser, showing the email metadata (recipient, subject, bcc etc) at the top of the page, with the HTML or plain text version selectable to show in the bottom. Updating the mailer template or mailer itself will be autoloaded as usual, so the mailer preview can just be refreshed to see the latest change.
 
-![Mailer preview display](/img/posts/actionmailer-preview-display.jpg)
+![Mailer preview display](/img/posts/actionmailer-preview-display-html.png)
+![Mailer preview display](/img/posts/actionmailer-preview-display-text.png)
 
 This is a great feature built into Rails, and certainly something I've tried to emulate before with tools such as Mailcatcher and letter_opener. Finding little pieces of functionality built into the framework like this is always great, and continues to encourage me to keep an eye on the changelog!
 
