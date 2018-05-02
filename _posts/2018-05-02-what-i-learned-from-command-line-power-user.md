@@ -26,6 +26,25 @@ It looks as though there is an [NPM package for a `trash` command](https://www.n
 
 The `z` command is a ZSH script that can be dropped in to provide "frecent" jumping to directories (frecent being "frequent" and/or "recent" directories). This looked interesting, and I might try it out sometime, but I've been using [`autojump`](https://github.com/wting/autojump) for some time, and it seems to have a similar feature set - so I don't really have a reason to switch, other than `z` being written purely in ZSH scripting language (looks like autojump is Python). 
 
+### 4. The `take` command 
+
+I've got to try and build this one into my muscle memory, because I would use it all the time.
+
+`take` is a command built into `zsh.`. It's literally:
+
+``` sh
+take () {
+	mkdir -p $1
+	cd $1
+}
+```
+
+...in other words, make a directory (or directory tree), and immediately change into it. Fantastic!
+
+### 5. The `extract` plugin
+
+`extract` is a plugin available as part of `oh-my-zsh`. It simply acts as an abstraction over the many, many archiving formats available, delegating to the appropriate utility (tar, ar, zip, etc). I've run into frustration before trying to get the right set of utilities and arguments to extract an archive, so I've also added this to my oh-my-zsh plugins!
+
 ---
 
-Those were my 3 takeaways, but the whole course was really interesting. I was pleased to see how well my current setup aligns with the productive setup demonstrated in the course - I'm also a ZSH user, though I only use a fraction of it's features. I jumped on the [oh-my-zsh](http://github.com/robbyrussell/oh-my-zsh) bandwagon when it was released - mostly for the pretty themes of course, and eventually even ended up creating [my own small set of plugins and a theme](https://github.com/joshmcarthur/dotfiles/tree/master/zsh). The only difference from the course content was that I have begun using antigen to control how much of oh-my-zsh is loaded when my `~/.zshrc` is sourced into my shell.
+Those were my takeaways, but the whole course was really interesting. I was pleased to see how well my current setup aligns with the productive setup demonstrated in the course - I'm also a ZSH user, though I only use a fraction of it's features. I jumped on the [oh-my-zsh](http://github.com/robbyrussell/oh-my-zsh) bandwagon when it was released - mostly for the pretty themes of course, and eventually even ended up creating [my own small set of plugins and a theme](https://github.com/joshmcarthur/dotfiles/tree/master/zsh). The only difference from the course content was that I have begun using antigen to control how much of oh-my-zsh is loaded when my `~/.zshrc` is sourced into my shell, as I found the default oh-my-zsh install method was getting a little slow to initialize.
