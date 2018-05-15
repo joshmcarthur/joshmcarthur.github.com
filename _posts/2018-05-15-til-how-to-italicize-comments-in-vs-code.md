@@ -11,8 +11,6 @@ Continuing my transformation of my development environment to match Wes Bos', to
 It turns out that there is a setting to control it, it's just deeply nested. The necessary snippet for user settings is:
 
 ``` json
-// This section of my settings targets specific properties of
-// theming for which I want to make adjustments
 "editor.tokenColorCustomizations": {
     "textMateRules": [
         {
@@ -27,6 +25,6 @@ It turns out that there is a setting to control it, it's just deeply nested. The
 
 (You can access user settings under "Code > Preferences > Settings" on Mac).
 
-![/img/posts/vscode-italic-comments.png]
+![Screenshot demo of italic comments](/img/posts/vscode-italic-comments.png)
 
 It turns out that VS Code is yet another editor to [support](https://code.visualstudio.com/docs/extensions/themes-snippets-colorizers) themes and colour highlighting rules in TextMate format. Once we're into the correct setting context, it's just a case of targeting the `"comment"` scope and instructing the editor to render comments in italic. This should work for a bunch of other style properties as well, if there are other adjustments you'd like to make.
