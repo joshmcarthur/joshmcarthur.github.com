@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "URI.make_regexp in Ruby"
+title: "URI.regexp in Ruby"
 description: "Rather than finding an imperfect URI validation regexp, use the comprehensive one built into Ruby."
 category: TIL
 tags: [til,technology,rails]
