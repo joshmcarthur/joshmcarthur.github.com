@@ -19,7 +19,15 @@ While it's entirely posible to write these git commits ad-hoc as required, an ad
 ```
 -t <file>
 --template=<file>
-  When editing the commit message, start the editor with the contents in the given file. The commit.template configuration variable is often used to give this option implicitly to the command. This mechanism can be used by projects that want to guide participants with some hints on what to write in the message in what order. If the user exits the editor without editing the message, the commit is aborted. This has no effect when a message is given by other means, e.g. with the -m or -F options.
+  When editing the commit message, start the editor with the
+  contents in the given file.The commit.template configuration
+  variable is often used to give this option implicitly to the
+  command. This mechanism can be used by projects that want to
+  guide participants with some hints on what to write in the
+  message in what order. If the user exits the editor without
+  editing the message, the commit is aborted. This has no effect
+  when a message is given by other means,
+  e.g. with the -m or -F options.
 ```
 
 The trick is to combine this option with the ability to set up [Git aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases) to make it easy to start commits using a particular template, for example:
@@ -37,7 +45,8 @@ My template in ~/.dotfiles/git/templates/commit-decision.txt:
 ```
 # Write a useful commit message here:
 
-# Now provide more information about why you've made this decision:
+# Now provide more information about why you've made this
+# decision:
 In the context of [USE CASE],
 facing [CONCERN]
 we decided for [OPTION]
