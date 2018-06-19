@@ -20,7 +20,8 @@ I used two utilities for this - `curl`, and `xmllint`. `curl` is preinstalled a 
 Here's an example that I'll break down:
 
 ```sh
-curl "http://api.opendata.tld/example.xml" | xmllint --xpath "//Measurements/Data/Reading[last()]/Value/text()" -
+curl "http://api.opendata.tld/example.xml" |\
+  xmllint --xpath "//Measurements/Data/Reading[last()]/Value/text()" -
 ```
 
 First of all, `curl "http://api.opendata.tld/example.xml"`. This requests the given URI, streaming the response to the pipe. For the sake of the further examples, let's assume it returns XML data in the following format:
@@ -58,7 +59,8 @@ Given a valid XPath expression, the result of this command will be exactly what 
 In other words, the complete command:
 
 ```sh
-curl "http://api.opendata.tld/example.xml" | xmllint --xpath "//Measurements/Data/Reading[last()]/Value/text()" -
+curl "http://api.opendata.tld/example.xml" |\
+  xmllint --xpath "//Measurements/Data/Reading[last()]/Value/text()" -
 ```
 
 Will return.....`11.8`. Exactly what we need!
