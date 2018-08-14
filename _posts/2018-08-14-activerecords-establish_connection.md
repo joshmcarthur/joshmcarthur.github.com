@@ -6,7 +6,7 @@ category: TIL
 tags: [til,technology]
 ---
 
-If you've ever wondered how your Rails ActiveRecord models end up magically translating some connection details (probably you have these in `config/database.yml`) into data you can interact with it, `establish_connection` is a pretty significant part of that magic. In this post, I'm going to be laying out the different arguments this method accepts to determine how to connect to a database. Just so you know, this is largely a paraphrasing of [the APIDock documentation](https://apidock.com/rails/ActiveRecord/ConnectionHandling/establish_connection) to reinforce these arguments in my memory, so if you would prefer to directly read the documentation, go ahead.
+If you've ever wondered how your Rails ActiveRecord models end up magically translating some connection details (probably you have these in `config/database.yml`) into data you can interact with, `establish_connection` is a pretty significant part of that magic. In this post, I'm going to be laying out the different arguments this method accepts to determine how to connect to a database. Just so you know, this is largely a paraphrasing of [the APIDock documentation](https://apidock.com/rails/ActiveRecord/ConnectionHandling/establish_connection) to reinforce these arguments in my memory, so if you would prefer to directly read the documentation, go ahead.
 
 ## Normal operation
 
