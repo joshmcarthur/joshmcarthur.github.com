@@ -1,5 +1,5 @@
----
-layout: default
+--- 
+layout: default 
 ---
 
 <div class="post">
@@ -7,27 +7,26 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
 
   {% if page.featured_image %}
-    <div class="hero-image" 
-         style="background-image:url('{{ page.featured_image }}')"></div>
+  <div class="hero-image" style="background-image:url('{{ page.featured_image }}')"></div>
   {% endif %}
 
   <div class="post-content">{{ content }}</div>
   {% if page.projects %}
   <div id="projects" class="card">
-      <div class="card-primary-text">
-        Referenced Projects
-      </div>
+    <div class="card-primary-text">
+      Referenced Projects
+    </div>
 
-      <ul>
+    <ul>
       {% for project in page.projects %}
-        <li>
-          <a href="{{ project.url }}">{{ project.name }}</a>
-          <p>
-            {{ project.description }}
-          </p>
-        </li>
+      <li>
+        <a href="{{ project.url }}">{{ project.name }}</a>
+        <p>
+          {{ project.description }}
+        </p>
+      </li>
       {% endfor %}
-      </ul>
+    </ul>
   </div>
   {% endif %}
 </div>

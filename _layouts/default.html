@@ -1,74 +1,102 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>
-      {% if page.title %}
-        {{ page.title }} -
-      {% endif %}
-      josh mcarthur
-    </title>
-    <meta name="author" content="Joshua McArthur" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>
+    {% if page.title %} {{ page.title }} - {% endif %} Notes: Josh McArthur
+  </title>
+  <meta itemscope="publisher" content="Joshua McArthur" />
+  <meta name="author" itemscope="author" content="Joshua McArthur" /> {% if page.tags %}
+  <meta name="keywords" content="{{ page.tags }}" /> {% endif %}
 
-    {% if page.meta_description %}
-      <meta name="description" content="{{page.meta_description}}" />
-    {% else %}
-      <meta name="description" content="{{ content | strip_html | truncatewords:30 }}" />
-    {% endif %}
+  <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
+  <link rel="stylesheet" href="/css/blog.css" type="text/css" media="screen, projection" />
 
-   {% if page.tags %}
-    <meta name="keywords" content="{{ page.tags }}" />
-   {% endif %}
+  <!-- Extra stylesheets, can be included by posts -->
+  {% for stylesheet_url in page.stylesheets %}
+  <link rel="stylesheet" href="{{ stylesheet_url }}" type="text/css" media="screen,projection" /> {% endfor %}
 
-   <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
+  <!-- Set up the viewport for mobile devices -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
-   <link rel="stylesheet" href="/css/blog.css" type="text/css" media="screen, projection" />
+  <!-- Chrome for Android title color -->
+  <meta name="theme-color" content="#388E3C">
 
-   <!-- Extra stylesheets, can be included by posts -->
-   {% for stylesheet_url in page.stylesheets %}
-   <link rel="stylesheet" href="{{ stylesheet_url }}" type="text/css" media="screen,projection" />
-   {% endfor %}
+  <!-- Social sharing -->
 
-   <!-- Set up the viewport for mobile devices -->
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- Titles -->
+  <meta name="twitter:card" content="summary_large_image"> {% if page.title %}
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta itemprop="name" content="{{ page.title }}">
+  <meta property="og:title" content="{{ page.title }}" /> {% else %}
+  <meta name="twitter:title" content="Notes: Josh McArthur">
+  <meta itemprop="name" content="Notes: Josh McArthur">
+  <meta property="og:title" content="Notes: Josh McArthur" /> {% endif %}
+  <meta name="twitter:creator" content="@sudojosh">
 
-   <!-- Chrome for Android title color -->
-   <meta name="theme-color" content="#388E3C">
+  <!-- Descriptions -->
+  {% if page.meta_description %}
+  <meta itemprop="description" name="description" content="{{page.meta_description}}" />
+  <meta property="og:description" content="{{ page.meta_description }}" />
+  <meta name="twitter:description" content="{{ page.meta_description }}"> {% else %}
+  <meta itemprop="description" name="description" content="{{ page.content | strip_html | truncatewords:30 }}" />
+  <meta property="og:description" content="{{ page.content | strip_html | truncatewords:30 }}" />
+  <meta name="twitter:description" content="{{ page.content | strip_html | truncatewords:30 }}"> {% endif %}
+
+  <!-- Images -->
+  {% if page.featured_image %}
+  <meta itemprop="image" content="{{ page.featured_image | absolute_url }}">
+  <meta property="og:image" content="{{ page.featured_image | absolute_url }}" />
+  <meta name="twitter:image:src" content="{{ page.featured_image | absolute_url }}"> {% else %}
+  <meta itemprop="image" content="{{ " /img/profile.jpg " |strip | absolute_url }}">
+  <meta property="og:image" content="{{ " /img/profile.jpg " | strip | absolute_url }}" />
+  <meta name="twitter:image:src " content="{{ " /img/profile.jpg " | strip | absolute_url }}"> {% endif %}
+
+  <!-- Open Graph data -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:site_name" content="Josh McArthur" /> {% if page.date %}
+  <meta itemscope="datePublished" content="{{ page.date }}" />
+  <meta property="article:published_time" content="{{ page.date }}" />{% endif %} {% if page.category %}
+  <meta property="article:section" content="{{ page.category }}" />{% endif %} {% if page.tags %}
+  <meta property="article:tag" content="{{ page.tags }}" /> {% endif %}
 </head>
+
 <body>
 
-<div class="content container">
-  {{ content }}
-</div>
-
-<header class="toolbar">
-  <div class="profile">
-    <img src="/img/profile.jpg" class="profile-image" />
-    <div class="profile-text">
-      I'm <strong>Josh McArthur</strong>, a web developer specializing in Ruby on Rails and Phoenix. 
-      I contribute code on <a href="https://github.com/joshmcarthur">GitHub</a> and write blog posts about technology and tramping here.
-    </div>
+  <div class="content container">
+    {{ content }}
   </div>
-</header>
+
+  <header class="toolbar">
+    <div class="profile">
+      <img src="/img/profile.jpg" class="profile-image" />
+      <div class="profile-text">
+        I'm <strong>Josh McArthur</strong>, a web developer specializing in Ruby on Rails and Phoenix. I contribute code
+        on <a href="https://github.com/joshmcarthur">GitHub</a> and write blog posts about technology and tramping here.
+      </div>
+    </div>
+  </header>
 
 
 
-<!-- Extra scripts, can be included by posts -->
-{% for script_url in page.scripts %}
-  <script src="{{ script_url }}"></script>
-{% endfor %}
+  <!-- Extra scripts, can be included by posts -->
+  {% for script_url in page.scripts %}
+  <script src="{{ script_url }}"></script> {% endfor %}
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-17014575-2");
-pageTracker._trackPageview();
-</script>
-<!-- Google Analytics end -->
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-17014575-2");
+    pageTracker._trackPageview();
+  </script>
+  <!-- Google Analytics end -->
 
 </body>
+
 </html>
