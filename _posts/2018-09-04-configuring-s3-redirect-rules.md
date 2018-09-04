@@ -23,7 +23,7 @@ Redirection rules are specified in the following basic format:
       <Protocol>PROTOCOL</Protocol>
       <HostName>HOSTNAME</HostName>
       <!-- This can be left as an empty element to use the current key as the path -->
-      <ReplaceKeyPrefixWith>PATH</ReplaceKeyPrefixWith>
+      <ReplaceKeyWith>PATH</ReplaceKeyWith>
     </Redirect>
   </RoutingRule>
 </RoutingRules>
@@ -35,6 +35,11 @@ normal S3 response results in a particular HTTP status code - redirects of this 
 conjunction with an external application or FaaS platform to dynamically render or return content.
 Examples of this I have seen include generating image thumbnails on the fly when they do not already
 exist, and redirecting to a full-text search of a static site. 
+
+If you have a large number of routing rules, you can order them such that the highest-priority matches 
+will be matched and redirected before more general rules. This allows for quite precise control over
+redirects.
+
 
 One big gotcha with redirect rules that I found was not really documented anywhere was that the
 `<KeyPrefixEquals>` must not begin with a leading slash. This seems a bit contrary to the path that
