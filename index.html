@@ -4,7 +4,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 ---
 
 <div class="card-list">
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 {%if post.type == "quote" %}
 <article class="quote card">
   <div class="card-text">
@@ -23,7 +23,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
 
   <p class="card-text">
-    {{ post.content | strip_html | truncatewords:30 }}
+    {{ post.content | markdownify | strip_html | truncatewords:60 }}
   </p>
 
   <div class="actions">
@@ -33,4 +33,22 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 {% endif %}
 {% endfor %}
 
+</div>
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous card-btn">
+      &larr; Previous
+    </a>
+  {% else %}
+    <span class="previous card-btn">&larr; Previous</span>
+  {% endif %}
+  <span class="page_number">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next card-btn">Next &rarr;</a>
+  {% else %}
+    <span class="next ">Next &rarr;</span>
+  {% endif %}
 </div>
