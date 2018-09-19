@@ -58,4 +58,3 @@ For more information on the I18n translation format, and exactly how these above
 resolved, see the [I18n Rails Guide section on error message
 scopes](https://guides.rubyonrails.org/i18n.html#error-message-scopes).
 
-subject.errors.generate_message(:acc_consultation, :invalid_transition)
