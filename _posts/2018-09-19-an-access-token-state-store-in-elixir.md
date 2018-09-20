@@ -20,8 +20,7 @@ and invalidation), and check whether a given token exists.
 The module ended up quite simple:
 
 ``` elixir
-
-defmodule MyApp.Token.Repo do
+defmodule ElixirAuthTokenStoreExample.Repo do
   use GenServer
   @name __MODULE__
 
@@ -32,11 +31,14 @@ defmodule MyApp.Token.Repo do
 
   ## Example
 
-    iex> Repo.start_link(:repo_start_link_doctest)
-    {:ok, pid}
+    iex> {:ok, pid} = ElixirAuthTokenStoreExample.Repo.start_link(name: :repo_start_link_doctest)
+    iex> is_pid(pid)
+    true
   """
-  def start_link(name \\ @name) do
-    GenServer.start_link(name, [])
+  def start_link(opts \\ []) do
+    opts = Keyword.put_new(opts, :name, @name)
+    store = []
+    GenServer.start_link(__MODULE__, store, opts)
   end
 
   @doc """
@@ -44,14 +46,44 @@ defmodule MyApp.Token.Repo do
 
   ## Example
 
-    iex> {:ok, pid} = Repo.start_link(:repo_insert_doctest_1)
-    iex> Repo.insert("abc123") 
-    iex> :os.getstate(Repo)
+    iex> {:ok, pid} = ElixirAuthTokenStoreExample.Repo.start_link(name: :repo_insert_doctest_1)
+    iex> ElixirAuthTokenStoreExample.Repo.insert(pid, "abc123")
+    iex> :sys.get_state(pid)
     ["abc123"]
   """
-  def insert(pid, token), do: GenServer.cast(pid, {:insert, token})
-  def destroy(pid, token), do: GenServer.cast(pid, {:destroy, token})
-  def exists?(pid, token), do: GenServer.call(pid, {:exists, token})
+  def insert(pid \\ @name, token), do: GenServer.cast(pid, {:insert, token})
+
+  @doc """
+  Remove a token from the repo
+
+  ## Example
+
+    iex> {:ok, pid} = ElixirAuthTokenStoreExample.Repo.start_link(name: :repo_destroy_doctest_1)
+    iex> ElixirAuthTokenStoreExample.Repo.insert(pid, "abc123")
+    iex> ElixirAuthTokenStoreExample.Repo.destroy(pid, "abc123")
+    iex> :sys.get_state(pid)
+    []
+
+  """
+  def destroy(pid \\ @name, token), do: GenServer.cast(pid, {:destroy, token})
+
+  @doc """
+  Check whether a given token exists in the store
+
+  ## Example
+
+    iex> {:ok, pid} = ElixirAuthTokenStoreExample.Repo.start_link(name: :repo_exists_doctest_1)
+    iex> ElixirAuthTokenStoreExample.Repo.insert(pid, "abc123")
+    iex> ElixirAuthTokenStoreExample.Repo.exists?(pid, "abc123")
+    true
+
+    iex> {:ok, pid} = ElixirAuthTokenStoreExample.Repo.start_link(name: :repo_exists_doctest_2)
+    iex> ElixirAuthTokenStoreExample.Repo.insert(pid, "abc123")
+    iex> ElixirAuthTokenStoreExample.Repo.exists?(pid, "abc1234")
+    false
+
+  """
+  def exists?(pid \\ @name, token), do: GenServer.call(pid, {:exists, token})
 
   # Server
 
@@ -63,15 +95,38 @@ defmodule MyApp.Token.Repo do
 
   @impl true
   def handle_cast({:insert, token}, state) do
-    {:noreply, [token | state]
+    {:noreply, [token | state]}
   end
 
   def handle_cast({:destroy, token}, state) do
-    {:noreply, Enum.delete(state, token)}
+    {:noreply, state |> List.delete(token)}
   end
 
   @impl true
-  def handle call({:exists, token), _from, state) do
-    {:reply, Enum.member?(state, token), state}
+  def handle_call({:exists, token}, _from, state) do
+    {:reply, state |> Enum.member?(token), state}
   end
 end
+
+```
+
+This genserver can be added to your Mix application supervisor, which will ensure that a a process
+will always be running holding the state that is available application-wide. Because of the simple
+API we have defined, interacting with the token store is quite simple:
+
+``` elixir
+alias ElixirAuthTokenStoreExample.Repo
+
+Repo.start_link()
+
+# Insert a token
+Repo.insert("abc123")
+
+# Check it exists
+Repo.exists?("abc123")
+
+# Destroy a token
+Repo.destroy("abc123")
+
+```
+
