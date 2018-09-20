@@ -130,3 +130,5 @@ Repo.destroy("abc123")
 
 ```
 
+I have placed this example code into a reference mix application, available at https://github.com/joshmcarthur/elixir-auth-token-store-example.
+
