@@ -88,8 +88,10 @@ sign used to be. Just past that stump, I found an unmarked track heading up a sm
 top of that bank, I could see an orange triangle about 50m away - solving the problem of the
 missing track!
 
-![Renata Track](/img/posts/renata-2/renata-track.jpg)
-> Maymorn Junction with the track to Renata on the left beside the post
+<figure>
+  <img alt="Renata Track" src="/img/posts/renata-2/renata-track.jpg" />
+  <figcaption>Maymorn Junction with the track to Renata on the left beside the post.</figcaption>
+</figure>
 
 Next time, I definitely know where the track is, and I also know that I can do a mixture of cycling
 the easy bits and walking the hard bits to get up to the junction in good time and without using up
