@@ -81,12 +81,12 @@ head back up the hill. This took me around an hour to regain the junction. By th
 feeling pretty short of energy, and hadn't expected to have to get back to MORE uphill cycling
 straight away, so I had to take it pretty slowly and walk a decent chunk of it. By the time I
 reached the clearing where I stopped for lunch, and having not passed any other likely looking spots
-I was more inclined to not carry on until I had confirmed where the track to Renata Hut actually was
-- by now though, I was almost at my cutoff, both in terms of time and energy, and knew I wouldn't be
-  able to make the Hut that day. After a bit of a hunt around, I found the stump of where a DoC
-  sign used to be. Just past that stump, I found an unmarked track heading up a small bank. At the
-  top of that bank, I could see an orange triangle about 50m away - solving the problem of the
-  missing track!
+I was more inclined to not carry on until I had confirmed where the track to Renata Hut actually was. 
+By now, I was almost at my cutoff, both in terms of time and energy, and knew I wouldn't be
+able to make the Hut that day. After a bit of a hunt around, I found the stump of where a DoC
+sign used to be. Just past that stump, I found an unmarked track heading up a small bank. At the
+top of that bank, I could see an orange triangle about 50m away - solving the problem of the
+missing track!
 
 <figure>
   ![Renata Track](/img/posts/renata-2/renata-track.jpg)
