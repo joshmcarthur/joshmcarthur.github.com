@@ -17,7 +17,7 @@ to make it up to the Hut - I reached my cutoff and turned around.
 
 After that attempt, I reflected on how, because much of the track is four-wheel drive accesible, I
 could possibly save some time by mountain biking as far up as I could before continuing up by foot.
-That's why I tried this time. It didn't work out, which I'll go into.
+That's what I tried this time. It didn't work out, which I'll go into.
 
 **Start time:** 9:30am from Akatawara Hill Rd saddle
 
@@ -29,7 +29,7 @@ I started from the saddle, which is just as dodgy looking as ever. Not-very-reas
 skeleton of a burnt out car which wasn't there last time was right in the middle of the gravel patch
 at the summit. I parked as out-of-sight as I could manage and got on my bike and set off up the
 hill. I pretty quickly discovered that while the track is definitely bikable in terms of width, the
-terrain and uphill slog was going to make things tough for me. This was 100% by bike fitness - I'm
+terrain and uphill slog was going to make things tough for me. This was 100% my bike fitness - I'm
 pretty sure someone more capable on a bike would have no particular problems.
 
 I met a single tramper about 15 minutes up the hill, who was on his way out from Renata. It was good
