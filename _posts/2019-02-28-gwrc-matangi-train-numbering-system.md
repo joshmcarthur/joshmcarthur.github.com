@@ -4,6 +4,7 @@ title: "GWRC Matangi Train Numbering System"
 description: "Breaking down the numbering system for Matangi trains in the Wellington Region"
 category: TIL
 tags: [til,transit]
+featured_image: /img/posts/gwrc-matangi-train.jpg
 ---
 
 > Note: This numbering system is known as "TMS" (even though TMS stands for "Traffic Management System") 
