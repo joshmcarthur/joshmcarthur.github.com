@@ -7,12 +7,20 @@ featured_image: /img/posts/days-bay/featured.jpg
 tags: [tramping,short-walks]
 ---
 
+**Start time:** 11:20am from Days Bay Pavillion
+
+**Finish time:** ~ 2:30pm at Cheviot Bay Road + 15 minutes to cycle back to Days Bay
+
+**Time:** approximately 3 hours with a few breathers and a 15 minute stop for lunch
+
+---
+
 An unexpected change in our weekend plans last weekend (mostly a sense of laziness that persisted
 all through Saturday) let us to try out a new area of the East Harbour Regional Park that we have
 not yet been into. 
 
 Between Point Arthur (where the Pencarrow Head trail starts), and the Wainuiomata Hill Road lookout
-runs the creativey named "Main Ridge". This ridge sits between the East Harbour bays and
+runs the creatively named "Main Ridge". This ridge sits between the East Harbour bays and
 Wainuiomata/Coast Road, and consists of a mixture of mature beech forest and regenerating
 manuka/native scrub. 
 
