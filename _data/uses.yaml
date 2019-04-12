@@ -1,0 +1,24 @@
+- name: Hyper
+  url: "https://hyper.is"
+  description: Electron-based terminal. Still trialling it, but enjoying the UI that stays out of the way and the JSON_based syntax.
+- name: Droid Sans Mono
+  url: https://fonts.adobe.com/fonts/droid-sans-mono
+  description: A bolder-than-usual monospaced font used in my terminal and editors.
+- name: Google Chrome
+  url: https://google.com/chrome
+  description: Idealistically, I'd _like_ to use Firefox. I just can't give up those devtools.
+- name: VS Code
+  url: https://code.visualstudio.com/
+  description: The perfect blend of editors for me. I couldn't live without vim mode though.
+- name: RecordIt
+  url: http://recordit.co/
+  description: Fantastic for capturing feature demos as video or gif. I use this _all the time_ for pull requests.
+- name: Kanban for One Board
+  url: https://kanbanfor1.com
+- name: Antigen
+  url: https://github.com/zsh-users/antigen
+  description: ZSH plugin manager. I don't use oh-my-zsh with this, I just pick and choose the bundles I want.
+- name: Alfred
+  description: I use Alfred as a "faster spotlight". I don't use any advanced features other than search prefixes (e.g. prefixing a term with "wiki" to search Wikipedia).
+- name: Figma
+  description: I use Figma mostly to view and export slices from Sketch files when doing frontend implementation.
