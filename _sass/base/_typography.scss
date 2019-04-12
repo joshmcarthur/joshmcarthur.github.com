@@ -17,6 +17,7 @@ body {
   @include sans;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
+  line-height: 2;
 
   @include desktop {
     font-size: $typography-grid * 4;
