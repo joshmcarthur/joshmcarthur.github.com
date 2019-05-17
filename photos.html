@@ -1,0 +1,60 @@
+---
+permalink: /photos/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Photos: Josh McArthur</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-y: hidden;
+    }
+
+    .gallery {
+      width: 100vw;
+      min-height: 1080px;
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .photo-wrapper {
+      width: 100vw;
+      height: 100vh;
+      max-width: 1920px;
+      flex-shrink: 0;
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    .photo-wrapper img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gallery">
+    {% for photo in site.data.photos %}
+    <div class="photo-wrapper">
+      <img src="{{photo.url}}" width="{{photo.mediaMetadata.width}}" height="{{photo.mediaMetadata.height}}"
+        alt="{{photo.description}}" />
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
