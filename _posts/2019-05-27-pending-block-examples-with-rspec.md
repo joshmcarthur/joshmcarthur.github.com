@@ -29,7 +29,7 @@ While researching how to do this, I stumbled across an interesting
 rspec-core](https://github.com/rspec/rspec-core/issues/1208#issuecomment-30009148), which mentioned
 that:
 
-> Currently pending 'doc string' is just an alias for it 'doc string', :pending => true. xit
+> Currently pending 'doc string' is just an alias for it 'doc string', :pending => true.
 
 This is interesting, because that means that `pending` is implemented as an RSpec tag, and I know
 that tags can be applied to more than just specific examples - they can also be applied to example
