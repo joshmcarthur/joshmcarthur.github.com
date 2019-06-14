@@ -18,6 +18,7 @@ easily with a command like:
 ``` bash
 curl --unix-socket=/home/deploy/appname/shared/tmp/sockets/appname.sock
 http://localhost/my-application-route-goes-here`.
+```
 
 All the usual features of cURL are available when the UNIX file is provided, such as making
 POST/HEAD/OPTIONS/anything else requests, sending form data or files, and using cookies. 
