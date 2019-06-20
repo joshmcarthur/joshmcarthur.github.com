@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CURLing to a UNIX socket"
-description: "How to test a UNIX socket with cURL
+description: "How to test a UNIX socket with cURL"
 category: TIL
 tags: [til,technology,server-admin]
 ---
@@ -15,10 +15,10 @@ especially if the instance is not accessible via a public IP address. A little-k
 application servers and any other process that listens on a socket and supports HTTP to be tested
 easily with a command like:
 
-``` bash
+{% highlight ruby %}
 curl --unix-socket=/home/deploy/appname/shared/tmp/sockets/appname.sock
-http://localhost/my-application-route-goes-here`.
-```
+http://localhost/my-application-route-goes-here
+{% endhighlight %}
 
 All the usual features of cURL are available when the UNIX file is provided, such as making
 POST/HEAD/OPTIONS/anything else requests, sending form data or files, and using cookies. 
