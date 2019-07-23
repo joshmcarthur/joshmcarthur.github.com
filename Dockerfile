@@ -1,5 +1,7 @@
-FROM ruby:2.3-slim
-RUN apt-get update && apt-get install -y nodejs nodejs-legacy build-essential
+FROM ruby:2.5
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - &&\
+    apt-get update &&\
+    apt-get install nodejs
 RUN mkdir /usr/src/app
 COPY . /usr/src/app
 WORKDIR /usr/src/app
