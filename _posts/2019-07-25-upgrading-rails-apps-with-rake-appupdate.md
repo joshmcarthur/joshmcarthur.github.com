@@ -45,4 +45,10 @@ pane, and then choose to not overwrite the file. My shell is not currently set u
 `mergetool` like VS Code, but I'm definitely going to give this a go next time, since it is
 basically a more streamlined process for what I am already doing.
 
+One final note - `rake app:update` is NOT bulletproof. It's not intended to be. It's just a
+convenience. As with any change in your application's code or dependencies, _a comprehensive test
+suite is the most important feature_. If you are going into any kind of change process, but
+especially a framework update without at least some key behaviour tests, stop and add them. It's
+incredibly difficult otherwise to check after each change that your application remains functional.
+
 
