@@ -65,7 +65,7 @@ interface via the `ninjahelper` utility.
 
 I used the `ninjahelper` utility to create a Duplicity backup configuration file in
 `/etc/backup.d/90.dup`, and then edited it extensively to achieve the backup behaviour I wanted. I
-won't post the full configuration file here, but here are some exerpts relating to the points I
+won't post the full configuration file here, but here are some excerpts relating to the points I
 wanted to achieve above:
 
 ```
