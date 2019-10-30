@@ -5,10 +5,43 @@
 }
 
 blockquote {
-  margin: 0;
-  border-left: solid 2px $black;
-  padding-left: $baseline-grid;
+  margin: 1rem auto;
+  padding-bottom: 1rem;
+  position: relative;
+  padding-top: 2rem;
+  border-bottom: solid 1px #efefef;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:nth-child(even) {
+    text-align: right;
+    &:after, footer { text-align: left; }
+  }
+
+  &:after, footer {
+    content: attr(cite);
+    color: rgba(0, 0, 0, 0.5);
+    display: block;
+    text-align: right;
+    font-size: 0.875em;
+  }
+
+  &:before {
+    content: '\201C';
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 2rem;
+    font: 6em/1.08em 'PT Sans', sans-serif;
+    color: #666;
+    text-align: center;
+  }
 }
+
 
 ol {
   margin: 0;
