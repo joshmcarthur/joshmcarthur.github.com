@@ -10,16 +10,13 @@
 
 @mixin title-font {
   @include sans-serif;
-  font-size: 200%;
+  font-size: 1.802em;
+  line-height: 1.15;
 }
 
 body {
   @include sans;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
-  line-height: 2;
-
-  @include desktop {
-    font-size: $typography-grid * 4;
-  }
+  line-height: 1.45;
 }
