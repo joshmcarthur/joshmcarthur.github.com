@@ -32,3 +32,32 @@ problem might not cause an error in newer versions, the _behaviour_ is the same
 variable will be used in preference to any other installed version. For this
 reason, it's worth checking this, even on newer Ruby images, since dependencies
 may be installed with a different version of Bundler than you were expecting.
+
+---
+
+**Follow-up**: this works when building the image, but not when using bundle
+after that (it reverts to trying to use the old version). I tried a range of
+things to get this environment variable to persist, but `export BUNDLER_VERSION`
+doesn't persist in the container, and putting the environment variable export in
+`~/.bashrc` or `/etc/profile` only gets run when a shell is run - not when a
+standalone command (like `bundle exec rails s --binding=0.0.0.0`) is run. I
+ended up not being able to find a solution for this in the Dockerfile. Instead,
+I added a `docker-entrypoint.sh` script in the root of the project with the
+following contents:
+
+``` sh
+#!/bin/bash
+set -Eeuo pipefail
+# Use the version of Bundler specified in Gemfile.lock, not the one packaged
+# with the original Docker image
+export BUNDLER_VERSION="$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+exec $@
+```
+
+And declaring this entrypoint in my Dockerfile: `ENTRYPOINT
+["docker-entrypoint.sh"]`
+
+
+This means that when my command is run, it will be passed to the entrypoint -
+e.g. `docker-entrypoint.sh bundle exec rails s --binding=0.0.0.0`, and will have
+the `BUNDLER_VERSION` environment variable `export`d from within that script.
