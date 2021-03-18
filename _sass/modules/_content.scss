@@ -1,5 +1,13 @@
 .content {
-  @include desktop {
-    padding-bottom: $baseline-grid * 12;
+  width: 100%;
+  overflow-y: hidden;
+
+  @include medium-screen {
+    padding: 2rem 0;
+  }
+
+  @include large-screen {
+    width: 50%;
+    padding: 5rem 1rem;
   }
 }

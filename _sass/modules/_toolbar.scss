@@ -1,16 +1,35 @@
-.toolbar {
-  background: $white;
-  bottom: 0;
-  width: 100%;
-  z-index: 500;
+body {
+  display: flex;
+  flex-direction: column;
+  background: #efefef;
 
-  @include mobile {
-    border-top: solid 1px #ddd;
-  }
-
-  @include desktop {
-    position: fixed;
-    box-shadow: 0 0 ($baseline-grid * 2) rgba(0,0,0,0.26);
+  @include medium-screen-up {
+    flex-direction: row;
   }
 }
 
+.sidebar {
+  width: 100%;
+  padding-top: 1rem;
+  box-shadow: 0rem -1rem 1rem rgba(0, 0, 0, 0.2);
+
+  @include medium-screen-up {
+    padding-top: 5rem;
+    box-shadow: -1rem 0 1rem rgba(0, 0, 0, 0.2);
+    max-width: 25%;
+    min-width: 25%;
+    width: 25%;
+  }
+}
+
+.accent {
+  width: 100%;
+  height: 3rem;
+  background: url("/img/bg.svg");
+  margin: 0;
+
+  @include medium-screen-up {
+    width: 5rem;
+    height: auto;
+  }
+}

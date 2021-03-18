@@ -2,15 +2,10 @@
   width: 90%;
   margin: auto;
   display: block;
-  transition: opacity 1s;
   padding: $baseline-grid;
 
-  @include desktop {
+  @include large-screen {
     width: 70%;
-    @include text-importance(secondary);
-    &:hover {
-      opacity: 1;
-    }
   }
 
   &:after{
@@ -20,25 +15,18 @@
 
 .profile-text {
   @include sans-serif;
-  padding: $baseline-grid;
-  &::after {
-    @include clearfix;
-  }
+  background: #efefef;
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 .profile-image {
-  width: 36px;
+  width: 200px;
+  max-width: 100%;
   border-radius: 50%;
   height: auto;
-  float: left;
-  margin: $baseline-grid;
-  margin-left: 0;
-
-  @include desktop {
-    width: 56px;
-    margin: 0;
-    margin-right: $baseline-grid;
-  }
+  display: block;
+  margin: auto;
 }
 
 .post-title {

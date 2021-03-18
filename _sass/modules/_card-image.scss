@@ -1,25 +1,10 @@
 .card-image {
+  display: block;
+  margin: -16px;
   img {
     max-width: 100%;
     max-height: 100%;
   }
-
-  @include mobile {
-    width: 110%;
-    display: block;
-    margin: -16px -5% 0 -5%;
-  }
 }
 
-.card-image + .card-primary-text {
-  @include desktop {
-    padding: 8px;
-    left: 0;
-    position: absolute;
-    bottom: $baseline-grid * 6.5;
-    background: $white;
-  }
-
-  & + .card-text { display: none }
-}
 

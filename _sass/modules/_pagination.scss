@@ -2,12 +2,12 @@
   display: flex;
   margin: auto;
   width: 100%;
-  
+
   @include sans-serif;
-  @include desktop {
+  @include large-screen {
     width: 60%;
   }
-  
+
   .page_number {
     flex: 1;
     vertical-align: middle;

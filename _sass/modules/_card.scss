@@ -1,15 +1,13 @@
 .card {
   position: relative;
   background: $white;
-  padding: $baseline-grid;
-  margin: $baseline-grid * 2 auto;
+  border: solid 0.25rem #DDD;
+  padding: $baseline-grid * 2;
+  margin: $baseline-grid * 2;
   overflow: hidden;
-  width: 90%;
-  border-bottom: 1px solid rgba(0,0,0,.05);
-
-  @include desktop {
-    width: 60%;
-  }
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .card-with-actions {
@@ -24,13 +22,6 @@
     margin-left: -$baseline-grid;
     background: $white;
 
-    // @include desktop {
-    //   position: absolute;
-    //   bottom: 0px;
-    //   width: 100%;
-    //   padding: $baseline-grid 0;
-    //   margin-bottom: 0;
-    // }
   }
 }
 
@@ -41,7 +32,7 @@
   padding-bottom: $baseline-grid * 2;
   text-decoration: none;
   color: $black;
-  @include desktop {
+  @include large-screen {
     font-size: 21px;
   }
 }
@@ -62,3 +53,6 @@
   padding-bottom: 0;
 }
 
+.card-list {
+  margin: -$baseline-grid * 2 auto;
+}
