@@ -6,20 +6,23 @@ category: step-through
 tags: [technology,rails,activerecord,step-through]
 ---
 
+
 **This post is written stepping through the most recent stable branch of Rails
 on Github: [`6-1-stable`](https://github.com/rails/rails/tree/6-1-stable). It
 may not remain up to date.**
 
-<small><a href="#content-start" class="screen-reader-only">Skip table of contents</a></small>
+<p>Reading time: {{ page.content | reading_time }}</p>
+
+<small><a href="#content-start">Skip table of contents</a></small>
 
 * TOC
 {:toc}
 
 <div id="content-start"></div>
 
-## How is the 'db:migrate' rake task defined?
+### How is the 'db:migrate' rake task defined?
 
-### The Rails gem includes 'activerecord' as a gem dependency:
+##### The Rails gem includes 'activerecord' as a gem dependency:
 
 ``` ruby
  s.add_dependency "activerecord",  version
@@ -33,7 +36,7 @@ may not remain up to date.**
 > 6.1.3.1. This means that the core gem versions like ActiveRecord track the
 > Rails gem version exactly.
 
-### The activerecord gem adds it's own 'lib/` directory to Ruby's load path:
+##### The activerecord gem adds it's own 'lib/` directory to Ruby's load path:
 
 ``` ruby
   s.require_path = "lib"
@@ -41,7 +44,7 @@ may not remain up to date.**
 
 &mdash; [rails/activerecord/activerecord.gemspec](https://github.com/rails/rails/blob/a215e47fb14af955071264b20818ca3834f477f2/activerecord/activerecord.gemspec#L21)
 
-### The 'activerecord' gem 'railtie' file is `require`-d by Rails
+##### The 'activerecord' gem 'railtie' file is `require`-d by Rails
 
 This can happen in two ways: either by `config/application.rb` [requiring
 'rails/all'](https://github.com/rails/rails/blob/a215e47fb14af955071264b20818ca3834f477f2/railties/lib/rails/generators/rails/app/templates/config/application.rb.tt#L4),
@@ -53,7 +56,7 @@ require "active_record/railtie"
 
 &mdash: [rails/railties/lib/rails/generators/app/templates/config/application.rb.tt](https://github.com/rails/rails/blob/a215e47fb14af955071264b20818ca3834f477f2/railties/lib/rails/generators/rails/app/templates/config/application.rb.tt#L10))
 
-### ActiveRecord Railtie is evaluated
+##### ActiveRecord Railtie is evaluated
 
 A 'Railtie' appears in most Rails-related gems. It's like an initializer, but
 for a library to set itself up within Rails, rather than within your
@@ -93,7 +96,7 @@ end
 > For the rest of this guide, we'll assume we're not in an engine, so this block
 > doesn't affect us. The **load** line is the important bit.
 
-### ActiveRecord Database Rake tasks are defined
+##### ActiveRecord Database Rake tasks are defined
 
 'databases.rake' has a special 'rake' extension. 'rake' files are specially
 evaluated in the context of the [rake](https://ruby.github.io/rake/) tool, that
@@ -203,9 +206,9 @@ application. This could be used if you had a different database user who had
 additional privileges to change the database schema from the user that your
 application normally runs with.
 
-## How is my migration run when I run `bundle exec rake db:migrate`?
+### How is my migration run when I run `bundle exec rake db:migrate`?
 
-### ActiveRecord::Tasks::DatabaseTasks.migrate
+##### ActiveRecord::Tasks::DatabaseTasks.migrate
 
 This method is the first sign of migrations actually being 'run':
 
@@ -250,7 +253,7 @@ This block of code is simply decoupling environment-variable-based config from
 the actual migration process. It's clear from the code block above that the next
 step lies in `ActiveRecord::Base.connection.migration_context.migrate`.
 
-### `ActiveRecordBase.connection.migration_context`
+##### `ActiveRecordBase.connection.migration_context`
 
 This method is called on a connection - that's something a bit different from
 what's been seen previously. Remember how in the `db:migrate` rake task
@@ -284,7 +287,7 @@ passes two arguments to the initialize method of this class:
 > schema](https://github.com/rails/rails/blob/a215e47fb14af955071264b20818ca3834f477f2/activerecord/lib/active_record/schema_migration.rb#L25)
 > - a single string timestamp column which is also the primary key.
 
-### ActiveRecord::MigrationContext
+##### ActiveRecord::MigrationContext
 
 This class looks complicated, but is mostly a state machine to control the
 direction to migrate in. There are a bunch of helper methods to migrate the
@@ -370,7 +373,7 @@ This is all useful to know, but for the purposes of continuing our journey, most
 of the time, scope is blank, so we run pass _all_ migrations along to the
 `Migrator` class in our `up` method.
 
-### ActiveRecord::Migrator
+##### ActiveRecord::Migrator
 
 This class acts as the 'controller' for a set of migrations. The primary
 responsibility it has is to prepare a list of migrations to run, and to then
@@ -496,7 +499,7 @@ is called, which updates the `schema_migrations` table. If anything goes wrong
 during the migration, a descriptive error is raised. You might recognise this error message from your own migrations: "An error has occurred, this and
 all later migrations canceled".
 
-### Your migration! (ActiveRecord::Migration)
+##### Your migration! (ActiveRecord::Migration)
 
 At this point, the migrator has figured out which migrations need to be run, and
 is running them one by one in a transaction. It's now up to your migration.
@@ -624,7 +627,7 @@ the database!
 > operations called on the connection within the block - `create_table` becomes
 > `drop_table`, `add_column` becomes `remove_column`, etc.
 
-### Updating db/schema.rb
+##### Updating db/schema.rb
 
 If you've run a migration before, you'll probably have noticed that running a
 migration (or rolling back a migration) tends to also update `db/schema.rb`.
