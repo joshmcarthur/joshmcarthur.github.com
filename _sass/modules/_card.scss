@@ -27,14 +27,10 @@
 
 .card-primary-text {
   display: block;
-  @include title-font;
-  padding-top: $baseline-grid * 3;
-  padding-bottom: $baseline-grid * 2;
+  margin: 0;
+  padding-bottom: $baseline-grid;
   text-decoration: none;
   color: $black;
-  @include large-screen {
-    font-size: 21px;
-  }
 }
 
 .card-subtitle {

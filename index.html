@@ -20,7 +20,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
     </a>
   {% endif %}
 
-  <a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a>
+  <h4 class="card-primary-text"><a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a></h4>
 
   <p class="card-text">
     {{ post.content | markdownify | strip_html | truncatewords:60 }}
