@@ -30,6 +30,6 @@
 }
 
 .post-title {
-  @include title-font;
+  @include base-heading;
   padding: 0 $baseline-grid * 2;
 }
