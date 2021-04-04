@@ -5,6 +5,12 @@
 }
 
 blockquote {
+  margin: 0;
+  border-left: solid 0.25rem #ddd;
+  padding-left: 1rem;
+}
+
+blockquote.emphasize {
   margin: 1rem auto;
   padding-bottom: 1rem;
   position: relative;
