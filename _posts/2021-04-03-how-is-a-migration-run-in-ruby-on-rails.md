@@ -11,7 +11,7 @@ tags: [technology,rails,activerecord,step-through]
 on Github: [`6-1-stable`](https://github.com/rails/rails/tree/6-1-stable). It
 may not remain up to date.**
 
-<p>Reading time: {{ page.content | reading_time }}</p>
+<p>Reading time: about 20 minutes</p>
 
 <small><a href="#content-start">Skip table of contents</a></small>
 
