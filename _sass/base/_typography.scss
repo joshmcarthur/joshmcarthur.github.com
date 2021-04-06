@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i,700');
-
-
-@mixin sans-serif {
-  font-family: 'Merriweather Sans', serif;
-}
-
-@mixin sans {
-  font-family: 'Merriweather', 'Georgia', 'Times New Roman', sans-serif;
-}
-
 html {font-size: 100%;} /*16px*/
 body {
-  @include sans;
+  font-family: sans-serif;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
   line-height: 1.75;
@@ -20,7 +9,7 @@ body {
 p {margin-bottom: 1rem;}
 
 @mixin base-heading {
-  @include sans-serif;
+  font-family: sans-serif;
   margin: 3rem 0 1.38rem;
   font-weight: 400;
   line-height: 1.3;
