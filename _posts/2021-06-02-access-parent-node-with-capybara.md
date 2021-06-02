@@ -15,7 +15,7 @@ Sometimes I'll need to find an element in relation to another. An example of thi
 Because Capybara element finders can be chained (e.g. you can do `find().find().find()` to traverse down elements, the ability of XPath to traverse the DOM tree can be used to easily find the parent node:
 
 ``` ruby
-page.find("img[alt='Example Page']").find("..")
+page.find("img[alt='Example Page']").find(:xpath, "..")
 # => Returns the 'a' element
 ```
 
