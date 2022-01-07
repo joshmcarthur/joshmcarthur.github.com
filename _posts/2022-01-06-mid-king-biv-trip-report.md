@@ -389,7 +389,7 @@ In retrospect, there are a number of factors that I will consider in the future:
   and this trip would have still allowed us to venture onto the tops, but in a
   less remote area more in-line with our skill level. The quietness of
   Atiwhakatu Hut on the first day could have prompted us to change our trip
-  plans and head to Jumob, but we already felt committed to waht we had decided.
+  plans and head to Jumob, but we already felt committed to what we had decided.
 * When we reached South King, I had a couple of different webpages downloaded to
   my phone to refer to, but I picked the first of these and stuck with it since
   it included a route to follow on a topomap. As it turns out, this route wasn't
