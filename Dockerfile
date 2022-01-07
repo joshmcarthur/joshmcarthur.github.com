@@ -1,5 +1,5 @@
-FROM ruby:2.5
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - &&\
+FROM ruby:2.7
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - &&\
     apt-get update &&\
     apt-get install nodejs
 RUN mkdir /usr/src/app
