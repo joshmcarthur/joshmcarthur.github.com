@@ -253,7 +253,7 @@ coffee, and hit the track. I was cursing our navigation error from the previous
 day as we followed a clear route marked with orange triangles for 10 minutes to
 the bushline. From here, the triangles were replaced with pink tape, but the
 route was still clearly obvious, and it looked as though if we'd dropped off the
-spur from [Mid King])https://www.topomap.co.nz/NZTopoMap/nz43749/Middle-King/Wellington_ instead of South King, we would have had a much easier time.
+spur from [Mid King](https://www.topomap.co.nz/NZTopoMap/nz43749/Middle-King/Wellington) instead of South King, we would have had a much easier time.
 
 As we reached the bushline, we looked up towards the Kings, and across towards
 the Pinanncles, and had a quick checkin. Should we go over the ridge route to
