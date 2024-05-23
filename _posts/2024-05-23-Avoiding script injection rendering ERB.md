@@ -42,3 +42,4 @@ ApplicationController.renderer.render(
   locals: data
 )
 # => <h1>Show greeting:</h1> <p>&lt;script&gt;alert(&#39;greeting!&#39;)&lt;/script&gt;</p
+```
