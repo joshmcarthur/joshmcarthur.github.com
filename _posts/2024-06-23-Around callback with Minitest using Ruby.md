@@ -17,7 +17,7 @@ run the example, then take an action _after_ running. This is often used for
 setting a variable for the duration of a test, instrumentation, that kind of
 thing:
 
-```rspec
+```ruby
 describe Thing do
   around do |example|
     puts "Running before example"
@@ -33,7 +33,7 @@ we want before and after calling the _actual_ test method:
 
 ```ruby
 class ThingTest < Minitest::Test
-   def self.wrapped_test(description, &)
+   def self.wrapped_test(description)
     test(description) do
       puts "Running before test"
       yield
