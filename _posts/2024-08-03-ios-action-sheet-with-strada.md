@@ -8,7 +8,9 @@ tags: []
 
 [Virtualtrails](https://virtualtrails.app) uses [Strada](https://strada.hotwired.dev/) to bridge native iOS code to the web application, including notifications, native Apple + Google Signin and Apple Healthkit integration. I added a feature yesterday to replace a Bootstrap dropdown with a native iOS sheet, just because it’s a more intuitive experience for users.
 
-<video src="/img/posts/sheet.mp4"></video>
+<div class="card-image">
+  <video controls src="/img/posts/sheet.mp4"></video>
+</div>
 
 Strada has two parts - the web side (which is in the form of a [Stimulus](https://stimulus.hotwired.dev/) controller with some guards built in so it only runs when Strada’s native side is available), and the iOS side (which is in the form of a ‘component’ which receives ‘messages’ from the web side, and can reply to them).
 
