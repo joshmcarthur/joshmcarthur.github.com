@@ -207,3 +207,27 @@ export default class TappableTargetController extends Controller {
   }
 }
 ```
+
+This version worked great - I could hold down Command to open links in a new
+tab, and it worked exactly like a native link.
+
+That's exactly what got me
+thinking though - while I had emulated one user experience enhancement, there
+were tonnes of others that users might be relying on, and it's not really
+practical for me to emulate every one of these enhancements.
+
+Ultimately, I decided not to use this code for this exact reason - I have too
+many concerns about not supporting behaviour that users will expect to 'just
+work', and might even harm the accessibility of links that I know will be
+important to users.
+
+Instead, I reverted to using the `stretched-link` class, but changed it to be on
+my dropdown menu toggle, instead of the primary action. I then gave the primary
+action a bit more prominence in the dropdown menu. This introduces an extra
+click to trigger the action, but also retains the accessibility and usability of
+how this link can be accessed and interacted with - and that's important to me.
+
+I still have an option to experiment with transparent (but still visible to
+screen reader) links, so I have a fallback to support a primary action, but for
+now, I'm ready to test triggering the dropdown, and will iterate on this if
+required.
