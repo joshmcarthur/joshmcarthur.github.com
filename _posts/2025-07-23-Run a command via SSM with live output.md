@@ -7,7 +7,8 @@ This little technique is a great example of how simple \*nix utilities can be
 (mis)used to accomplish some interesting things:
 
 ```sh
- (echo "./deploy.sh" && cat && exit && exit) |  aws ssm start-session --target $INSTANCE_ID
+ (echo "./deploy.sh" && cat && exit && exit) |  \
+   aws ssm start-session --target $INSTANCE_ID
 ```
 
 This:
