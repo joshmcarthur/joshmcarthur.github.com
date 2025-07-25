@@ -5,7 +5,7 @@ body, html {
 
 // Links
 a {
-  color: var(--color-primary-dark);
+  color: var(--color-link);
   text-underline-offset: 2px;
   transition: color var(--transition-fast);
 
@@ -30,7 +30,7 @@ blockquote {
   margin: var(--space-lg) 0;
   padding-left: var(--space-md);
   font-style: italic;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
 }
 
 // Code
@@ -78,6 +78,10 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius-sm);
+}
+
+iframe {
+  max-width: 100%;
 }
 
 // Horizontal rule
