@@ -2,14 +2,28 @@
   background: var(--color-background);
   border-left: solid 0.125rem var(--color-border); // 2px
   border-right: solid 0.125rem var(--color-border); // 2px
-  margin: calc(-1 * 5rem) auto;
   min-height: 100vh;
-  padding: 5rem 2rem;
+  padding: 5rem 0rem;
   color: var(--color-text);
+
+  @include medium-screen {
+    margin: calc(-1 * 2rem) auto;
+  }
+
+  @include large-screen {
+    margin: calc(-1 * 5rem) auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
+
 .post-content {
-  padding: var(--space-xl);
+  padding: var(--space-md);
+
+  @include large-screen {
+    padding: var(--space-xl);
+  }
 
   img {
     width: 100%;

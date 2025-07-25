@@ -1,8 +1,13 @@
 .profile {
   width: 90%;
   margin: auto;
-  display: block;
+  display: flex;
   padding: var(--space-sm);
+
+  @include medium-screen-up {
+    width: 90%;
+    flex-direction: column;
+  }
 
   @include large-screen {
     width: 70%;
@@ -17,20 +22,39 @@
 
 .profile-text {
   background: var(--color-gray-light);
-  padding: var(--space-md);
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-small);
   border-radius: var(--border-radius-sm);
   color: var(--color-text);
+  padding: 0 var(--space-md);
+
+  @include medium-screen {
+    font-size: var(--font-size-base);
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  @include large-screen {
+    font-size: var(--font-size-large);
+    padding: var(--space-md);
+  }
 }
 
 .profile-image {
-  width: 12.5rem; // 200px
+  width: 4rem;
+
+  @include medium-screen-up {
+    width: 8rem;
+  }
+
+  @include large-screen {
+    width: 12rem;
+    margin-left: var(--space-md);
+  }
+
   max-width: 100%;
   border-radius: 50%;
   height: auto;
   display: block;
   margin: auto;
-  margin-left: var(--space-md);
   border: var(--border-width) solid var(--color-border);
 }
 

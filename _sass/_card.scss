@@ -2,12 +2,17 @@
   position: relative;
   background: var(--color-background);
   border: solid var(--border-width) var(--color-border);
-  padding: var(--space-xl);
-  margin: var(--space-xl);
+  padding: var(--space-md);
+  margin: var(--space-md);
   overflow: hidden;
   border-radius: var(--border-radius);
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
+
+  @include medium-screen-up {
+    margin: var(--space-xl);
+    padding: var(--space-xl);
+  }
 }
 
 .card-with-actions {

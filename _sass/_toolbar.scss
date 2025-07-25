@@ -12,12 +12,9 @@ body {
 .sidebar {
   width: 100%;
   padding-top: var(--space-md);
-  box-shadow: 0 calc(-1 * var(--space-md)) var(--space-md) rgba(0, 0, 0, 0.2);
-  background: var(--color-gray-light);
 
   @include medium-screen-up {
     padding-top: 5rem;
-    box-shadow: calc(-1 * var(--space-md)) 0 var(--space-md) rgba(0, 0, 0, 0.2);
     max-width: 25%;
     min-width: 25%;
     width: 25%;
