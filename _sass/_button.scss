@@ -1,9 +1,9 @@
 .button-base {
   display: inline-block;
-  line-height: 3.5rem; // 56px equivalent
+  line-height: 1.3; // 56px equivalent
   min-width: 4rem; // 64px equivalent
   margin-left: var(--space-sm);
-  padding: 0 var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 500;
