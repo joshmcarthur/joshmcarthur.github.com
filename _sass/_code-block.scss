@@ -1,0 +1,12 @@
+[class^=language-] {
+  overflow: auto;
+  background: var(--color-gray-light);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--space-lg);
+
+  & > .highlight {
+    padding: var(--space-md);
+    overflow-x: auto;
+    background: none;
+  }
+}

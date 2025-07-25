@@ -1,0 +1,61 @@
+.button-base {
+  display: inline-block;
+  line-height: 3.5rem; // 56px equivalent
+  min-width: 4rem; // 64px equivalent
+  margin-left: var(--space-sm);
+  padding: 0 var(--space-sm);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    background: rgba(153, 153, 153, 0.2);
+  }
+
+  &:active {
+    background: rgba(153, 153, 153, 0.4);
+  }
+
+  &[disabled] {
+    color: var(--color-text-hint);
+    cursor: not-allowed;
+  }
+}
+
+.card-btn {
+  @extend .button-base;
+}
+
+// Primary button variant
+.btn-primary {
+  @extend .button-base;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  &:active {
+    background-color: var(--color-primary-dark);
+  }
+}
+
+// Secondary button variant
+.btn-secondary {
+  @extend .button-base;
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    background-color: var(--color-gray-light);
+  }
+}

@@ -1,21 +1,19 @@
 ---
 ---
 
-@import "mixins/desktop";
-@import "mixins/clearfix";
-@import "base/spaces";
-@import "base/typography";
-@import "base/colours";
-@import "base/elements";
-
-@import "modules/content";
-@import "modules/toolbar";
-@import "modules/title";
-@import "modules/card";
-@import "modules/card-image";
-@import "modules/button";
-@import "modules/post";
-@import "modules/pagination";
-@import "modules/code-block";
+@import "mixins";
+@import "variables";
+@import "elements";
+@import "typography";
+@import "toolbar";
+@import "card";
+@import "card-image";
+@import "button";
+@import "post";
+@import "pagination";
+@import "code-block";
+@import "content";
+@import "title";
+@import "pagination";
 @import "vendor/highlighter-themes/base16-railscasts-dark";
 @import "vendor/gist-themes/monokai";
