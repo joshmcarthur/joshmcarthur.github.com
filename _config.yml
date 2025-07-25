@@ -6,6 +6,12 @@ paginate: 10
 kramdown:
   input: GFM
   hard_wrap: false
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 plugins:
   - jekyll-coffeescript
   - jekyll-gist
