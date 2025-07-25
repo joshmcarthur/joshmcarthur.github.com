@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>
+    {% if page.title %} {{ page.title }} - {% endif %} {{site.title}}
+  </title>
+  <meta itemscope="publisher" content="Joshua McArthur" />
+  <meta name="author" itemscope="author" content="Joshua McArthur" /> {% if page.tags %}
+  <meta name="keywords" content="{{ page.tags }}" /> {% endif %}
+
+  <link href="{{site.url}}/feed/" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
+
+  <link rel="stylesheet" href="/css/blog.css" type="text/css" media="screen, projection" />
+
+  <!-- Extra stylesheets, can be included by posts -->
+  {% for stylesheet_url in page.stylesheets %}
+  <link rel="stylesheet" href="{{ stylesheet_url }}" type="text/css" media="screen,projection" /> {% endfor %}
+
+  <!-- Set up the viewport for mobile devices -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Chrome for Android title color -->
+  <meta name="theme-color" content="#388E3C">
+
+  <!-- Social sharing -->
+
+  <!-- Titles -->
+  <meta name="twitter:card" content="summary"> {% if page.title %}
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta itemprop="name" content="{{ page.title }}">
+  <meta property="og:title" content="{{ page.title }}" /> {% else %}
+  <meta name="twitter:title" content="Notes: Josh McArthur">
+  <meta itemprop="name" content="Notes: Josh McArthur">
+  <meta property="og:title" content="Notes: Josh McArthur" /> {% endif %}
+  <meta name="twitter:creator" content="@sudojosh">
+
+  <!-- Descriptions -->
+  {% if page.meta_description %}
+  <meta itemprop="description" name="description" content="{{page.meta_description}}" />
+  <meta property="og:description" content="{{ page.meta_description }}" />
+  <meta name="twitter:description" content="{{ page.meta_description }}"> {% else %}
+  <meta itemprop="description" name="description" content="{{ page.content | strip_html | truncatewords:30 }}" />
+  <meta property="og:description" content="{{ page.content | strip_html | truncatewords:30 }}" />
+  <meta name="twitter:description" content="{{ page.content | strip_html | truncatewords:30 }}"> {% endif %}
+
+  <!-- Images -->
+  {% if page.featured_image %}
+  <meta itemprop="image" content="{{ page.featured_image | absolute_url }}">
+  <meta property="og:image" content="{{ page.featured_image | absolute_url }}" />
+  <meta name="twitter:image:src" content="{{ page.featured_image | absolute_url }}"> {% endif %}
+
+  <!-- Open Graph data -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:site_name" content="Josh McArthur" /> {% if page.date %}
+  <meta itemscope="datePublished" content="{{ page.date }}" />
+  <meta property="article:published_time" content="{{ page.date }}" />{% endif %} {% if page.category %}
+  <meta property="article:section" content="{{ page.category }}" />{% endif %} {% if page.tags %}
+  <meta property="article:tag" content="{{ page.tags }}" /> {% endif %}
+
+  <!-- D3.js for contour generation -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/paper@0.12.17/dist/paper-full.min.js"></script>
+
+  <!-- Topographic styling -->
+  <style>
+    .topographic-layout {
+      position: relative;
+      min-height: 100vh;
+      background: #d7dfbc; /* Forest green background */
+    }
+
+    .topographic-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .topographic-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .contour-line {
+      fill: none;
+      stroke: #c88d3e; /* Orange contour lines */
+      stroke-width: 2px;
+      opacity: 0.8;
+      filter: url(#contour-glow);
+    }
+
+    .layout-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: relative;
+      z-index: 2;
+    }
+
+    .content.container {
+      position: relative;
+      z-index: 2;
+      margin: 2rem 2rem;
+      padding: 10rem 0;
+      /* No background - will be masked organically */
+    }
+
+    /* Minimal styling for content elements - let the organic mask handle the background */
+    .content.container h1,
+    .content.container h2,
+    .content.container h3,
+    .content.container h4,
+    .content.container h5,
+    .content.container h6 {
+      position: relative;
+      margin: 1.5rem 0 1rem 0;
+      color: #333;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .content.container p {
+      position: relative;
+      margin: 1rem 0;
+      line-height: 1.6;
+      color: #444;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .content.container ul,
+    .content.container ol {
+      position: relative;
+      margin: 1rem 0;
+      color: #444;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .content.container img,
+    .content.container .hero-image {
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .content.container .card {
+      position: relative;
+      margin: 2rem 0;
+      padding: 1rem;
+    }
+
+    .content.container .card-btn {
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1rem;
+      position: relative;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Override .post background for topographic layout */
+    .topographic-layout .post {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Organic plateau background */
+    .plateau-background {
+      fill: #e3e6e2;
+      filter: url(#plateau-blur);
+    }
+  </style>
+</head>
+
+<body class="topographic-layout">
+  <!-- Topographic background -->
+  <div class="topographic-background">
+    <svg id="topographic-svg" class="topographic-svg">
+      <defs>
+        <clipPath id="viewport-clip">
+          <rect x="0" y="0" width="100%" height="100%"/>
+        </clipPath>
+        <filter id="contour-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <filter id="plateau-blur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feOffset in="blur" dx="2" dy="4" result="offsetBlur"/>
+          <feMerge>
+            <feMergeNode in="offsetBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <mask id="plateau-mask">
+          <path id="plateau-path" fill="white"/>
+        </mask>
+      </defs>
+            <g clip-path="url(#viewport-clip)">
+        <!-- Organic plateau background - moved here to share coordinate system -->
+        <rect class="plateau-background" width="100%" height="100%" mask="url(#plateau-mask)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Main layout content -->
+  <div class="layout-content">
+    <header class="sidebar">
+      <div class="profile">
+      <img src="/img/profile.jpg" width="200" height="200" alt="Profile image" class="profile-image" />
+      <div class="profile-text">
+        I'm <strong>Josh McArthur</strong>, a web developer specializing in Ruby on Rails. I contribute code
+        on <a href="https://github.com/joshmcarthur">GitHub</a> and write blog posts about
+        technology and hiking here.
+      </div>
+      </div>
+    </header>
+
+    <main class="content container" id="main-content">
+      {{ content }}
+    </main>
+  </div>
+
+  <!-- Topographic generation script -->
+  <script>
+    class TopographicBackground {
+      // debug: enables visual debugging (red organic boundary, blue content bounds, console logs)
+      constructor(debug = false) {
+        this.svg = d3.select('#topographic-svg');
+        this.mainContent = document.getElementById('main-content');
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.debug = debug;
+
+        // Contour offset distances (pixels) - extend to document edges
+        this.contourOffsets = [20, 40, 60, 80, 100, 130, 160, 200, 250, 300, 380, 480, 600, 750, 920, 1100, 1300, 1500, 1750, 2000, 2500];
+
+        this.init();
+      }
+
+      init() {
+        this.updateDimensions();
+        this.generateOrganicTopography();
+
+        // Regenerate on resize with debouncing
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            if (this.debug) console.log('Resize detected, regenerating...');
+            this.generateOrganicTopography();
+          }, 150);
+        });
+
+        // Also update on scroll to handle dynamic content loading and layout changes
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            const currentDocHeight = Math.max(
+              document.body.scrollHeight,
+              document.body.offsetHeight,
+              document.documentElement.scrollHeight,
+              document.documentElement.offsetHeight
+            );
+
+            if (Math.abs(currentDocHeight - (this.height - 200)) > 30) { // Account for buffer
+              if (this.debug) console.log('Document height change detected, regenerating...');
+              this.generateOrganicTopography();
+            }
+          }, 100);
+        });
+
+        // Regenerate when content changes (like images loading)
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            if (this.debug) console.log('Window load complete, regenerating...');
+            this.generateOrganicTopography();
+          }, 200);
+        });
+
+        // Also listen for when images finish loading (can change layout)
+        document.addEventListener('DOMContentLoaded', () => {
+          const images = document.querySelectorAll('img');
+          let loadedImages = 0;
+
+          if (images.length === 0) return;
+
+          images.forEach(img => {
+            if (img.complete) {
+              loadedImages++;
+            } else {
+              img.addEventListener('load', () => {
+                loadedImages++;
+                if (loadedImages === images.length) {
+                  setTimeout(() => {
+                    if (this.debug) console.log('All images loaded, regenerating...');
+                    this.generateOrganicTopography();
+                  }, 100);
+                }
+              });
+            }
+          });
+
+          if (loadedImages === images.length) {
+            setTimeout(() => {
+              if (this.debug) console.log('All images already loaded, regenerating...');
+              this.generateOrganicTopography();
+            }, 100);
+          }
+        });
+      }
+
+      updateDimensions() {
+        this.width = window.innerWidth;
+
+        // Ensure we capture the full document height including all content
+        const documentHeight = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight
+        );
+
+        // Add extra buffer to ensure we never miss content
+        this.height = Math.max(window.innerHeight, documentHeight + 200);
+
+        this.svg.attr('viewBox', `0 0 ${this.width} ${this.height}`)
+                .attr('width', this.width)
+                .attr('height', this.height);
+
+        if (this.debug) {
+          console.log('Updated dimensions:', this.width, 'x', this.height, 'documentHeight:', documentHeight);
+        }
+      }
+
+                                                generateOrganicTopography() {
+        // Clear existing contours and debug elements
+        this.svg.selectAll('.contour-line').remove();
+        if (this.debug) {
+          this.svg.selectAll('.debug-path').remove();
+          this.svg.selectAll('.debug-rect').remove();
+        }
+
+        // Multiple timing strategies to ensure accurate measurements
+        const generateContours = () => {
+          // Force multiple layout reflows to ensure all content is positioned
+          this.mainContent.offsetHeight;
+          document.body.offsetHeight;
+
+          // Update dimensions first to ensure SVG covers all content
+          this.updateDimensions();
+
+          // Get content elements and create organic boundary
+          const contentElements = this.getContentElements();
+          if (contentElements.length === 0) {
+            if (this.debug) console.warn('No content elements found');
+            return;
+          }
+
+          // Debug: show content container bounds
+          if (this.debug) {
+            this.debugContentBounds();
+            console.log('Content elements found:', contentElements.length);
+          }
+
+          const organicPath = this.createOrganicBoundary(contentElements);
+
+          // Update the plateau mask
+          this.updatePlateauMask(organicPath);
+
+          // Generate contour lines using simple border expansion
+          this.generateContourLinesSimple(organicPath);
+        };
+
+        // Use multiple timing approaches for maximum reliability
+        requestAnimationFrame(() => {
+          setTimeout(generateContours, 50);
+        });
+      }
+
+      getContentElements() {
+        const mainContent = this.mainContent;
+
+        if (mainContent) {
+          const children = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6, p, img, .card, .hero-image, ul, ol, .card-btn, div');
+
+          return Array.from(children).filter(element => {
+            const rect = element.getBoundingClientRect();
+            return rect.width > 10 && rect.height > 10 &&
+                   getComputedStyle(element).display !== 'none' &&
+                   getComputedStyle(element).visibility !== 'hidden';
+          });
+        }
+
+        return [];
+      }
+
+                              createOrganicBoundary(elements) {
+        // Analyze individual content elements to create a content-hugging boundary
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        const contentShapes = elements.map(element => {
+          const rect = element.getBoundingClientRect();
+          const padding = 15; // Smaller padding for tighter fit
+
+          // Convert viewport coordinates to document coordinates
+          return {
+            left: rect.left + scrollX - padding,
+            top: rect.top + scrollY - padding,
+            right: rect.right + scrollX + padding,
+            bottom: rect.bottom + scrollY + padding,
+            element: element
+          };
+        });
+
+        if (this.debug) {
+          console.log('Content shapes:', contentShapes.length);
+          console.log('Viewport size:', this.width, 'x', this.height);
+          console.log('Edge buffer:', edgeBuffer);
+        }
+
+        // Create boundary points that follow the content shapes
+        const boundaryPoints = this.generateContentHuggingBoundary(contentShapes);
+
+        if (boundaryPoints.length < 3) {
+          if (this.debug) console.warn('Not enough boundary points generated');
+          return '';
+        }
+
+        // Create smooth organic path using splines
+        const path = this.createSmoothPath(boundaryPoints);
+        if (this.debug) {
+          console.log('Generated content-hugging path with', boundaryPoints.length, 'points');
+        }
+        return path;
+      }
+
+                                    generateContentHuggingBoundary(contentShapes) {
+        if (contentShapes.length === 0) return [];
+
+        // Create boundary that actually follows content shape, not just an oval
+        const margin = 25;
+        const edgeBuffer = 80;
+
+        // Collect all corner points from content elements
+        const allCorners = [];
+
+        contentShapes.forEach(shape => {
+          // Add corners with margin, clamped to safe bounds
+          const left = Math.max(edgeBuffer, shape.left - margin);
+          const top = Math.max(edgeBuffer, shape.top - margin);
+          const right = Math.min(this.width - edgeBuffer, shape.right + margin);
+          const bottom = Math.min(this.height - edgeBuffer, shape.bottom + margin);
+
+          allCorners.push(
+            { x: left, y: top },
+            { x: right, y: top },
+            { x: right, y: bottom },
+            { x: left, y: bottom }
+          );
+        });
+
+        // Remove duplicate points that are too close
+        const filteredCorners = this.removeDuplicatePoints(allCorners, 15);
+
+        // Calculate convex hull of all corner points
+        const hullPoints = this.convexHull(filteredCorners);
+
+        if (hullPoints.length < 3) {
+          // Fallback to simple content bounds if hull fails
+          const bounds = this.getContentBounds(contentShapes, margin, edgeBuffer);
+          return this.generateFallbackBoundary(bounds);
+        }
+
+                // Add organic variation to hull points for natural curves
+        const organicBoundary = hullPoints.map((point, index) => {
+          const centroid = this.calculateCentroid(hullPoints);
+
+          // Base organic variation
+          const baseVariation = this.organicNoise(index * 0.3, 0) * 25;
+
+          // Extra variation for straight edges (like left-aligned content)
+          const edgeVariation = this.addEdgeVariation(point, hullPoints, index);
+
+          const totalVariation = baseVariation + edgeVariation;
+          const angle = Math.atan2(point.y - centroid.y, point.x - centroid.x);
+
+          // Ensure variation goes outward from content
+          const outwardX = Math.cos(angle) * totalVariation;
+          const outwardY = Math.sin(angle) * totalVariation;
+
+          return {
+            x: point.x + outwardX,
+            y: point.y + outwardY
+          };
+        });
+
+        // Add intermediate points for smoother curves
+        const smoothBoundary = [];
+        for (let i = 0; i < organicBoundary.length; i++) {
+          const curr = organicBoundary[i];
+          const next = organicBoundary[(i + 1) % organicBoundary.length];
+
+          smoothBoundary.push(curr);
+
+          // Add intermediate point with organic variation
+          const midX = (curr.x + next.x) / 2;
+          const midY = (curr.y + next.y) / 2;
+          const midVariation = this.organicNoise(i * 0.7 + 0.5, 0.3) * 12;
+          const centroid = this.calculateCentroid(organicBoundary);
+          const midAngle = Math.atan2(midY - centroid.y, midX - centroid.x);
+
+          smoothBoundary.push({
+            x: midX + Math.cos(midAngle) * midVariation,
+            y: midY + Math.sin(midAngle) * midVariation
+          });
+        }
+
+        if (this.debug) {
+          console.log('Content shapes:', contentShapes.length);
+          console.log('Filtered corners:', filteredCorners.length);
+          console.log('Hull points:', hullPoints.length);
+          console.log('Final boundary points:', smoothBoundary.length);
+        }
+
+        return smoothBoundary;
+      }
+
+      getContentBounds(contentShapes, margin, edgeBuffer) {
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+
+        contentShapes.forEach(shape => {
+          minX = Math.min(minX, shape.left - margin);
+          minY = Math.min(minY, shape.top - margin);
+          maxX = Math.max(maxX, shape.right + margin);
+          maxY = Math.max(maxY, shape.bottom + margin);
+        });
+
+        return {
+          left: Math.max(edgeBuffer, minX),
+          top: Math.max(edgeBuffer, minY),
+          right: Math.min(this.width - edgeBuffer, maxX),
+          bottom: Math.min(this.height - edgeBuffer, maxY)
+        };
+      }
+
+      generateFallbackBoundary(bounds) {
+        // Simple organic boundary as fallback
+        const points = [];
+        const numPoints = 24;
+        const centerX = (bounds.left + bounds.right) / 2;
+        const centerY = (bounds.top + bounds.bottom) / 2;
+        const radiusX = (bounds.right - bounds.left) / 2;
+        const radiusY = (bounds.bottom - bounds.top) / 2;
+
+        for (let i = 0; i < numPoints; i++) {
+          const angle = (i / numPoints) * Math.PI * 2;
+          const variation = this.organicNoise(i * 0.4, 0) * 15;
+
+          points.push({
+            x: centerX + Math.cos(angle) * (radiusX + variation),
+            y: centerY + Math.sin(angle) * (radiusY + variation)
+          });
+        }
+
+        return points;
+      }
+
+      addEdgeVariation(point, hullPoints, index) {
+        // Detect if this point is on a straight edge and add extra variation
+        const prev = hullPoints[(index - 1 + hullPoints.length) % hullPoints.length];
+        const next = hullPoints[(index + 1) % hullPoints.length];
+
+        // Calculate if this forms a relatively straight line
+        const v1x = point.x - prev.x;
+        const v1y = point.y - prev.y;
+        const v2x = next.x - point.x;
+        const v2y = next.y - point.y;
+
+        // Normalize vectors
+        const len1 = Math.sqrt(v1x * v1x + v1y * v1y);
+        const len2 = Math.sqrt(v2x * v2x + v2y * v2y);
+
+        if (len1 > 0 && len2 > 0) {
+          const dot = (v1x * v2x + v1y * v2y) / (len1 * len2);
+          const angleDeviation = Math.abs(Math.acos(Math.max(-1, Math.min(1, dot))));
+
+          // If the angle is close to 180 degrees (straight line), add more variation
+          const straightnessFactor = 1 - (angleDeviation / Math.PI);
+
+          if (straightnessFactor > 0.7) { // Pretty straight
+            // Add extra bulges to break up straight edges
+            const bulgeVariation = this.organicNoise(index * 0.15, 5) * 40 * straightnessFactor;
+            const detailVariation = this.organicNoise(index * 0.8, 3) * 15 * straightnessFactor;
+
+            return bulgeVariation + detailVariation;
+          }
+        }
+
+        return 0;
+      }
+
+      generateOrganicBoundaryPoints(bounds) {
+        const points = [];
+        const numPoints = 32; // More points for smoother curves
+        const centerX = (bounds.left + bounds.right) / 2;
+        const centerY = (bounds.top + bounds.bottom) / 2;
+        const radiusX = (bounds.right - bounds.left) / 2;
+        const radiusY = (bounds.bottom - bounds.top) / 2;
+
+        // Generate points around an organic elliptical boundary
+        for (let i = 0; i < numPoints; i++) {
+          const angle = (i / numPoints) * Math.PI * 2;
+
+          // Base elliptical position
+          const baseX = centerX + Math.cos(angle) * radiusX;
+          const baseY = centerY + Math.sin(angle) * radiusY;
+
+          // Add multiple layers of organic variation for natural curves
+          const primaryVariation = this.organicNoise(i * 0.25, 0) * 30; // Main shape variation
+          const detailVariation = this.organicNoise(i * 0.8, 0.7) * 15; // Medium detail
+          const fineVariation = this.organicNoise(i * 2.1, 1.4) * 8; // Fine detail
+          const microVariation = this.organicNoise(i * 4.3, 2.8) * 4; // Micro detail
+
+          const totalVariation = primaryVariation + detailVariation + fineVariation + microVariation;
+
+          // Apply variation in the radial direction
+          const vx = Math.cos(angle) * totalVariation;
+          const vy = Math.sin(angle) * totalVariation;
+
+          // Add some asymmetric variation for more natural shapes
+          const asymmetricX = this.organicNoise(i * 0.15 + 5, 0) * 12;
+          const asymmetricY = this.organicNoise(i * 0.15, 5) * 12;
+
+          points.push({
+            x: baseX + vx + asymmetricX,
+            y: baseY + vy + asymmetricY
+          });
+        }
+
+        // Ensure all points stay within safe bounds
+        return points.map(point => ({
+          x: Math.max(bounds.left, Math.min(bounds.right, point.x)),
+          y: Math.max(bounds.top, Math.min(bounds.bottom, point.y))
+        }));
+      }
+
+      removeDuplicatePoints(points, threshold = 10) {
+        const filtered = [];
+        for (const point of points) {
+          let isDuplicate = false;
+          for (const existing of filtered) {
+            const distance = Math.sqrt(
+              Math.pow(point.x - existing.x, 2) + Math.pow(point.y - existing.y, 2)
+            );
+            if (distance < threshold) {
+              isDuplicate = true;
+              break;
+            }
+          }
+          if (!isDuplicate) {
+            filtered.push(point);
+          }
+        }
+        return filtered;
+      }
+
+      // Enhanced organic noise function with multiple octaves for natural terrain variation
+      organicNoise(x, y) {
+        // Multiple octaves of noise for more natural organic patterns
+        const octave1 = Math.sin(x * 1.2) * Math.cos(y * 1.1) * 0.5;
+        const octave2 = Math.sin(x * 2.4) * Math.cos(y * 2.3) * 0.25;
+        const octave3 = Math.sin(x * 4.8) * Math.cos(y * 4.7) * 0.125;
+        const octave4 = Math.sin(x * 9.6) * Math.cos(y * 9.1) * 0.0625;
+
+        // Combine octaves with slight phase shifts for more organic feel
+        const phase1 = Math.sin(x * 0.6 + 1.0) * Math.cos(y * 0.8 + 0.5) * 0.15;
+        const phase2 = Math.sin(x * 1.8 + 2.1) * Math.cos(y * 1.6 + 1.7) * 0.1;
+
+        return octave1 + octave2 + octave3 + octave4 + phase1 + phase2;
+      }
+
+
+
+            convexHull(points) {
+        if (points.length < 3) return points;
+
+        // Remove any invalid points and ensure safe bounds
+        const edgeBuffer = 100; // Extra safety margin
+        const validPoints = points.filter(p =>
+          !isNaN(p.x) && !isNaN(p.y) &&
+          isFinite(p.x) && isFinite(p.y) &&
+          p.x >= edgeBuffer && p.y >= edgeBuffer &&
+          p.x <= this.width - edgeBuffer && p.y <= this.height - edgeBuffer
+        );
+
+        if (validPoints.length < 3) return this.generateSafeFallback(points);
+
+        // Use Andrew's monotone chain algorithm (more robust than gift wrapping)
+        validPoints.sort((a, b) => a.x !== b.x ? a.x - b.x : a.y - b.y);
+
+        // Build lower hull
+        const lower = [];
+        for (let i = 0; i < validPoints.length; i++) {
+          while (lower.length >= 2 &&
+                 this.cross(lower[lower.length-2], lower[lower.length-1], validPoints[i]) <= 0) {
+            lower.pop();
+          }
+          lower.push(validPoints[i]);
+        }
+
+        // Build upper hull
+        const upper = [];
+        for (let i = validPoints.length - 1; i >= 0; i--) {
+          while (upper.length >= 2 &&
+                 this.cross(upper[upper.length-2], upper[upper.length-1], validPoints[i]) <= 0) {
+            upper.pop();
+          }
+          upper.push(validPoints[i]);
+        }
+
+        // Remove last point of each half because it's repeated
+        lower.pop();
+        upper.pop();
+
+        const hull = lower.concat(upper);
+
+        // Ensure we have at least 3 points and no problematic corners
+        if (hull.length < 3) {
+          return this.generateSafeFallback(points);
+        }
+
+        return hull;
+      }
+
+      cross(o, a, b) {
+        return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+      }
+
+      generateSafeFallback(points) {
+        // Create a safe bounding box when hull fails
+        const edgeBuffer = 100;
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+
+        points.forEach(p => {
+          if (isFinite(p.x) && isFinite(p.y)) {
+            minX = Math.min(minX, p.x);
+            maxX = Math.max(maxX, p.x);
+            minY = Math.min(minY, p.y);
+            maxY = Math.max(maxY, p.y);
+          }
+        });
+
+        // Clamp to safe bounds
+        minX = Math.max(edgeBuffer, minX - 20);
+        maxX = Math.min(this.width - edgeBuffer, maxX + 20);
+        minY = Math.max(edgeBuffer, minY - 20);
+        maxY = Math.min(this.height - edgeBuffer, maxY + 20);
+
+        return [
+          { x: minX, y: minY },
+          { x: maxX, y: minY },
+          { x: maxX, y: maxY },
+          { x: minX, y: maxY }
+        ];
+      }
+
+
+
+                  createSmoothPath(points) {
+        if (points.length < 3) return '';
+
+        // Create ultra-smooth organic curves with no straight segments
+        let path = `M ${points[0].x} ${points[0].y}`;
+
+        for (let i = 0; i < points.length; i++) {
+          const p0 = points[(i - 1 + points.length) % points.length];
+          const p1 = points[i];
+          const p2 = points[(i + 1) % points.length];
+          const p3 = points[(i + 2) % points.length];
+
+          // Enhanced Catmull-Rom with organic variation
+          const tension = 0.5; // Higher tension for smoother curves
+          const organicFactor = 0.15; // Add organic variation to control points
+
+          // Base control points
+          let cp1x = p1.x + (p2.x - p0.x) * tension / 6;
+          let cp1y = p1.y + (p2.y - p0.y) * tension / 6;
+          let cp2x = p2.x - (p3.x - p1.x) * tension / 6;
+          let cp2y = p2.y - (p3.y - p1.y) * tension / 6;
+
+          // Add subtle organic variation to control points
+          const cp1Variation = this.organicNoise(i * 0.3, 0.1) * organicFactor;
+          const cp2Variation = this.organicNoise(i * 0.3 + 1.5, 0.1) * organicFactor;
+
+          cp1x += cp1Variation * 20;
+          cp1y += cp1Variation * 20;
+          cp2x += cp2Variation * 20;
+          cp2y += cp2Variation * 20;
+
+          path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y}`;
+        }
+
+        path += ' Z';
+        return path;
+      }
+
+                  updatePlateauMask(pathData) {
+        d3.select('#plateau-path').attr('d', pathData);
+
+        // Debug: add a visible version of the path to see what's happening
+        if (this.debug) {
+          this.svg.select('.debug-path').remove();
+          this.svg.append('path')
+            .attr('class', 'debug-path')
+            .attr('d', pathData)
+            .style('fill', 'rgba(255, 0, 0, 0.1)')
+            .style('stroke', 'red')
+            .style('stroke-width', '2px')
+            .style('opacity', '0.7');
+        }
+      }
+
+                  debugContentBounds() {
+        // Remove previous debug rectangles
+        this.svg.selectAll('.debug-rect').remove();
+
+        // Show individual content element bounds (in document coordinates)
+        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const contentElements = this.getContentElements();
+
+        console.log('Debug: Current scroll position:', scrollX, scrollY);
+        console.log('Debug: Document dimensions:', this.width, 'x', this.height);
+
+        contentElements.forEach((element, index) => {
+          const rect = element.getBoundingClientRect();
+
+          // Convert to document coordinates
+          const docX = rect.left + scrollX - 15;
+          const docY = rect.top + scrollY - 15;
+          const docWidth = rect.width + 30;
+          const docHeight = rect.height + 30;
+
+          console.log(`Debug element ${index}:`, {
+            viewport: { x: rect.left, y: rect.top, w: rect.width, h: rect.height },
+            document: { x: docX, y: docY, w: docWidth, h: docHeight }
+          });
+
+          this.svg.append('rect')
+            .attr('class', 'debug-rect')
+            .attr('x', docX)
+            .attr('y', docY)
+            .attr('width', docWidth)
+            .attr('height', docHeight)
+            .style('fill', 'none')
+            .style('stroke', index === 0 ? 'blue' : 'cyan')
+            .style('stroke-width', '1px')
+            .style('opacity', '0.5');
+        });
+      }
+
+                  generateContourLines(basePath) {
+        // Parse the path to get points for offsetting
+        const basePoints = this.parsePathToPoints(basePath);
+
+        // Get the clipped group to render contours within viewport bounds
+        const clippedGroup = this.svg.select('g[clip-path]');
+
+        this.contourOffsets.forEach((offset, index) => {
+          const offsetPath = this.offsetPath(basePoints, offset);
+
+          if (offsetPath) {
+            clippedGroup.append('path')
+              .attr('class', 'contour-line')
+              .attr('d', offsetPath)
+              .style('opacity', Math.max(0.15, 0.9 - (index * 0.05)));
+          }
+        });
+      }
+
+            generateContourLinesSimple(basePath) {
+        // Parse the path to get points
+        const basePoints = this.parsePathToPoints(basePath);
+        if (basePoints.length < 3) return;
+
+        // Get the clipped group to render contours within viewport bounds
+        const clippedGroup = this.svg.select('g[clip-path]');
+
+        // Calculate centroid for expansion direction
+        const centroid = this.calculateCentroid(basePoints);
+
+        this.contourOffsets.forEach((offset, index) => {
+          // Simple uniform expansion: move each point away from centroid by offset distance
+          const expandedPoints = basePoints.map(point => {
+            const dx = point.x - centroid.x;
+            const dy = point.y - centroid.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // Normalize direction and apply offset
+            const normalizedX = distance > 0 ? dx / distance : 0;
+            const normalizedY = distance > 0 ? dy / distance : 0;
+
+            // Minimal organic variation to prevent loops
+            const variation = this.organicNoise(index * 0.1, offset * 0.002) * (offset * 0.003);
+            const variationAngle = Math.atan2(normalizedY, normalizedX) + Math.PI / 2;
+
+            return {
+              x: point.x + normalizedX * offset + Math.cos(variationAngle) * variation,
+              y: point.y + normalizedY * offset + Math.sin(variationAngle) * variation
+            };
+          });
+
+          // Filter points to maintain proper spacing and prevent loops
+          const filteredPoints = this.filterExpandedPoints(expandedPoints, offset);
+
+          // Create smooth path from filtered expanded points
+          const expandedPath = this.createSimpleSmoothPath(filteredPoints);
+
+          if (expandedPath) {
+            clippedGroup.append('path')
+              .attr('class', 'contour-line')
+              .attr('d', expandedPath)
+              .style('opacity', Math.max(0.15, 0.9 - (index * 0.05)));
+          }
+        });
+      }
+
+      parsePathToPoints(pathData) {
+        // Simple path parser for our smooth paths
+        const commands = pathData.match(/[MLC][^MLC]*/g);
+        const points = [];
+
+        commands.forEach(command => {
+          const type = command[0];
+          const coords = command.slice(1).trim().split(/[\s,]+/).map(Number);
+
+          if (type === 'M' || type === 'L') {
+            points.push({ x: coords[0], y: coords[1] });
+          } else if (type === 'C') {
+            // For bezier curves, just take the end point
+            points.push({ x: coords[4], y: coords[5] });
+          }
+        });
+
+        return points;
+      }
+
+      filterExpandedPoints(points, offset) {
+        // Filter points to maintain proper spacing and prevent loops
+        const minDistance = Math.max(8, offset * 0.08); // Minimum distance between points
+        const filtered = [];
+
+        for (let i = 0; i < points.length; i++) {
+          const point = points[i];
+          let tooClose = false;
+
+          // Check if this point is too close to any already added point
+          for (const existing of filtered) {
+            const distance = Math.sqrt(
+              Math.pow(point.x - existing.x, 2) + Math.pow(point.y - existing.y, 2)
+            );
+            if (distance < minDistance) {
+              tooClose = true;
+              break;
+            }
+          }
+
+          if (!tooClose) {
+            filtered.push(point);
+          }
+        }
+
+        // Ensure we have at least 3 points for a valid shape
+        return filtered.length >= 3 ? filtered : points.slice(0, Math.max(3, Math.floor(points.length / 2)));
+      }
+
+      createSimpleSmoothPath(points) {
+        if (points.length < 3) return '';
+
+        // Create smooth curves with minimal organic variation to prevent loops
+        let path = `M ${points[0].x} ${points[0].y}`;
+
+        for (let i = 0; i < points.length; i++) {
+          const p0 = points[(i - 1 + points.length) % points.length];
+          const p1 = points[i];
+          const p2 = points[(i + 1) % points.length];
+          const p3 = points[(i + 2) % points.length];
+
+          // Conservative Catmull-Rom with minimal variation
+          const tension = 0.3; // Lower tension for tighter curves
+          const organicFactor = 0.05; // Much less organic variation
+
+          // Base control points
+          let cp1x = p1.x + (p2.x - p0.x) * tension / 6;
+          let cp1y = p1.y + (p2.y - p0.y) * tension / 6;
+          let cp2x = p2.x - (p3.x - p1.x) * tension / 6;
+          let cp2y = p2.y - (p3.y - p1.y) * tension / 6;
+
+          // Minimal organic variation to control points
+          const cp1Variation = this.organicNoise(i * 0.1, 0.05) * organicFactor;
+          const cp2Variation = this.organicNoise(i * 0.1 + 1.0, 0.05) * organicFactor;
+
+          cp1x += cp1Variation * 8;
+          cp1y += cp1Variation * 8;
+          cp2x += cp2Variation * 8;
+          cp2y += cp2Variation * 8;
+
+          path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y}`;
+        }
+
+        path += ' Z';
+        return path;
+      }
+
+                        offsetPath(points, offset) {
+        if (points.length < 3) return '';
+
+        const offsetPoints = [];
+        const edgeBuffer = 120; // Larger buffer to prevent corner issues
+
+        // Calculate the signed area to determine path winding direction
+        let signedArea = 0;
+        for (let i = 0; i < points.length; i++) {
+          const curr = points[i];
+          const next = points[(i + 1) % points.length];
+          signedArea += (next.x - curr.x) * (next.y + curr.y);
+        }
+        const isClockwise = signedArea > 0;
+
+        for (let i = 0; i < points.length; i++) {
+          const prev = points[(i - 1 + points.length) % points.length];
+          const curr = points[i];
+          const next = points[(i + 1) % points.length];
+
+          // Check if current point is near problematic areas
+          const nearTopLeft = curr.x < edgeBuffer && curr.y < edgeBuffer;
+          const nearTopRight = curr.x > this.width - edgeBuffer && curr.y < edgeBuffer;
+          const nearBottomLeft = curr.x < edgeBuffer && curr.y > this.height - edgeBuffer;
+          const nearBottomRight = curr.x > this.width - edgeBuffer && curr.y > this.height - edgeBuffer;
+          const nearCorner = nearTopLeft || nearTopRight || nearBottomLeft || nearBottomRight;
+
+          if (nearCorner) {
+            // For points near corners, use simple radial expansion to avoid folding
+            const centerX = this.width / 2;
+            const centerY = this.height / 2;
+            const angle = Math.atan2(curr.y - centerY, curr.x - centerX);
+
+            const safeX = Math.max(edgeBuffer, Math.min(this.width - edgeBuffer,
+              curr.x + Math.cos(angle) * offset));
+            const safeY = Math.max(edgeBuffer, Math.min(this.height - edgeBuffer,
+              curr.y + Math.sin(angle) * offset));
+
+            offsetPoints.push({ x: safeX, y: safeY });
+            continue;
+          }
+
+          // Calculate edge vectors for non-corner points
+          const v1x = curr.x - prev.x;
+          const v1y = curr.y - prev.y;
+          const v2x = next.x - curr.x;
+          const v2y = next.y - curr.y;
+
+          // Normalize edge vectors
+          const len1 = Math.sqrt(v1x * v1x + v1y * v1y);
+          const len2 = Math.sqrt(v2x * v2x + v2y * v2y);
+
+          if (len1 > 0 && len2 > 0) {
+            const n1x = v1x / len1;
+            const n1y = v1y / len1;
+            const n2x = v2x / len2;
+            const n2y = v2y / len2;
+
+            // Calculate bisector (average of normalized edge vectors)
+            let bisectorX = n1x + n2x;
+            let bisectorY = n1y + n2y;
+            const bisectorLen = Math.sqrt(bisectorX * bisectorX + bisectorY * bisectorY);
+
+            if (bisectorLen > 0.01) { // Avoid near-zero bisectors
+              bisectorX /= bisectorLen;
+              bisectorY /= bisectorLen;
+            } else {
+              // Handle parallel edges - use perpendicular to first edge
+              bisectorX = -n1y;
+              bisectorY = n1x;
+            }
+
+            // Calculate outward normal (perpendicular to bisector)
+            let normalX, normalY;
+            if (isClockwise) {
+              normalX = -bisectorY;
+              normalY = bisectorX;
+            } else {
+              normalX = bisectorY;
+              normalY = -bisectorX;
+            }
+
+            // Calculate miter length with more conservative clamping
+            const dot = Math.abs(n1x * normalX + n1y * normalY);
+            const miterLength = 1 / Math.max(0.3, dot); // More conservative minimum
+            const clampedMiterLength = Math.min(miterLength, 2); // Lower max to prevent spikes
+
+            // Add subtle organic variation to contour lines
+            const contourVariation = this.organicNoise(i * 0.4, offset * 0.01) * (offset * 0.015);
+            const variationAngle = Math.atan2(normalY, normalX) + Math.PI / 2;
+
+            let newX = curr.x + normalX * offset * clampedMiterLength + Math.cos(variationAngle) * contourVariation;
+            let newY = curr.y + normalY * offset * clampedMiterLength + Math.sin(variationAngle) * contourVariation;
+
+            // Clamp to safe bounds to prevent folding
+            newX = Math.max(edgeBuffer, Math.min(this.width - edgeBuffer, newX));
+            newY = Math.max(edgeBuffer, Math.min(this.height - edgeBuffer, newY));
+
+            offsetPoints.push({ x: newX, y: newY });
+          } else {
+            // Fallback for degenerate edges
+            offsetPoints.push(curr);
+          }
+        }
+
+        // Remove any offset points that are too close to each other (can cause loops)
+        const filteredPoints = this.removeDuplicatePoints(offsetPoints, 5);
+
+        // Create smooth path from offset points
+        return this.createSmoothPath(filteredPoints);
+      }
+
+      calculateCentroid(points) {
+        let x = 0, y = 0;
+        for (const point of points) {
+          x += point.x;
+          y += point.y;
+        }
+        return {
+          x: x / points.length,
+          y: y / points.length
+        };
+      }
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Small delay to ensure CSS is loaded
+      setTimeout(() => {
+        // To enable debug mode: new TopographicBackground(true);
+        new TopographicBackground();
+      }, 50);
+    });
+  </script>
+
+  <!-- Extra scripts, can be included by posts -->
+  {% for script_url in page.scripts %}
+  <script src="{{ script_url }}"></script> {% endfor %}
+
+
+</body>
+
+</html>
