@@ -4,6 +4,7 @@
   // Colors
   --color-primary: #3486c7;
   --color-primary-dark: #1c3144;
+  --color-link: var(--color-primary-dark);
   --color-accent: #c2893c;
   --color-black: rgba(0, 0, 0, 0.92);
   --color-white: #fff;
@@ -73,6 +74,7 @@
   --color-gray-light: #2a2a2a;
   --color-gray-medium: #666;
   --color-gray-dark: #ccc;
+  --color-link: var(--color-primary);
 }
 
 // System preference detection
@@ -86,5 +88,6 @@
     --color-gray-light: #2a2a2a;
     --color-gray-medium: #666;
     --color-gray-dark: #ccc;
+    --color-link: var(--color-primary);
   }
 }
