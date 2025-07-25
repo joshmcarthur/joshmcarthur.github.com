@@ -34,10 +34,12 @@ blockquote {
 }
 
 // Code
-code {
+code:not(.highlight code) {
   background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  font-weight: bold;
   padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-md);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.9em;
 }
