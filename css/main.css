@@ -1,0 +1,32 @@
+@import url("pico.colors.css");
+@import url("pico.jade.css");
+@import url("highlighter-themes/cobalt2.css");
+@import url("gist-themes/monokai.css");
+
+:root {
+  --pico-border-radius: 0.5rem;
+  --pico-card-background-color: rgba(255, 255, 255, 0.125) !important;
+}
+
+.highlight {
+  border-radius: var(--pico-border-radius);
+}
+
+iframe,
+img {
+  max-width: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.background-glow {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 122, 80, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 122, 80, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(0, 122, 80, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 60% 40%, rgba(0, 122, 80, 0.04) 0%, transparent 40%);
+  background-size: 200% 200%, 180% 180%, 160% 160%, 140% 140%;
+  background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%;
+  background-blend-mode: soft-light;
+}
