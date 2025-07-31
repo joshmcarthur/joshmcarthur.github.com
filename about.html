@@ -1,15 +1,82 @@
 ---
 layout: default
+meta_description: "About Josh McArthur"
 ---
 
-<div class="card contact card-with-actions">
-  <div class="card-primary-text">Josh McArthur
-    <div class="card-subtitle">Developer, <a href="http://ackama.com">Ackama</a></div>
+
+<style>
+  .home-page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  .hero-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 4rem 0;
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+</style>
+
+
+<main class="home-page background-glow">
+  <div class="container hero-section">
+    <img
+      src="/img/profile.jpg"
+      width="400"
+      height="400"
+      alt="Profile image"
+      style="
+        max-width: 40%;
+        clip-path: polygon(
+          23% 6%,
+          8% 34%,
+          5% 56%,
+          15% 71%,
+          3% 89%,
+          22% 97%,
+          57% 100%,
+          80% 88%,
+          84% 66%,
+          91% 50%,
+          97% 39%,
+          76% 16%,
+          59% 6%
+        );
+      "
+    />
+    <div>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem">Josh McArthur</h1>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem">
+        I'm a web developer specializing in Ruby on Rails.
+      </p>
+
+      <div style="font-size: 1.2rem; margin-bottom: 2rem">
+        <a class="card-btn" href="https://github.com/joshmcarthur">GitHub</a>
+        <a class="card-btn" href="https://twitter.com/sudojosh">Twitter</a>
+        <a class="card-btn" href="https://www.linkedin.com/in/joshmcarthur/">LinkedIn</a>
+      </div>
+    </div>
   </div>
 
-  <div class="card-text">
+  </div>
+
+
+<section class="container">
     <p>
-      Based on Wellington, New Zealand, Josh enjoys making the most of this great city, and is
+      Based in Wellington, New Zealand, Josh enjoys making the most of this great city, and is
       passionate about the outdoors, geospatial tech, and infrastructure.
     </p>
 
@@ -29,13 +96,10 @@ layout: default
       <li>Python</li>
       <li>MySQL</li>
       <li>Azure</li>
-      <li>GCP</li>
+      <li>Google Cloud Platform</li>
     </ul>
-  </div>
 
-  <div class="actions">
-    <a class="card-btn" href="https://github.com/joshmcarthur">GitHub</a>
-    <a class="card-btn" href="https://twitter.com/sudojosh">Twitter</a>
-    <a class="card-btn" href="https://www.linkedin.com/in/joshmcarthur/">LinkedIn</a>
-  </div>
-</div>
+    <a href="/" style="margin-bottom: 2rem;">&larr; Home</a>
+</section>
+</main>
+
