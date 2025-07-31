@@ -1,39 +1,10 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>
-      josh mcarthur
-      {% if page.title %}
-        - {{ page.title }}
-      {% endif %}
-    </title>
-    <meta name="author" content="Joshua McArthur" />
-    <link href="/css/blog.css" rel="stylesheet" type="text/css" />
+---
+layout: default
+---
 
-   <link href="http://feeds.feedburner.com/sudojosh" rel="alternate" title="Josh McArthur" type="application/atom+xml" />
-
-   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-</head>
-<body>
-
-<div class="error">
-
+<div
+  class="error background-glow"
+  style="display: flex; justify-content: center; align-items: center; min-height: 100vh; min-width: 100vw"
+>
   {{ content }}
-
 </div>
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-17014575-2");
-pageTracker._trackPageview();
-</script>
-<!-- Google Analytics end -->
-
-</body>
-</html>
