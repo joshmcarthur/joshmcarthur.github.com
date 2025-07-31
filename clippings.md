@@ -3,7 +3,7 @@ layout: default
 permalink: /clippings
 ---
 
-<main class="post post-content">
+<main class="container">
 <h1>Clippings &amp; Highlights</h1>
 <p>
   This page contains extracted clippings from my Kindle, extracted with a small
