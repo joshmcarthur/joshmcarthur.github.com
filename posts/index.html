@@ -1,0 +1,62 @@
+---
+layout: default
+meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
+---
+
+<main class="container">
+  <section>
+    <a href="/" rel="prev">&larr; Home</a>
+  </section>
+
+  <hgroup>
+    <h1>All Posts</h1>
+    <p>Page {{ paginator.page }} of {{ paginator.total_pages }}</p>
+  </hgroup>
+{% for post in paginator.posts %}
+{%if post.type == "quote" %}
+<article class="quote card">
+  <div class="card-text">
+    {{post.content}}
+  </div>
+</article>
+{% else %}
+<article class="card">
+
+  {% if post.featured_image %}
+    <section>
+      <img src="{{ post.featured_image }}" />
+    </section>
+  {% endif %}
+
+  <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
+
+  <p>
+    {{ post.content | markdownify | strip_html | truncatewords:60 }}
+  </p>
+
+  <div class="actions">
+    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+  </div>
+</article>
+{% endif %}
+{% endfor %}
+
+</main>
+
+<section class="pagination container">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous card-btn">
+      &larr; Previous
+    </a>
+  {% else %}
+    <span class="previous card-btn">&larr; Previous</span>
+  {% endif %}
+  <span class="page_number">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next card-btn">Next &rarr;</a>
+  {% else %}
+    <span class="next ">Next &rarr;</span>
+  {% endif %}
+</section>

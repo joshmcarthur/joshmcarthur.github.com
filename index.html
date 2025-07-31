@@ -3,52 +3,102 @@ layout: default
 meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
 ---
 
-<div class="card-list">
-{% for post in paginator.posts %}
-{%if post.type == "quote" %}
-<article class="quote card">
-  <div class="card-text">
-    {{post.content}}
+<style>
+  .home-page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 4rem 0;
+    padding: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+</style>
+
+<main class="home-page background-glow">
+  <div class="container hero-section">
+    <img
+      src="/img/profile.jpg"
+      width="400"
+      height="400"
+      alt="Profile image"
+      style="
+        max-width: 40%;
+        clip-path: polygon(
+          23% 6%,
+          8% 34%,
+          5% 56%,
+          15% 71%,
+          3% 89%,
+          22% 97%,
+          57% 100%,
+          80% 88%,
+          84% 66%,
+          91% 50%,
+          97% 39%,
+          76% 16%,
+          59% 6%
+        );
+      "
+    />
+    <div>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem">Josh McArthur</h1>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem">
+        I'm a web developer specializing in Ruby on Rails. I contribute code on
+        <a href="https://github.com/joshmcarthur">GitHub</a>
+        and write blog posts about technology and hiking here.
+      </p>
+      {% include navigation.html %}
+    </div>
   </div>
-</article>
-{% else %}
-<article class="card card-with-actions">
 
-  {% if post.featured_image %}
-    <a href="{{ post.url }}" class="card-image">
-      <img src="{{ post.featured_image }}" />
-    </a>
-  {% endif %}
-
-  <h4 class="card-primary-text"><a class="card-primary-text" href="{{ post.url }}">{{ post.title }}</a></h4>
-
-  <p class="card-text">
-    {{ post.content | markdownify | strip_html | truncatewords:60 }}
-  </p>
-
-  <div class="actions">
-    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
   </div>
-</article>
-{% endif %}
-{% endfor %}
 
-</div>
+  <section class="container" style="margin-top: 4rem;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Recent Posts</h2>
 
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous card-btn">
-      &larr; Previous
-    </a>
-  {% else %}
-    <span class="previous card-btn">&larr; Previous</span>
-  {% endif %}
-  <span class="page_number">
-    Page: {{ paginator.page }} of {{ paginator.total_pages }}
-  </span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next card-btn">Next &rarr;</a>
-  {% else %}
-    <span class="next ">Next &rarr;</span>
-  {% endif %}
-</div>
+    <div class="grid">
+      {% for post in site.posts limit:3 %}
+      <article class="card">
+        <div class="card-primary-text">
+          <a href="{{ post.url }}" style="text-decoration: none; color: inherit;">
+            {{ post.title }}
+          </a>
+        </div>
+
+        {% if post.category %}
+        <div class="card-subtitle">
+          {{ post.category }}
+        </div>
+        {% endif %}
+
+        <div class="card-text">
+          <small><time datetime="{{ post.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time></small>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <section style="text-align: center; ">
+      <a href="/posts" class="button">
+        View All Posts
+      </a>
+    </section>
+  </section>
+</main>

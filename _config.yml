@@ -3,6 +3,7 @@ timezone: Pacific/Auckland
 title: "Notes: Josh McArthur"
 description: "I'm Josh McArthur, a web developer specializing in Ruby on Rails and Phoenix. I write posts about technology and hiking."
 paginate: 10
+paginate_path: posts/page/:num/
 kramdown:
   input: GFM
   hard_wrap: false
