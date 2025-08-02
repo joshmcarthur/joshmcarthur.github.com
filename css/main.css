@@ -18,6 +18,31 @@ img {
   border-radius: var(--pico-border-radius);
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.subtle-until-hover {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.375;
+}
+
+.subtle-until-hover:hover {
+  opacity: 1;
+}
+
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+
 body {
   min-height: 100vh;
 }

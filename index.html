@@ -76,12 +76,12 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
       <article class="card">
         {% if case_study.featured_image %}
         <section>
-          <img src="{{ case_study.featured_image | first | default: case_study.featured_image }}" />
+          <img src="{{ case_study.featured_image | first | default: case_study.featured_image }}" class="subtle-until-hover" />
         </section>
         {% endif %}
 
         <div style="margin-top:auto;">
-          <a href="{{ case_study.url }}" style="text-decoration: none; color: inherit;">
+          <a href="{{ case_study.url }}" class="stretched-link" style="text-decoration: none; color: inherit;">
             {{ case_study.title }}
           </a><br>
           <small><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
@@ -106,7 +106,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
       {% for post in site.posts limit:3 %}
       <article class="card">
         <div class="card-primary-text">
-          <a href="{{ post.url }}" style="text-decoration: none; color: inherit;">
+          <a href="{{ post.url }}" class="stretched-link" style="text-decoration: none; color: inherit;">
             {{ post.title }}
           </a>
         </div>
