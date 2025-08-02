@@ -59,7 +59,7 @@
   <meta property="article:tag" content="{{ page.tags }}" /> {% endif %}
 </head>
 
-<body>
+<body class="{% if page.layout == 'case_study' %}background-glow{% endif %}">
 
   {{ content}}
 
