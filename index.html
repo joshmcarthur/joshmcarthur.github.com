@@ -69,6 +69,37 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   </div>
 
   <section class="container" style="margin-top: 4rem;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Recent Case Studies</h2>
+
+    <div class="grid">
+      {% for case_study in site.case_studies limit:3 %}
+      <article class="card">
+        {% if case_study.featured_image %}
+        <section>
+          <img src="{{ case_study.featured_image | first | default: case_study.featured_image }}" />
+        </section>
+        {% endif %}
+
+        <div style="margin-top:auto;">
+          <a href="{{ case_study.url }}" style="text-decoration: none; color: inherit;">
+            {{ case_study.title }}
+          </a><br>
+          <small><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
+            {{ case_study.date | date: "%B %d, %Y" }}
+          </time></small>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <section style="text-align: center; ">
+      <a href="/case-studies" class="button">
+        View All Case Studies
+      </a>
+    </section>
+  </section>
+
+  <section class="container" style="margin-top: 4rem;">
     <h2 style="text-align: center; margin-bottom: 3rem;">Recent Posts</h2>
 
     <div class="grid">
@@ -82,11 +113,11 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
         {% if post.category %}
         <div class="card-subtitle">
-          {{ post.category }}
+          <em>{{ post.category }}</em>
         </div>
         {% endif %}
 
-        <div class="card-text">
+        <div style="margin-top:auto;">
           <small><time datetime="{{ post.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
             {{ post.date | date: "%B %d, %Y" }}
           </time></small>
