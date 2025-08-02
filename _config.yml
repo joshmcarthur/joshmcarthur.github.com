@@ -13,6 +13,11 @@ defaults:
       type: posts
     values:
       layout: post
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:title/
+    sort_by: date
 plugins:
   - jekyll-coffeescript
   - jekyll-gist
