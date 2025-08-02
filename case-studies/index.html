@@ -1,0 +1,34 @@
+---
+layout: default
+meta_description: "Technically-oriented blog covering all kinds of web and mobile development with a focus on Ruby on Rails"
+---
+
+<main class="container">
+  <section>
+    <a href="/" rel="prev">&larr; Home</a>
+  </section>
+
+  <h1>Case Studies</h1>
+{% for post in site.case_studies %}
+<article class="card">
+
+  {% if post.featured_image %}
+    <section>
+      <img src="{{ post.featured_image | first }}" />
+    </section>
+  {% endif %}
+
+  <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
+
+  <p>
+    {{ post.content | markdownify | strip_html | truncatewords:60 }}
+  </p>
+
+  <div class="actions">
+    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+  </div>
+</article>
+{% endfor %}
+
+</main>
+
