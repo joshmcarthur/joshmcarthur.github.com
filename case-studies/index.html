@@ -14,7 +14,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
   {% if post.featured_image %}
     <section>
-      <img src="{{ post.featured_image | first }}" />
+      <img src="{{ post.featured_image | first | default: post.featured_image }}" />
     </section>
   {% endif %}
 
