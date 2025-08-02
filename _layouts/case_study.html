@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<main class="container">
+  <section>
+    <a href="/case-studies" rel="prev">&larr; All Case Studies</a>
+  </section>
+
+  <h1>{{ page.title }}</h1>
+
+  <main>
+    {% if page.featured_image %}
+      <section class="grid">
+        {% for image in page.featured_image %}
+          <figure class="grid">
+            <img src="{{ image }}" />
+          </figure>
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    <section>{{ content }}</section>
+  </main>
+</main>
+
+{% include footer.html %}
+
