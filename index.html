@@ -89,7 +89,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
     <section style="text-align: center; ">
       <a href="/case-studies" class="button">
-        View All Case Studies
+        View {{ site.case_studies.size | minus: 3 }} other case studies
       </a>
     </section>
   </section>
@@ -123,7 +123,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
     <section style="text-align: center; ">
       <a href="/posts" class="button">
-        View All Posts
+        View {{ site.posts.size | minus: 3 }} other posts
       </a>
     </section>
   </section>
