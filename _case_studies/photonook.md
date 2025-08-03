@@ -2,6 +2,8 @@
 title: Photonook
 layout: case_study
 url: https://github.com/joshmcarthur/photonook
+summary: |
+  PhotoNook is a web and native application ecosystem that transforms old tablets into digital photo frames.
 featured_image:
   - /img/case-studies/photonook-app.webp
   - /img/case-studies/photonook-frame.webp

@@ -3,6 +3,7 @@ title: Virtualtrails
 layout: case_study
 url: https://virtualtrails.app
 featured_image: /img/case-studies/virtualtrails.webp
+summary: VirtualTrails is a map-based web application that enables users to track their progress along virtual trails individually or in teams, with fitness platform integrations and achievement systems to encourage behavioral change.
 ---
 <br>
 VirtualTrails is a web application that allows users to complete virtual trails by recording their progress along predefined routes, either individually or as part of a team. The application focuses on behavior change rather than complex features, built primarily around a map-based user interface. Users can earn achievements by reaching milestone distances, and journeys can be shared for others to view. The platform supports both competitive and collaborative journey modes, with integration to fitness platforms like Fitbit, Strava, and Garmin for automatic progress tracking.
