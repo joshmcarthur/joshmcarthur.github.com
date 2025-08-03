@@ -20,9 +20,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
   <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
 
-  <p>
-    {{ post.content | markdownify | strip_html | truncatewords:60 }}
-  </p>
+  <p>{{ post.summary }}</p>
 
   <div class="actions">
     <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>

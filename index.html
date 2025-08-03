@@ -74,20 +74,15 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
     <div class="grid">
       {% for case_study in site.case_studies limit:3 %}
       <article class="card">
-        {% if case_study.featured_image %}
-        <section>
-          <img src="{{ case_study.featured_image | first | default: case_study.featured_image }}" class="subtle-until-hover" />
-        </section>
-        {% endif %}
+        <h6><a href="{{ case_study.url }}" class="stretched-link" style="text-decoration: none; color: inherit;">
+          {{ case_study.title }}
+        </a></h6>
 
-        <div style="margin-top:auto;">
-          <a href="{{ case_study.url }}" class="stretched-link" style="text-decoration: none; color: inherit;">
-            {{ case_study.title }}
-          </a><br>
-          <small><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
-            {{ case_study.date | date: "%B %d, %Y" }}
-          </time></small>
-        </div>
+        <p>{{ case_study.summary }}</p>
+
+        <small><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
+          {{ case_study.date | date: "%B %d, %Y" }}
+        </time></small>
       </article>
       {% endfor %}
     </div>
