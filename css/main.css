@@ -6,6 +6,11 @@
 :root {
   --pico-border-radius: 0.5rem;
   --pico-card-background-color: rgba(255, 255, 255, 0.125) !important;
+  --card-image-aspect-ratio: 1;
+}
+
+body {
+  min-height: 100vh;
 }
 
 .highlight {
@@ -24,13 +29,10 @@ article {
   position: relative;
 }
 
-.subtle-until-hover {
-  transition: opacity 0.2s ease-in-out;
-  opacity: 0.375;
-}
-
-.subtle-until-hover:hover {
-  opacity: 1;
+article > img {
+  aspect-ratio: var(--card-image-aspect-ratio);
+  object-fit: cover;
+  margin-bottom: var(--pico-block-spacing-vertical);
 }
 
 .stretched-link::after {
@@ -41,10 +43,6 @@ article {
   height: 100%;
   content: "";
   z-index: 1;
-}
-
-body {
-  min-height: 100vh;
 }
 
 .background-glow {

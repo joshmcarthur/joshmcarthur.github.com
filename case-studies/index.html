@@ -13,9 +13,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 <article class="card">
 
   {% if post.featured_image %}
-    <section>
-      <img src="{{ post.featured_image | first | default: post.featured_image }}" />
-    </section>
+    <img src="{{ post.featured_image | first | default: post.featured_image }}" />
   {% endif %}
 
   <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>

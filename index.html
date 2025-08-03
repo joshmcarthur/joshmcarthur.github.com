@@ -80,7 +80,7 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 
         <p>{{ case_study.summary }}</p>
 
-        <small><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
+        <small style="margin-top: auto;"><time datetime="{{ case_study.date | date_to_xmlschema }}" style="color: var(--pico-muted-color);">
           {{ case_study.date | date: "%B %d, %Y" }}
         </time></small>
       </article>
