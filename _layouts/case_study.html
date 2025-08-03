@@ -14,7 +14,14 @@ layout: default
       <section class="grid">
         {% for image in page.featured_image %}
           <figure class="grid">
-            <img src="{{ image }}" />
+            {% assign ext = image | split: '.' | last %}
+            {% if ext == 'webm' %}
+              <video autoplay loop muted playsinline>
+                <source src="{{ image }}" type="video/webm">
+              </video>
+            {% else %}
+              <img src="{{ image }}" />
+            {% endif %}
           </figure>
         {% endfor %}
       </section>

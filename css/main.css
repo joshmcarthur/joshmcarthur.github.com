@@ -18,7 +18,8 @@ body {
 }
 
 iframe,
-img {
+img,
+video {
   max-width: 100%;
   border-radius: var(--pico-border-radius);
 }
@@ -29,7 +30,8 @@ article {
   position: relative;
 }
 
-article > img {
+article > img,
+article > video {
   aspect-ratio: var(--card-image-aspect-ratio);
   object-fit: cover;
   margin-bottom: var(--pico-block-spacing-vertical);

@@ -13,7 +13,15 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
 <article class="card">
 
   {% if post.featured_image %}
-    <img src="{{ post.featured_image | first | default: post.featured_image }}" />
+    {% assign featured_image = post.featured_image | first | default: post.featured_image %}
+    {% assign ext = featured_image | split: '.' | last %}
+    {% if ext == 'webm' %}
+      <video loop muted controls style="--card-image-aspect-ratio: 16/9;">
+        <source src="{{ featured_image }}" type="video/webm">
+      </video>
+    {% else %}
+      <img src="{{ featured_image }}" />
+    {% endif %}
   {% endif %}
 
   <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
