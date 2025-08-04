@@ -8,7 +8,7 @@ featured_image:
   - /img/case-studies/cleanish-clock-widget.webp
   - /img/case-studies/cleanish-clock-standby.webp
 summary: |
-  Cleanish Clock is a minimal iOS clock widget application inspired by Android launcher clock widgets. The project provides a clean, no-nonsense digital clock display that works both as a standalone app and as iOS home screen widgets. The app intentionally avoids App Store distribution due to Apple's Minimum Functionality requirements, instead focusing on providing a simple, elegant time display solution for users who build it themselves.
+  Cleanish Clock is a minimal iOS clock widget application inspired by Android launcher clock widgets. The project provides a clean, no-nonsense digital clock display that works both as a standalone app and as iOS home screen widgets.
 ---
 
 Cleanish Clock is a minimal iOS clock widget application inspired by Android launcher clock widgets. The project provides a clean, no-nonsense digital clock display that works both as a standalone app and as iOS home screen widgets. The app intentionally avoids App Store distribution due to Apple's Minimum Functionality requirements, instead focusing on providing a simple, elegant time display solution for users who build it themselves.
