@@ -20,22 +20,22 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   </div>
 </article>
 {% else %}
+{% if post.featured_image %}
+<article class="card" style="flex-direction: row-reverse; gap: var(--pico-block-spacing-horizontal);">
+  <img src="{{ post.featured_image }}" style="max-width: 160px;" />
+{% else %}
 <article class="card">
+{% endif %}
+  <div>
+    <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
 
-  {% if post.featured_image %}
-    <section>
-      <img src="{{ post.featured_image }}" />
-    </section>
-  {% endif %}
+    <p>
+      {{ post.content | markdownify | strip_html | truncatewords:60 }}
+    </p>
 
-  <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
-
-  <p>
-    {{ post.content | markdownify | strip_html | truncatewords:60 }}
-  </p>
-
-  <div class="actions">
-    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+    <div class="actions">
+      <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+    </div>
   </div>
 </article>
 {% endif %}

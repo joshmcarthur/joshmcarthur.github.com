@@ -35,6 +35,7 @@ article > video {
   aspect-ratio: var(--card-image-aspect-ratio);
   object-fit: cover;
   margin-bottom: var(--pico-block-spacing-vertical);
+  flex: 1;
 }
 
 .stretched-link::after {
@@ -45,6 +46,24 @@ article > video {
   height: 100%;
   content: "";
   z-index: 1;
+}
+
+.autogrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: var(--pico-block-spacing-horizontal);
+  grid-row-gap: var(--pico-block-spacing-vertical);
+}
+
+@media (min-width: 1024px) {
+  .autogrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .autogrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .background-glow {

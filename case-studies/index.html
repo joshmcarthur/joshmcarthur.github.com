@@ -9,30 +9,32 @@ meta_description: "Technically-oriented blog covering all kinds of web and mobil
   </section>
 
   <h1>Case Studies</h1>
-{% for post in site.case_studies %}
-<article class="card">
+  <div class="autogrid">
+    {% for post in site.case_studies %}
+      <article class="card">
 
-  {% if post.featured_image %}
-    {% assign featured_image = post.featured_image | first | default: post.featured_image %}
-    {% assign ext = featured_image | split: '.' | last %}
-    {% if ext == 'webm' %}
-      <video loop muted controls style="--card-image-aspect-ratio: 16/9;">
-        <source src="{{ featured_image }}" type="video/webm">
-      </video>
-    {% else %}
-      <img src="{{ featured_image }}" />
-    {% endif %}
-  {% endif %}
+        {% if post.featured_image %}
+          {% assign featured_image = post.featured_image | first | default: post.featured_image %}
+          {% assign ext = featured_image | split: '.' | last %}
+          {% if ext == 'webm' %}
+            <video loop muted controls style="--card-image-aspect-ratio: 16/9;">
+              <source src="{{ featured_image }}" type="video/webm">
+            </video>
+          {% else %}
+            <img src="{{ featured_image }}" />
+          {% endif %}
+        {% endif %}
 
-  <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
+        <h4><a class="contrast" href="{{ post.url }}">{{ post.title }}</a></h4>
 
-  <p>{{ post.summary }}</p>
+        <p>{{ post.summary }}</p>
 
-  <div class="actions">
-    <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+        <div class="actions">
+          <a class="card-btn read-more-btn" href="{{post.url}}">Read more</a>
+        </div>
+      </article>
+    {% endfor %}
   </div>
-</article>
-{% endfor %}
 
 </main>
 
