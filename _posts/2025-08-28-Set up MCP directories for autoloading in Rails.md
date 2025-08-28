@@ -14,7 +14,6 @@ So a folder structure like:
 
 ```
 app/
-|
 ├── mcp
 │   ├── prompts
 │   │   └── base_prompt.rb
@@ -36,7 +35,7 @@ The magic for this is to tell Rails' autoloader about a new top level directory 
 # Autoload and reload these paths in dev, eager load in production
 Rails.autoloaders.main.push_dir(
   Rails.root.join("app/mcp"),
-  namespace: "MCP"
+  namespace: MCP
 )
 ```
 
@@ -47,7 +46,7 @@ require "test_helper"
 
 class MCPAutoloadTest < ActiveSupport::TestCase
   test "MCP classes are autoloaded correctly" do
-    assert MCP::Servers::BaseServe`
+    assert MCP::Servers::BaseServe
     assert MCP::Tools::BaseTool
     assert MCP::Prompts::BasePrompt
     assert MCP::Resources::BaseResource
