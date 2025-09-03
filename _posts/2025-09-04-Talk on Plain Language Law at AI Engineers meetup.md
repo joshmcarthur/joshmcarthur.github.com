@@ -1,6 +1,6 @@
 ---
 title: Talk on Plain Language Law at the AI Engineers meetup in Wellington, NZ
-featured_image: /images/plain-language-law-talk/presenting.webp
+featured_image: /img/posts/plain-language-law-talk/presenting.webp
 ---
 
 Last night I had a great opportuntity to talk about [Plain Language Law](https://plainlanguagelaw.nz), a site that I built using my own time and personal development time provided by [Ackama](https://ackama.com).
@@ -9,4 +9,4 @@ Plain Language Law is a site that turns New Zealand legislation into plain langu
 
 If this talk interests you, my slides can be found below:
 
-<iframe src="https://www.joshmcarthur.com/plain-language-talk/" width="100%" height="auto"></iframe>
+<iframe src="https://www.joshmcarthur.com/plain-language-talk/" style="width: 1280px; height: 720px; max-width: 100%;"></iframe>
