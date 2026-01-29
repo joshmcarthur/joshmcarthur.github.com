@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.4
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - &&\
     apt-get update &&\
     apt-get install nodejs
