@@ -11,19 +11,14 @@ doc.at_xpath("//item[@id='#{id}']")
 ```
 
 That works when `id` is predictable. It's shakier when the value comes from a
-user upload, an API payload, or anything else you don't control. A value like:
-
-```text
-foo" or @id="bar
-```
-
-can break out of the string literal and match a different node than you meant.
-Same idea as SQL injection, just with XPath.
+user upload, an API payload, or anything else you don't control. A value like
+`foo" or @id="bar` can break out of the string literal and match a different
+node than you meant. Same idea as SQL injection, just with XPath.
 
 I ran into this parsing a DOCX file, looking up a `w:styleId` in
 `word/styles.xml`. Same fix regardless of where the XML came from.
 
-I didn't know Nokogiri could bind variables into XPath until I went looking.
+I didn't know Nokogiri could bind variables into XPath, but it can! 
 Pass the value as a keyword argument and reference it in the query with
 `$variable_name`:
 

@@ -17,6 +17,15 @@ body {
   border-radius: var(--pico-border-radius);
 }
 
+/* Rouge tokenizes Ruby, etc. but plain blocks (text, console, no lang) get no
+   spans. Pico's muted --pico-code-color on cobalt2's dark background is
+   unreadable, so force readable defaults on the code element itself. Child
+   .highlight .s2 / .k / … spans keep their own colors. */
+.highlight pre > code {
+  color: #ffffff;
+  background: transparent;
+}
+
 iframe,
 img,
 video {
