@@ -5,6 +5,7 @@ url: https://github.com/joshmcarthur/yhk-mini-printer
 featured_image:
   - /img/case-studies/yhk-mini-printer.png
   - /img/case-studies/yhk-mini-printer.webm
+  - /img/case-studies/yhk-mini-printer-demo.webm
 summary: |
   Reverse-engineering a cheap Kmart BLE thermal printer, then building a Web Bluetooth print stack including an iOS app, a Node print server, and an MCP tool for agents.
 ---
@@ -14,6 +15,20 @@ I picked up a [Kmart Thermal Bluetooth Printer](https://www.kmart.co.nz/product/
 So I did what you do with cheap hardware: connect to it over BLE and see what services it exposes.
 
 [**Source on GitHub**](https://github.com/joshmcarthur/yhk-mini-printer) · [**Live demo**](https://joshmcarthur.github.io/yhk-mini-printer/) (Chrome/Edge, needs HTTPS or localhost)
+
+## Demo
+
+**Web app** — connect and print from Chrome:
+
+<video controls src="/img/case-studies/yhk-mini-printer.webm" width="720">
+  <a href="/img/case-studies/yhk-mini-printer.webm">Download screen recording</a>
+</video>
+
+**Printer output** — test image on paper:
+
+<video controls src="/img/case-studies/yhk-mini-printer-demo.webm" width="720">
+  <a href="/img/case-studies/yhk-mini-printer-demo.webm">Download demo video</a>
+</video>
 
 ## Discovering the GATT profile
 
