@@ -1,6 +1,7 @@
 ---
 title: How I publish Standard.site records from a Rails Bluesky delivery channel
 category: TIL
+featured_image: /img/posts/how-i-publish-standard-site-records/bluesky.png
 ---
 
 [Aotearoa, Again](https://github.com/joshmcarthur/aotearoa-again) is a Rails
