@@ -7,13 +7,11 @@ and how taking care of them feels more like tending a garden than running a
 product. Mowing the lawn and weeding, with the occasional prune. That metaphor
 still feels right to me, but I've started thinking more concretely about what
 happens when a project reaches the point where I actually use it most days, and
-what "resilient" means in that situation.
-
-For me, it's not about uptime SLAs or on-call rotations. It's more about being
-able to trust that I can leave a project alone for a few weeks, come back to it,
-and find it in roughly the same shape I left it. The patches have been applied.
-The tests are still green. I know which version is running on the box under my
-desk. [Aotearoa, Again](https://github.com/joshmcarthur/aotearoa-again) is the
+what "resilient" means in that situation. Mostly, it means the codebase stays
+current without me having to think about it every week. I want to be able to
+leave a project alone for a few weeks, come back to it, and find it in roughly
+the same shape I left it. The patches have been applied. The tests are still
+green. I know which version is running on the box under my desk. [Aotearoa, Again](https://github.com/joshmcarthur/aotearoa-again) is the
 project where I've been experimenting with this lately: a daily publishing app I
 want to still be happy running in a year, without maintenance becoming a project
 in its own right. There's a [case study](/case-studies/aotearoa-again/) on the
