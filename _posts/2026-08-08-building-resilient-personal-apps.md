@@ -21,9 +21,8 @@ side if you're curious. This post is mostly about the maintenance side of that.
 I've found that certain kinds of work on a personal app are really easy to put
 off. They're low-risk when done carefully, but important enough that
 procrastinating on them eventually bites you. Those are the things I try to
-automate. What I keep manual is the part I actually enjoy: building features,
-reviewing major upgrades, and signing off on each day's photo before it goes
-live.
+automate. What I keep manual is the part I actually enjoy: building features
+and reviewing major upgrades.
 
 I don't want to remember to check for gem or GitHub Actions updates, so
 Dependabot opens PRs on a weekly schedule for both, with a cap on how many can
@@ -52,7 +51,7 @@ enough that I trust it.
 That said, automation has limits, and I'm fine with that. Major dependency
 upgrades I still do myself. Same for new features and production credentials.
 I'd rather review a Rails minor bump myself than discover a subtle breaking
-change on a Tuesday morning when the daily edition is due to publish. The goal
+change at an awkward moment. The goal
 isn't a hands-off app. It's an app that handles the boring continuity work so
 that when I do sit down to work on it, I'm doing something interesting rather
 than catching up on housekeeping.
