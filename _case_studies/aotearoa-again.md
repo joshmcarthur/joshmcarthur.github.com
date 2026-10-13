@@ -14,7 +14,7 @@ summary: |
 
 I've always liked historical photography, especially when it shows places I know
 in a different light: a rural stretch before the motorway went through, or the
-harbour bridge half-built. I created [Aotearoa,deliberately Again](https://aotearoa-again.joshmcarthur.com/) to share that interest with others.
+harbour bridge half-built. I created [Aotearoa, Again](https://aotearoa-again.joshmcarthur.com/) to share that interest with others.
 
 Every morning (New Zealand time) the site publishes one photograph from the
 [Alexander Turnbull Library](https://natlib.govt.nz/collections/a-to-z/alexander-turnbull-library),
