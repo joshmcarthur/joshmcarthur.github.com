@@ -1,7 +1,6 @@
 ---
 title: A CSS-first peek sheet over a full-bleed map
 category: TIL
-featured_image: /img/posts/css-first-peek-sheet/collapsed.png
 ---
 
 On Virtualtrails, route and journey pages are a sidebar next to a map. On
@@ -81,7 +80,7 @@ tracks the visible screen.
 }
 ```
 
-![Abel Tasman Coast Track on a phone, with the map filling the screen and a details sheet peeking up from the bottom](/img/posts/css-first-peek-sheet/collapsed.png)
+<img src="/img/posts/css-first-peek-sheet/collapsed.png" width="390" alt="Abel Tasman Coast Track on a phone, with the map filling the screen and a details sheet peeking up from the bottom" style="max-width: 20rem; height: auto;">
 
 ## Expanding the sheet
 
@@ -140,7 +139,7 @@ the document's block axis instead of the default `scroll()`.
 }
 ```
 
-![The same page with the sheet scrolled up over the map. The chevron has faded out.](/img/posts/css-first-peek-sheet/expanded.png)
+<img src="/img/posts/css-first-peek-sheet/expanded.png" width="390" alt="The same page with the sheet scrolled up over the map. The chevron has faded out." style="max-width: 20rem; height: auto;">
 
 ## Overscroll
 
